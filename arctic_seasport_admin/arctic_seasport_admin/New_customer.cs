@@ -145,6 +145,8 @@ namespace arctic_seasport_admin
 
             if (success)
             {
+                Report.new_Booking(bid);
+
                 prevForm.set_Done();
                 this.Close();
             }

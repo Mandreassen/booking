@@ -182,8 +182,14 @@ namespace arctic_seasport_admin
         /* View booking */
         private void button3_Click(object sender, EventArgs e)
         {
-            Booking_report form = new Booking_report(get_SelectedBid());
-            form.ShowDialog();
+            var bid = get_SelectedBid();
+            if (bid == null)
+            {
+                MessageBox.Show("No item selected");
+                return;
+            }
+
+            Report.new_Booking(System.Int32.Parse(bid));
         }
 
 
