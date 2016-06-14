@@ -11,17 +11,16 @@ namespace arctic_seasport_admin
 {
     static class Report
     {
-
         static public void new_Booking(int bid)
         {
             var adapter = new Database_adapter();
 
-            string name = adapter.get_Value(string.Format("select name from bookings natural join customers where bid = {0};", bid));
-            string email = adapter.get_Value(string.Format("select email from bookings natural join customers where bid = {0};", bid));
-            string tlf = adapter.get_Value(string.Format("select phone from bookings natural join customers where bid = {0};", bid));
+            string name    = adapter.get_Value(string.Format("select name from bookings natural join customers where bid = {0};", bid));
+            string email   = adapter.get_Value(string.Format("select email from bookings natural join customers where bid = {0};", bid));
+            string tlf     = adapter.get_Value(string.Format("select phone from bookings natural join customers where bid = {0};", bid));
             string country = adapter.get_Value(string.Format("select country from bookings natural join customers where bid = {0};", bid));
-            string note = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br> &nbsp; ");
-            string price = Database.get_Value(string.Format("select sum(Price) from booking_lines natural join rent_object_types where bid = {0};", bid));
+            string note    = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br> &nbsp; ");
+            string price   = adapter.get_Value(string.Format("select sum(Price) from booking_lines natural join rent_object_types where bid = {0};", bid));
 
             DataSet details = adapter.get_DataSet(string.Format("select description, date, price from booking_lines natural join rent_object_types where bid = {0};", bid));
 
@@ -31,8 +30,8 @@ namespace arctic_seasport_admin
                 <html>
                 <body>                
 
-                <img src=""C:/Users/manau/Desktop/logo.png"" alt=""Logo"">
-                <br>
+                <img src=""http://www.arctic-seasport.no/img/LOGO.gif"" alt=""Logo"" style=""width:300px;height:111px;"">
+                    <br>
                 <font size=""6""> &nbsp;Booking confirmation </font>    
 
                 <br>
@@ -118,5 +117,102 @@ namespace arctic_seasport_admin
         }
 
 
+        
+        static public void arrivals()
+        {
+            var adapter = new Database_adapter();
+
+
+
+            var report = @"
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <img src=""http://www.arctic-seasport.no/img/LOGO.gif"" alt=""Logo"" style=""width:300px;height:111px;"">
+
+                <br>
+
+                <font size=""6""> Arrivals </font>
+
+                <style>
+                table {
+                    width:100%;
+                }
+                table, th, td {
+                    border-collapse: collapse;
+                }
+
+                th, td {
+                    padding: 5px;
+                    text-align: left;
+                }
+
+                table#t01 tr:nth-child(even) {
+                    background-color: #eee;
+                }
+
+                table#t01 tr:nth-child(odd) {
+                   background-color: #fff;
+                }
+
+                table#t01 th {
+                    border-bottom: 1px solid black;
+                }
+
+                </style>
+                </head>
+                <body>
+            ";
+
+            DateTime date = DateTime.Now;
+            for (int i = 0; i < 4; i++)
+            {
+                report += string.Format(@"
+                    <br>
+                    <br>
+
+                    <font size='4'> Date: {0} </font>
+
+                    <table id='t01'>
+                      <tr>
+                        <th>BID</th>
+                        <th>Type</th>
+                        <th>Depature</th>
+                        <th>Notes</th>
+                      </tr>
+                      <tr>
+                        <td>31</td>
+                        <td>Captains cabin(25sqm.)</td>
+                        <td>15.06.16</td>
+                        <td>Sen ankomst <br> har bil <br> </td>
+                      </tr>
+                      <tr>
+                        <td>32</td>
+                        <td>Rorbu(50sqm.)</td>
+                        <td>14.06.16</td>
+                        <td>Sen ankomst <br> har bil <br> </td>
+                      </tr>
+                      <tr>
+                        <td>32</td>
+                        <td>Uttern S56 (60hp)</td>
+                        <td>19.06.16</td>
+                        <td>Sen ankomst <br> har bil <br> </td>
+                      </tr>
+                    </table>
+                ", date.AddDays(i).ToString("dd.MM.yyy"));
+            }
+
+            report += @"
+                </body>
+                </html>
+            ";
+
+            adapter.close();
+
+            ReportViewer view = new ReportViewer(report);
+            view.ShowDialog();
+        }
+        
     }
 }

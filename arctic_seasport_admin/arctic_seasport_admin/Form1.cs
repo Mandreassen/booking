@@ -20,7 +20,6 @@ namespace arctic_seasport_admin
         private void Form1_Load(object sender, EventArgs e)
         {
             update_Tables();
-            //Report.new_Booking(28);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -137,6 +136,11 @@ namespace arctic_seasport_admin
         {
             Edit_rent_objects form = new Edit_rent_objects();
             form.ShowDialog();
+        }
+
+        private void arrival_button_Click(object sender, EventArgs e)
+        {
+            Report.arrivals();
         }
     }
 }
