@@ -67,7 +67,6 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Add_rent_object.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Add_rent_object_type.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.appsettings.resources
-C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Booking_report.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Check_inn.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Edit_rent_objects.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Find_customer.resources
@@ -80,6 +79,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Properties.Resources.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Ready_rent_objects.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.csproj.GenerateResource.Cache
-C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\RdlCompile.cache
-C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\RdlCompile.compiled
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.ReportViewer.resources

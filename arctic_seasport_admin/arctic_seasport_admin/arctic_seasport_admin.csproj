@@ -83,22 +83,6 @@
     <Compile Include="appsettings.Designer.cs">
       <DependentUpon>appsettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="arctic_seasport_dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>arctic_seasport_dbDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Booking_ds.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Booking_ds.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Booking_report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Booking_report.Designer.cs">
-      <DependentUpon>Booking_report.cs</DependentUpon>
-    </Compile>
     <Compile Include="Check_inn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,9 +163,6 @@
     <EmbeddedResource Include="appsettings.resx">
       <DependentUpon>appsettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Booking_report.resx">
-      <DependentUpon>Booking_report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Check_inn.resx">
       <DependentUpon>Check_inn.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,32 +202,9 @@
     <EmbeddedResource Include="Ready_rent_objects.resx">
       <DependentUpon>Ready_rent_objects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="arctic_seasport_dbDataSet.xsc">
-      <DependentUpon>arctic_seasport_dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="arctic_seasport_dbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>arctic_seasport_dbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="arctic_seasport_dbDataSet.xss">
-      <DependentUpon>arctic_seasport_dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Booking_ds.xsc">
-      <DependentUpon>Booking_ds.xsd</DependentUpon>
-    </None>
-    <None Include="Booking_ds.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Booking_ds.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Booking_ds.xss">
-      <DependentUpon>Booking_ds.xsd</DependentUpon>
-    </None>
     <None Include="Properties\DataSources\appsettings.datasource" />
     <None Include="Properties\DataSources\arctic_seasport_admin.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\arctic_seasport_admin.Properties.Settings.datasource" />
