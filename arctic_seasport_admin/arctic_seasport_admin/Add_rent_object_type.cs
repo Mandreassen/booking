@@ -78,7 +78,7 @@ namespace arctic_seasport_admin
 
             // Add new
             if (roID == null)
-                query = string.Format("insert into rent_object_types values(NULL, \'{0}', \'{1}\');", description, price);
+                query = string.Format("insert into rent_object_types values(NULL, \'{0}', \'{1}\', 'false');", description, price);
 
             // Update existing
             else

@@ -96,7 +96,8 @@ namespace arctic_seasport_admin
         /* Create new Booking with default customer */
         private int create_Booking()
         {
-            string newBID = Database.get_Value("insert into bookings values(NULL, " + Database.DEFAULT_CUSTOMER.ToString() + ",\'\');select last_insert_id();");
+            var query = string.Format("insert into bookings values (NULL, {0}, {1}, NULL, NULL, NULL);select last_insert_id();", Database.DEFAULT_CUSTOMER.ToString(), DateTime.Now.ToString("yyyy-MM-dd"));
+            string newBID = Database.get_Value(query);
             if (newBID == null)
                 return -1;        
 
@@ -118,72 +119,6 @@ namespace arctic_seasport_admin
             } while (selected < dateTimePicker2.Value);
             
             return list;
-        }
-
-
-        /* Get the availabilety of a specific type at a specific date */
-        private string get_Availability_old(Database_adapter db, string type, string date)
-        {
-            return db.get_Value("select count(roID) - (select count(roID) from booking_lines natural join rent_object_types where Description = \'" + type + "\' and Date = \'" + date + "\') from rent_objects natural join rent_object_types where Description = \'" + type + "\';");
-        }
-
-
-        /* Fill Availability overview */
-        private void fill_Overview_old()
-        {
-            Database_adapter db = new Database_adapter();
-            dataGridView1.DataSource = null;
-            var datelist = get_Dates();
-            var typelist = db.get_List("select Description from rent_object_types;");
-
-            if (datelist == null || typelist == null)
-            {
-                MessageBox.Show("Server error");
-                return;
-            }
-
-            DataTable table = new DataTable();
-
-            foreach (var type in typelist)
-            {
-                var row = table.NewRow();
-                table.Rows.Add(row);
-            }
-            
-            foreach (var date in datelist)
-            {
-                var column = new DataColumn();
-                column.DataType = System.Type.GetType("System.Int32");
-                column.ColumnName = date.ToString(collumnFormat);
-                table.Columns.Add(column);
-
-                var i = 0;
-                foreach (var type in typelist)
-                {
-                    string count = get_Availability_old(db, type, date.ToString("yyyy-MM-dd"));
-                    if (count != null)
-                    {
-                        table.Rows[i][date.ToString(collumnFormat)] = System.Int32.Parse(count);
-                    }
-                    i++;
-                }
-            }
-
-            dataGridView1.DataSource = table;
-
-            var j = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                row.HeaderCell.Value = typelist[j];
-                j++;
-            }
-
-            db.close();
-
-            dataGridView1.AutoResizeColumns();
-            dataGridView1.RowHeadersWidth = 200;
-            dataGridView1.ClearSelection();
-            dataGridView1.Show();
         }
 
 
@@ -215,7 +150,7 @@ namespace arctic_seasport_admin
                 column.ColumnName = date.ToString(collumnFormat);
                 table.Columns.Add(column);
 
-                var booked = db.get_Dict(string.Format("select Description, count(roID) from booking_lines natural join rent_object_types where date = \'{0}\' group by Description;", date.ToString("yyyy-MM-dd")));
+                var booked = db.get_Dict(string.Format("select Description, count(roID) from booking_entries natural join rent_object_types where date = \'{0}\' group by Description;", date.ToString("yyyy-MM-dd")));
 
                 var i = 0;
                 foreach (KeyValuePair<string, string> entry in types)
@@ -287,7 +222,10 @@ namespace arctic_seasport_admin
             {
                 bid = create_Booking();
                 if (bid < 0)
-                    return;                    
+                {
+                    MessageBox.Show("Could not create booking.");
+                    return;
+                }                                    
             }
 
             // Get selected dates
@@ -304,7 +242,7 @@ namespace arctic_seasport_admin
                     return;
                 }
             }
-
+            
             var success = Database.book_dates(dates, bid.ToString(), roID);
             if (!success)
                 MessageBox.Show("Database error, object not available.");
@@ -315,7 +253,7 @@ namespace arctic_seasport_admin
         }
 
 
-        /* Cancel/Delete buttun click */
+        /* Cancel/Delete button click */
         private void button4_Click(object sender, EventArgs e)
         {
             if (bid < 0)
@@ -328,8 +266,18 @@ namespace arctic_seasport_admin
             if (dialogResult == DialogResult.No)            
                 return;
 
-            Database.set("delete from booking_lines where bid = " + bid.ToString() + ";");
-            Database.set("delete from bookings where bid = " + bid.ToString() + ";");
+            var adapter = new Database_adapter();
+
+            var blidList = adapter.get_List(string.Format("select blid from booking_lines where bid = {0};", bid));
+            foreach (string blid in blidList)
+            {
+                adapter.set(string.Format("delete from booking_entries where blid = {0};", blid));
+            }
+
+            adapter.set(string.Format("delete from booking_lines where bid = {0};", bid));
+            adapter.set(string.Format("delete from bookings where bid = {0};", bid));
+
+            adapter.close();
 
             this.Close();
         }
@@ -397,6 +345,7 @@ namespace arctic_seasport_admin
             string blid = get_SelectedBlid();
             if (blid != null)
             {
+                Database.set("delete from booking_entries where blid = " + blid + ";");
                 Database.set("delete from booking_lines where blid = " + blid + ";");
             }
             fill_BookingLineTable();
@@ -407,7 +356,7 @@ namespace arctic_seasport_admin
         /* Fill data in Booking Line Table */
         private void fill_BookingLineTable()
         {
-            DataSet ds = Database.get_DataSet("select blid, Description, Date from booking_lines natural join rent_object_types where bid = " + bid.ToString() + ";");
+            DataSet ds = Database.get_DataSet("select blid, description AS 'Description', startDate AS 'From', endDate AS 'To' from booking_lines natural join booking_entries natural join rent_object_types where bid = " + bid.ToString() + " group by blid;");
 
             dataGridView2.DataSource = ds.Tables[0];
 

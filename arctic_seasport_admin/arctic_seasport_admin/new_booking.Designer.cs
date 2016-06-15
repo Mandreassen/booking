@@ -174,7 +174,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(231, 522);
+            this.dataGridView2.Size = new System.Drawing.Size(285, 522);
             this.dataGridView2.TabIndex = 16;
             // 
             // button3
@@ -224,7 +224,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1215, 692);
+            this.ClientSize = new System.Drawing.Size(1275, 692);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.button4);

@@ -19,7 +19,7 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            update_Tables();
+            //update_Tables();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace arctic_seasport_admin
         {
             new_booking form = new new_booking(-1);
             form.ShowDialog(this);
-            update_Tables();
+            //update_Tables();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace arctic_seasport_admin
         {
             Manage_bookings form = new Manage_bookings();
             form.ShowDialog(this);
-            update_Tables();
+            //update_Tables();
         }
 
 
@@ -55,7 +55,7 @@ namespace arctic_seasport_admin
         {
             Check_inn form = new Check_inn();
             form.ShowDialog();
-            update_Tables();
+            //update_Tables();
         }
 
         private void update_Tables()

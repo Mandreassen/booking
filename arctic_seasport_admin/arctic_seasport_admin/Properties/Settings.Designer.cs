@@ -37,7 +37,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mwiik2.mysql.domeneshop.no")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen.mysql.domeneshop.no")]
         public string Server {
             get {
                 return ((string)(this["Server"]));
@@ -61,7 +61,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mwiik2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
@@ -70,7 +70,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mwiik2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
         public string UserID {
             get {
                 return ((string)(this["UserID"]));
@@ -82,7 +82,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8xURZWfVuSUX93y")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DfrYqtucrd2ANny")]
         public string Password {
             get {
                 return ((string)(this["Password"]));

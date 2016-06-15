@@ -31,7 +31,7 @@ namespace arctic_seasport_admin
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
                 return null; // Error
             }
 
@@ -42,8 +42,9 @@ namespace arctic_seasport_admin
                 retval = reader[0].ToString();
                 reader.Close();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 retval = null;
             }
             
@@ -99,7 +100,7 @@ namespace arctic_seasport_admin
             MySqlConnection conn = new MySqlConnection(Config.connString);
             MySqlCommand command = conn.CreateCommand();
             MySqlDataReader reader;
-            string count;
+            string count, blid;
             //command.CommandText = query;
 
             try
@@ -114,17 +115,35 @@ namespace arctic_seasport_admin
 
             MySqlTransaction trans = conn.BeginTransaction();
 
-            // insert bookings into database
+            // Insert booking_line
+            try
+            {
+                command.CommandText = string.Format("insert into booking_lines values (NULL, {0}, \'{1}\', \'{2}\');select last_insert_id();", bid, dates.First().ToString("yyyy-MM-dd"), dates.Last().AddDays(1).ToString("yyyy-MM-dd"));
+                reader = command.ExecuteReader();
+                reader.Read();
+                blid = reader[0].ToString();
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                return false; // Error
+            }
+
+
+            // insert booking_entries
             foreach (var date in dates)
             {               
                 try
                 {
                     // Set database
-                    command.CommandText = string.Format("insert into booking_lines values (NULL, {0}, {1}, \'{2}\');", bid, roID, date.ToString("yyyy-MM-dd"));
+                    command.CommandText = string.Format("insert into booking_entries values (NULL, {0}, {1}, \'{2}\');", blid, roID, date.ToString("yyyy-MM-dd"));
                     command.ExecuteNonQuery();
 
                     // Get validation count
-                    command.CommandText = string.Format("select count(roID) - (select count(roID) from booking_lines natural join rent_object_types where roID = {0} and Date = \'{1}\') from rent_objects natural join rent_object_types where roID = {0};", roID, date.ToString("yyyy-MM-dd"));
+                    command.CommandText = string.Format("select count(roID) - (select count(roID) from booking_entries natural join rent_object_types where roID = {0} and Date = \'{1}\') from rent_objects natural join rent_object_types where roID = {0};", roID, date.ToString("yyyy-MM-dd"));
                     reader = command.ExecuteReader();
                     reader.Read();
                     count = reader[0].ToString();
