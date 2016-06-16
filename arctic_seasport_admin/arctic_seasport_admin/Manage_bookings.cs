@@ -158,8 +158,18 @@ namespace arctic_seasport_admin
                 return;
 
             // Delete data
-            Database.set(string.Format("delete from booking_lines where bid = {0};", bid));
-            Database.set(string.Format("delete from bookings where bid = {0};", bid));
+            var adapter = new Database_adapter();
+
+            var blidList = adapter.get_List(string.Format("select blid from booking_lines where bid = {0};", bid));
+            foreach (string blid in blidList)
+            {
+                adapter.set(string.Format("delete from booking_entries where blid = {0};", blid));
+            }
+
+            adapter.set(string.Format("delete from booking_lines where bid = {0};", bid));
+            adapter.set(string.Format("delete from bookings where bid = {0};", bid));
+
+            adapter.close();
 
             // Udate table
             fill_Table();
