@@ -38,19 +38,26 @@ namespace arctic_seasport_admin
         {
             if (cid != Database.DEFAULT_CUSTOMER)
             {
-                fill_Name_Box();
-                fill_EmailBox();
-                fill_PhoneBox();
-                fill_CountryBox();
-                fill_NoteBox();
+                var adapter = new Database_adapter();
+                fill_Name_Box(adapter);
+                fill_EmailBox(adapter);
+                fill_PhoneBox(adapter);
+                fill_AddressBox(adapter);
+                fill_postnrBox(adapter);
+                fill_postLocationBox(adapter);
+                fill_CountryBox(adapter);
+                fill_NoteBox(adapter);
+                fill_BookerBox(adapter);
+                fill_PersonsBox(adapter);
+                adapter.close();
             }
         }
 
 
-        private void fill_Name_Box()
+        private void fill_Name_Box(Database_adapter adapter)
         {
             var query = string.Format("select Name from customers natural join bookings where bid = {0};", bid);
-            string data = Database.get_Value(query);
+            string data = adapter.get_Value(query);
             if (data != null)
             {
                 nameBox.Text = data;
@@ -58,10 +65,10 @@ namespace arctic_seasport_admin
         }
 
 
-        private void fill_EmailBox()
+        private void fill_EmailBox(Database_adapter adapter)
         {
             var query = string.Format("select Email from customers natural join bookings where bid = {0};", bid);
-            string data = Database.get_Value(query);
+            string data = adapter.get_Value(query);
             if (data != null)
             {
                 emailBox.Text = data;
@@ -69,21 +76,51 @@ namespace arctic_seasport_admin
         }
 
 
-        private void fill_PhoneBox()
+        private void fill_PhoneBox(Database_adapter adapter)
         {
             var query = string.Format("select Phone from customers natural join bookings where bid = {0};", bid);
-            string data = Database.get_Value(query);
+            string data = adapter.get_Value(query);
             if (data != null)
             {
                 phoneBox.Text = data;
             }
         }
 
+        private void fill_AddressBox(Database_adapter adapter)
+        {
+            var query = string.Format("select address from customers natural join bookings where bid = {0};", bid);
+            string data = adapter.get_Value(query);
+            if (data != null)
+            {
+                addressBox.Text = data;
+            }
+        }
 
-        private void fill_CountryBox()
+
+        private void fill_postnrBox(Database_adapter adapter)
+        {
+            var query = string.Format("select postnr from customers natural join bookings where bid = {0};", bid);
+            string data = adapter.get_Value(query);
+            if (data != null)
+            {
+                postNrBox.Text = data;
+            }
+        }
+
+        private void fill_postLocationBox(Database_adapter adapter)
+        {
+            var query = string.Format("select postlocation from customers natural join bookings where bid = {0};", bid);
+            string data = adapter.get_Value(query);
+            if (data != null)
+            {
+                postLocation.Text = data;
+            }
+        }
+
+        private void fill_CountryBox(Database_adapter adapter)
         {
             var query = string.Format("select Country from customers natural join bookings where bid = {0};", bid);
-            string data = Database.get_Value(query);
+            string data = adapter.get_Value(query);
             if (data != null)
             {
                 countryBox.Text = data;
@@ -91,13 +128,33 @@ namespace arctic_seasport_admin
         }
 
 
-        private void fill_NoteBox()
+        private void fill_NoteBox(Database_adapter adapter)
         {
             var query = string.Format("select Notes from bookings where bid = {0};", bid);
-            string data = Database.get_Value(query);
+            string data = adapter.get_Value(query);
             if (data != null)
             {
                 noteBox.Text = data;
+            }
+        }
+
+        private void fill_BookerBox(Database_adapter adapter)
+        {
+            var query = string.Format("select booker from bookings where bid = {0};", bid);
+            string data = adapter.get_Value(query);
+            if (data != null)
+            {
+                bookerBox.Text = data;
+            }
+        }
+
+        private void fill_PersonsBox(Database_adapter adapter)
+        {
+            var query = string.Format("select persons from bookings where bid = {0};", bid);
+            string data = adapter.get_Value(query);
+            if (data != null && data != "")
+            {
+                nCustomers.Value = Int32.Parse(data);
             }
         }
 
@@ -105,12 +162,12 @@ namespace arctic_seasport_admin
         /* Insert new customer */
         private bool insert_New_Customer()
         {
-            var query = string.Format("insert into customers values(NULL, \'{0}\', \'{1}\', \'{2}\', \'{3}\');select last_insert_id();", nameBox.Text, emailBox.Text, phoneBox.Text, countryBox.Text);
+            var query = string.Format("insert into customers values(NULL, \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\', \'{5}\', \'{6}\', NULL);select last_insert_id();", nameBox.Text, emailBox.Text, phoneBox.Text, addressBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text);
             string new_cid = Database.get_Value(query);
             if (new_cid == null)
                 return false;
 
-            query = string.Format("update bookings set cid = {0}, Notes = \'{1}\' where bid = {2};", new_cid, noteBox.Text, bid);
+            query = string.Format("update bookings set cid = {0}, Notes = \'{1}\', persons = {2}, booker = \'{3}\' where bid = {4};", new_cid, noteBox.Text, nCustomers.Value, bookerBox.Text, bid);
             bool status = Database.set(query);
 
             return status;
@@ -121,13 +178,13 @@ namespace arctic_seasport_admin
         private bool update_Customer()
         {
             // Update customer
-            var query = string.Format("update customers set Name = \'{0}\', Email = \'{1}\', Phone = \'{2}\', Country = \'{3}\' where cid = {4};", nameBox.Text, emailBox.Text, phoneBox.Text, countryBox.Text, cid);
+            var query = string.Format("update customers set name = \'{0}\', email = \'{1}\', phone = \'{2}\', postnr = \'{3}\', postlocation = \'{4}\', country = \'{5}\' where cid = {6};", nameBox.Text, emailBox.Text, phoneBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text, cid);
             bool success = Database.set(query);
             if (!success)
                 return false;
 
             // Update notes
-            query = string.Format("update bookings set Notes = \'{0}\' where bid = {1};", noteBox.Text, bid);
+            query = string.Format("update bookings set Notes = \'{0}\', persons = {1}, booker = \'{2}\' where bid = {3};", noteBox.Text, nCustomers.Value, bookerBox.Text, bid);
             success = Database.set(query);
 
             return success;

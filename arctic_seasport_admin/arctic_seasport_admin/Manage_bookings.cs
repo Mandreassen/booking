@@ -35,11 +35,11 @@ namespace arctic_seasport_admin
             switch (State)
             {
                 case STATE.UPCOMING:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines where Date >= \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"));
+                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines natural join booking_entries where Date >= \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"));
                 case STATE.PREVIOUS:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines where Date < \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd")); 
+                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines booking_entries natural join where Date < \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd")); 
                 case STATE.ALL:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid order by min(Date);", searchBox.Text); 
+                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid order by min(Date);", searchBox.Text); 
                 default:
                     return "";
             }
@@ -58,7 +58,7 @@ namespace arctic_seasport_admin
         /* Fill Bokking Line table. */
         private void fill_BookingLinesTable(string bid)
         {
-            var query = string.Format("select Description, Date, Price from booking_lines natural join rent_object_types where bid = {0};", bid);
+            var query = string.Format("select description AS 'Object', startDate AS 'From', endDate AS 'To' from booking_lines natural join booking_entries natural join rent_object_types where bid = {0} group by blid;", bid);
             detailsView.DataSource = Database.get_DataSet(query).Tables[0];
             detailsView.AutoResizeColumns();
             detailsView.ClearSelection();
@@ -116,7 +116,7 @@ namespace arctic_seasport_admin
 
         private void fill_sumBox(string bid)
         {
-            var sum = Database.get_Value(string.Format("select sum(Price) from booking_lines natural join rent_object_types where bid = {0};", bid));
+            var sum = Database.get_Value(string.Format("select sum(Price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
             sumBox.Text = string.Format("{0},- ", sum);
         }
 

@@ -20,6 +20,7 @@ namespace arctic_seasport_admin
         private void Form1_Load(object sender, EventArgs e)
         {
             //update_Tables();
+            //Report.new_Booking(21);
         }
 
         private void button2_Click(object sender, EventArgs e)

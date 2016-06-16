@@ -96,7 +96,7 @@ namespace arctic_seasport_admin
         /* Create new Booking with default customer */
         private int create_Booking()
         {
-            var query = string.Format("insert into bookings values (NULL, {0}, {1}, NULL, NULL, NULL);select last_insert_id();", Database.DEFAULT_CUSTOMER.ToString(), DateTime.Now.ToString("yyyy-MM-dd"));
+            var query = string.Format("insert into bookings values (NULL, {0}, '{1}', NULL, NULL, NULL);select last_insert_id();", Database.DEFAULT_CUSTOMER.ToString(), DateTime.Now.ToString("yyyy-MM-dd"));
             string newBID = Database.get_Value(query);
             if (newBID == null)
                 return -1;        

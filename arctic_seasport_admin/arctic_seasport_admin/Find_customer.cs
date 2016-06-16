@@ -33,7 +33,7 @@ namespace arctic_seasport_admin
         /* Fill Bookings table. */
         private void fill_Table()
         {
-            DataSet ds = Database.get_DataSet("select * from customers where Name like \'%" + searchBox.Text + "%\' and cid != 1;");
+            DataSet ds = Database.get_DataSet("select cid AS ID, name AS Name, email, country as Country from customers where Name like \'%" + searchBox.Text + "%\' and cid != 1;");
 
             customers.DataSource = ds.Tables[0];
 
@@ -59,7 +59,7 @@ namespace arctic_seasport_admin
 
                 DataGridViewRow selectedRow = customers.Rows[selectedrowindex];
 
-                return selectedRow.Cells["cid"].Value.ToString();
+                return selectedRow.Cells["ID"].Value.ToString();
             }
 
             return "1"; // Error
