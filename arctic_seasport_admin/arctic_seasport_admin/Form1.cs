@@ -65,27 +65,22 @@ namespace arctic_seasport_admin
             fill_CheckinnTable();
         }
 
-        private void fill_CheckinnTable_old()
-        {
-            var query = "select rent_objects.Name as 'Object', Description as 'Type', customers.Name as 'User' from rent_object_types natural join rent_objects join customers on rent_objects.currentUser = customers.cid order by cid;";
-            useTable.DataSource = Database.get_DataSet(query).Tables[0];
-            useTable.AutoResizeColumns();
-            useTable.ClearSelection();
-        }
-
-
         private void fill_CheckinnTable()
         {
-            /*var Data = Database.get_DataSet(string.Format(@"
-                select rent_objects.name AS 'Object', description AS 'Type', customer.name AS 'Name', country AS 'Country', endDate AS 'Departure'
-                from customers
-                natural join bookings
-                natural join booking_lines
-                natural join booking_entries
-                natural join rent_object_types
+            var checkedIn = Database.get_DataSet(string.Format(@"
+                select bid AS 'BID', customers.Name as 'User', country AS 'Country', endDate AS 'Departure', rent_objects.name AS 'Object', description AS 'Type'
+                from rent_object_types
                 natural join rent_objects
+                join (booking_lines 
+                    natural join bookings
+                    natural join customers)
+                on rent_objects.currentUser = booking_lines.blid
+                where currentUser != 0
+                ;"));
 
-            "));*/
+            useTable.DataSource = checkedIn.Tables[0];
+            useTable.AutoResizeColumns();
+            useTable.ClearSelection();
         }
 
         private void fill_ArrivalsTable()
@@ -106,8 +101,7 @@ namespace arctic_seasport_admin
             arrivalsTable.AutoResizeColumns();
             arrivalsTable.ClearSelection();
         }
-
-
+        
         private void fill_DepartureTable()
         {
             var data = Database.get_DataSet(string.Format(@"
@@ -142,6 +136,17 @@ namespace arctic_seasport_admin
         private void arrival_button_Click(object sender, EventArgs e)
         {
             Report.arrivals();
+        }
+
+        private void useTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedrowindex = useTable.SelectedCells[0].RowIndex;
+
+            DataGridViewRow selectedRow = useTable.Rows[selectedrowindex];
+
+            string bid = selectedRow.Cells[0].Value.ToString();
+
+            Report.new_Booking(Int32.Parse(bid));
         }
     }
 }

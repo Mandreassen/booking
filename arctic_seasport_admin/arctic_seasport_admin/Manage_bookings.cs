@@ -35,11 +35,46 @@ namespace arctic_seasport_admin
             switch (State)
             {
                 case STATE.UPCOMING:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines natural join booking_entries where Date >= \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"));
+                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                                        from booking_entries 
+                                        natural join booking_lines 
+                                        natural join bookings 
+                                        natural join customers 
+                                        where name like '%{0}%' 
+                                        group by bid having bid in 
+                                            (select bid 
+                                            from booking_lines 
+                                            natural join booking_entries 
+                                            where Date >= '{1}') 
+                                        order by min(Date);
+                                        ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"));
+
                 case STATE.PREVIOUS:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid having bid in (select bid from booking_lines booking_entries natural join where Date < \'{1}\') order by min(Date);", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd")); 
+                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                                        from booking_entries 
+                                        natural join booking_lines 
+                                        natural join bookings 
+                                        natural join customers 
+                                        where name like '%{0}%' 
+                                        group by bid having bid in 
+                                            (select bid 
+                                            from booking_lines 
+                                            natural join booking_entries 
+                                            where Date < '{1}') 
+                                        order by min(Date);
+                                        ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd")); 
+
                 case STATE.ALL:
-                    return string.Format("select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' from booking_entries natural join booking_lines natural join bookings natural join customers where name like \'%{0}%\' group by bid order by min(Date);", searchBox.Text); 
+                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                                        from booking_entries 
+                                        natural join booking_lines 
+                                        natural join bookings 
+                                        natural join customers 
+                                        where name like '%{0}%' 
+                                        group by bid 
+                                        order by min(Date);
+                                        ", searchBox.Text);
+
                 default:
                     return "";
             }

@@ -52,15 +52,23 @@ namespace arctic_seasport_admin
                 group by blid;
                 ", DateTime.Now.ToString("yyyy-MM-dd")));
 
-            customerComboBox.DataSource = new BindingSource(lines, null);
-            customerComboBox.DisplayMember = "Value";
-            customerComboBox.ValueMember = "Key";
+            if (lines.Count == 0)
+            {
+                customerComboBox.DataSource = null;
+                customerComboBox.Items.Clear();
+            }
+            else
+            {
+                customerComboBox.DataSource = new BindingSource(lines, null);
+                customerComboBox.DisplayMember = "Value";
+                customerComboBox.ValueMember = "Key";
+            }
         }
 
 
         private void fill_roBox()
         {
-            if (customerComboBox.SelectedValue == null)
+            if (customerComboBox.DataSource == null)
             {
                 roComboBox.DataSource = null;
                 roComboBox.Items.Clear();
@@ -84,15 +92,6 @@ namespace arctic_seasport_admin
             roComboBox.ValueMember = "Name";
         }
 
-
-        /* Fill teble with "checked in" objects */
-        private void fill_Table_old()
-        {
-            var query = "select rent_objects.name as 'Object', description as 'Type', customers.name as 'User' from rent_object_types natural join rent_objects join customers on rent_objects.currentUser = customers.cid;";
-            useTable.DataSource = Database.get_DataSet(query).Tables[0];
-            useTable.AutoResizeColumns();
-            useTable.ClearSelection();
-        }
 
         /* Fill teble with "checked in" objects */
         private void fill_Table()
