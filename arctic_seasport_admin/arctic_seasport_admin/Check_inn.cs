@@ -30,107 +30,85 @@ namespace arctic_seasport_admin
             allow_select = false;
             fill_Table();
             fill_CustomerBox();
-            fill_typeBox();
             fill_roBox();
             allow_select = true;
         }
 
 
         /* Fill box with customers arriving at
-         * current date having "unchecked" orders. */
+        * current date having "unchecked" orders. */
         private void fill_CustomerBox()
         {
-            customerComboBox.DataSource = null;
-            customerComboBox.Items.Clear();
+            var lines = Database.get_Dict(string.Format(@"
+                select blid, concat(Name, ' - ', Description) AS 'Show'
+                from rent_object_types 
+                natural join booking_entries
+                natural join booking_lines
+                natural join bookings
+                natural join customers
+                where date = '{0}'
+                and blid not in
+                    (select currentUser from rent_objects)
+                group by blid;
+                ", DateTime.Now.ToString("yyyy-MM-dd")));
 
-            var valid     = new Dictionary<string, string>();
-            var checkedIn = Database.get_Dict("select currentUser, count(currentUser) from rent_objects group by currentUser;");
-            var ordered   = Database.get_Dict(string.Format("select cid, count(cid) from bookings natural join booking_lines where date = \'{0}\' group by cid;", System.DateTime.Now.ToString("yyyy-MM-dd")));
-     
-            // Fint all ordered more than they have checkt in
-            foreach (KeyValuePair<string, string> item in ordered)
-            {
-                if (checkedIn.ContainsKey(item.Key))
-                {
-                    if (Int32.Parse(item.Value) <= Int32.Parse(checkedIn[item.Key]))
-                    {
-                        continue; // Skip
-                    }
-                }
-
-                valid.Add(item.Key, Database.get_Value(string.Format("select Name from customers where cid = {0}", item.Key)));
-            }
-
-            if (valid.Count() > 0)
-            {
-                customerComboBox.DataSource = new BindingSource(valid, null);
-                customerComboBox.DisplayMember = "Value";
-                customerComboBox.ValueMember = "Key";
-            }
+            customerComboBox.DataSource = new BindingSource(lines, null);
+            customerComboBox.DisplayMember = "Value";
+            customerComboBox.ValueMember = "Key";
         }
 
 
-        /* Fill box with rent object types
-         * booked by customer.
-         * Only not checked objects will show. */
-        private void fill_typeBox()
-        {
-            typeComboBox.DataSource = null;
-            typeComboBox.Items.Clear();
-
-            if (customerComboBox.SelectedValue == null)
-                return; // Error
-
-            var valid = new Dictionary<string, string>();
-            var checkedIn = Database.get_Dict(string.Format("select roID, count(currentUser) from rent_objects where currentUser = {0} group by roID;", customerComboBox.SelectedValue));
-            var ordered = Database.get_Dict(string.Format("select roID, count(cid) from booking_lines natural join bookings where cid = {0} and Date = \'{1}\' group by roID;", customerComboBox.SelectedValue, System.DateTime.Now.ToString("yyyy-MM-dd")));
-
-            // Fint all ordered more than they have checkt in
-            foreach (KeyValuePair<string, string> item in ordered)
-            {
-                if (checkedIn.ContainsKey(item.Key))
-                {
-                    if (Int32.Parse(item.Value) <= Int32.Parse(checkedIn[item.Key]))
-                    {
-                        continue; // Skip
-                    }
-                }
-
-                valid.Add(item.Key, Database.get_Value(string.Format("select Description from rent_object_types where roID = {0}", item.Key)));
-            }
-
-            if (valid.Count() > 0)
-            {
-                typeComboBox.DataSource = new BindingSource(valid, null);
-                typeComboBox.DisplayMember = "Value";
-                typeComboBox.ValueMember = "Key";
-            }
-        }
-
-
-        /* Fill box with available and "Ready" rent objects */
         private void fill_roBox()
         {
-            roComboBox.DataSource = null;
-            roComboBox.Items.Clear();          
-
-            if (typeComboBox.SelectedValue == null)
+            if (customerComboBox.SelectedValue == null)
+            {
+                roComboBox.DataSource = null;
+                roComboBox.Items.Clear();
                 return; // Error
+            }                
 
-            //var query = string.Format("select Name from rent_objects where roID = {0} and status = \'Ready\' and currentUser = 0;", typeComboBox.SelectedValue);
-            var query = string.Format("select Name, concat(Name, ' - ', Description) as 'Show' from rent_objects natural join rent_object_types where status = \'Ready\' and currentUser = 0 order by (roID = {0}) DESC, roID;", typeComboBox.SelectedValue);
-            roComboBox.DataSource = Database.get_DataSet(query).Tables[0];
+            var objects = Database.get_DataSet(string.Format(@"
+                select name
+                from rent_objects
+                natural join rent_object_types
+                natural join booking_entries
+                where blid = {0}
+                and status = 'Ready'
+                and currentUser = 0
+                group by name;
+                ", customerComboBox.SelectedValue));
 
-            roComboBox.DisplayMember = "Show";
+            roComboBox.DataSource = objects.Tables[0];
+
+            roComboBox.DisplayMember = "Name";
             roComboBox.ValueMember = "Name";
         }
 
 
         /* Fill teble with "checked in" objects */
+        private void fill_Table_old()
+        {
+            var query = "select rent_objects.name as 'Object', description as 'Type', customers.name as 'User' from rent_object_types natural join rent_objects join customers on rent_objects.currentUser = customers.cid;";
+            useTable.DataSource = Database.get_DataSet(query).Tables[0];
+            useTable.AutoResizeColumns();
+            useTable.ClearSelection();
+        }
+
+        /* Fill teble with "checked in" objects */
         private void fill_Table()
         {
-            var query = "select rent_objects.Name as 'Object', Description as 'Type', customers.Name as 'User' from rent_object_types natural join rent_objects join customers on rent_objects.currentUser = customers.cid;";
-            useTable.DataSource = Database.get_DataSet(query).Tables[0];
+            var checkedIn = Database.get_DataSet(string.Format(@"
+                select cid AS 'CID', customers.Name as 'User', rent_objects.name AS 'Object', description AS 'Type'
+                from rent_object_types
+                natural join rent_objects
+                join (booking_lines 
+                    natural join bookings
+                    natural join customers)
+                on rent_objects.currentUser = booking_lines.blid
+                where currentUser != 0
+                ;"));
+
+            useTable.DataSource = checkedIn.Tables[0];
             useTable.AutoResizeColumns();
             useTable.ClearSelection();
         }
@@ -139,16 +117,6 @@ namespace arctic_seasport_admin
         private void customerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (allow_select) 
-            {
-                fill_typeBox();
-                fill_roBox();
-            }
-        }
-
-
-        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (allow_select)
             {
                 fill_roBox();
             }
@@ -171,7 +139,7 @@ namespace arctic_seasport_admin
 
 
         /* Get selected rent object from table */
-        private string get_SelectedObject()
+        private string get_SelectedItem(string item)
         {
             if (useTable.SelectedCells.Count > 0)
             {
@@ -179,7 +147,7 @@ namespace arctic_seasport_admin
 
                 DataGridViewRow selectedRow = useTable.Rows[selectedrowindex];
 
-                return selectedRow.Cells["Object"].Value.ToString();
+                return selectedRow.Cells[item].Value.ToString();
             }
 
             return null; // Error
@@ -198,7 +166,7 @@ namespace arctic_seasport_admin
             if (dialogResult == DialogResult.No)
                 status = "Not ready";
 
-            var query = string.Format("update rent_objects set currentUser = 0, status = \'{0}\' where name = \'{1}\';", status, obj);
+            var query = string.Format("update rent_objects set currentUser = 0, status = '{0}' where name = '{1}';", status, obj);
             Database.set(query);
         }
 
@@ -210,40 +178,47 @@ namespace arctic_seasport_admin
         private void checkOutButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = DialogResult.No;
-            var selected = get_SelectedObject();
-            if (selected == null)
+            var rent_object = get_SelectedItem("Object");
+            if (rent_object == null)
             {
                 MessageBox.Show("No object selected.");
                 return;
             }
 
-            var cid = Database.get_Value(string.Format("select currentUser from rent_objects where Name = \'{0}\';", selected));
-            var num = Database.get_Value(string.Format("select count(roID) from rent_objects where currentUser = {0}", cid));
+            var cid = get_SelectedItem("CID");
+            int num = 0;
+            foreach (DataGridViewRow row in useTable.Rows)
+            {
+                if (row.Cells[0].Value.ToString() == cid)
+                    num++;
+            }
 
             // Check whether customer holds more objects
-            if (Int32.Parse(num) > 1)
+            if (num > 1)
             {
-                var name = Database.get_Value(string.Format("select Name from customers where cid = {0}", cid));
+                var name = get_SelectedItem("User");
                 dialogResult = MessageBox.Show(string.Format("Do you want to check out all objects for {0}?", name), name, MessageBoxButtons.YesNo);
             }
-                
+
             // Check out slected object       
             if (dialogResult == DialogResult.No)
             {
-                check_Out(selected);
+                check_Out(rent_object);
             }
 
             // Check out all objects held by customer
             else
             {
-                var all = Database.get_List(string.Format("select Name from rent_objects where currentUser = {0}", cid));
-                foreach (string obj in all)
+                foreach (DataGridViewRow row in useTable.Rows)
                 {
-                    check_Out(obj);
+                    if (row.Cells[0].Value.ToString() == cid)
+                    {
+                        check_Out(row.Cells[2].Value.ToString());
+                    }
                 }
-            }            
+            }
 
-            refresh();
+                refresh();
         }
     }
 }

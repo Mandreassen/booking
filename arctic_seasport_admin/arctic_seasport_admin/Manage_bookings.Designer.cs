@@ -189,7 +189,7 @@
             this.detailsView.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.detailsView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.detailsView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.detailsView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,6 +207,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.detailsView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.detailsView.EnableHeadersVisualStyles = false;
             this.detailsView.GridColor = System.Drawing.SystemColors.ControlLight;
             this.detailsView.Location = new System.Drawing.Point(496, 302);
             this.detailsView.Name = "detailsView";

@@ -198,12 +198,13 @@ namespace arctic_seasport_admin
                         <th>Description</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Country</th>                        
+                        <th>Country</th> 
+                        <th>Notes</th>                       
                       </tr>
                 ", date.AddDays(i).ToString("dd.MM.yyy"));
 
                 var lines = adapter.get_DataSet(string.Format(@"
-                    select startDate, bid, description, name, phone, country
+                    select startDate, bid, description, name, phone, country, notes
                     from customers
                     natural join bookings
                     natural join booking_lines
@@ -211,12 +212,14 @@ namespace arctic_seasport_admin
                     natural join rent_object_types
                     group by blid
                     having startDate = '{0}'
+                    order by bid
                     ;", date.AddDays(i).ToString("yyyy-MM-dd")));
 
                 DataTable table = lines.Tables[0];
                 foreach (DataRow row in table.Rows)
                 {
-                    report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> </tr>", row[1], row[2], row[3], row[4], row[5]);
+                    report += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> </tr>
+                                                ", row[1], row[2], row[3], row[4], row[5], row[6].ToString().Replace("\n", "<br>"));
                 }
 
                 report += "</table>";
