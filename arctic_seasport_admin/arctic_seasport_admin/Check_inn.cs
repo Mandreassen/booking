@@ -131,7 +131,7 @@ namespace arctic_seasport_admin
                 return;
             }
 
-            var query = string.Format("update rent_objects set currentUser = {0} where Name = \'{1}\';", customerComboBox.SelectedValue, roComboBox.SelectedValue);
+            var query = string.Format("update rent_objects set currentUser = {0} where Name = '{1}';", customerComboBox.SelectedValue, roComboBox.SelectedValue);
             Database.set(query);
             refresh();
         }
@@ -217,7 +217,7 @@ namespace arctic_seasport_admin
                 }
             }
 
-                refresh();
+            refresh();
         }
     }
 }

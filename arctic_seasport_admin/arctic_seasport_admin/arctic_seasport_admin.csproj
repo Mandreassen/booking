@@ -97,6 +97,12 @@
     <Compile Include="Edit_rent_objects.Designer.cs">
       <DependentUpon>Edit_rent_objects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fast_check_in.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fast_check_in.Designer.cs">
+      <DependentUpon>Fast_check_in.cs</DependentUpon>
+    </Compile>
     <Compile Include="Find_customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,18 +120,6 @@
     </Compile>
     <Compile Include="Manage_bookings.Designer.cs">
       <DependentUpon>Manage_bookings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="manage_rent_objects.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="manage_rent_objects.Designer.cs">
-      <DependentUpon>manage_rent_objects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="manage_rent_object_types.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="manage_rent_object_types.Designer.cs">
-      <DependentUpon>manage_rent_object_types.cs</DependentUpon>
     </Compile>
     <Compile Include="new_booking.cs">
       <SubType>Form</SubType>
@@ -169,6 +163,9 @@
     <EmbeddedResource Include="Edit_rent_objects.resx">
       <DependentUpon>Edit_rent_objects.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fast_check_in.resx">
+      <DependentUpon>Fast_check_in.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Find_customer.resx">
       <DependentUpon>Find_customer.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,12 +174,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_bookings.resx">
       <DependentUpon>Manage_bookings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="manage_rent_objects.resx">
-      <DependentUpon>manage_rent_objects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="manage_rent_object_types.resx">
-      <DependentUpon>manage_rent_object_types.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="new_booking.resx">
       <DependentUpon>new_booking.cs</DependentUpon>
