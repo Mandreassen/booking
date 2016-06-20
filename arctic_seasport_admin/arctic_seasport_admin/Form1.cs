@@ -19,15 +19,32 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            remove_ButtonBorder(button1);
+            remove_ButtonBorder(checkinnButton);
+            remove_ButtonBorder(manageBookingsButton);
+            remove_ButtonBorder(ready_rent_objects_button);
+            remove_ButtonBorder(arrival_button);
+            remove_ButtonBorder(editRoBtn);
+            remove_ButtonBorder(depatures);
             update_Tables();
+        }
+
+        private void remove_ButtonBorder(Button button)
+        {
+            button.TabStop = false;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
         }
 
         /* Update */
         private void update_Tables()
         {
+            Cursor.Current = Cursors.WaitCursor;
             fill_ArrivalsTable();
             fill_DepartureTable();
             fill_CheckinnTable();
+            Cursor.Current = Cursors.Default;
         }
 
         /* Fill arrivals table whith todays arrivals */
@@ -62,9 +79,8 @@ namespace arctic_seasport_admin
                     natural join customers)
                 on rent_objects.currentUser = booking_lines.blid
                 where currentUser != 0
-                and endDate = '{0}'
-                ;
-            ", DateTime.Now.ToString("yyyy-MM-dd")));
+                and endDate = '{0}'                
+            ;", DateTime.Now.ToString("yyyy-MM-dd")));
 
             departureTable.DataSource = data.Tables[0];
             departureTable.AutoResizeColumns();
@@ -75,7 +91,7 @@ namespace arctic_seasport_admin
         private void fill_CheckinnTable()
         {
             var checkedIn = Database.get_DataSet(string.Format(@"
-                select bid AS 'BID', customers.Name as 'User', country AS 'Country', endDate AS 'Departure', rent_objects.name AS 'Object', description AS 'Type'
+                select bid AS 'BID', customers.Name as 'User', endDate AS 'Departure', rent_objects.name AS 'Object', description AS 'Type', country AS 'Country' 
                 from rent_object_types
                 natural join rent_objects
                 join (booking_lines 
@@ -137,11 +153,19 @@ namespace arctic_seasport_admin
             form.ShowDialog();
         }
 
+        /* Show arrival list */
         private void arrival_button_Click(object sender, EventArgs e)
         {
             Report.arrivals();
         }
 
+        /* Show departure list */
+        private void depatures_Click(object sender, EventArgs e)
+        {
+            Report.departures();
+        }
+
+        /* Show booking confermation on selected customer in checked in table */
         private void useTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int selectedrowindex = useTable.SelectedCells[0].RowIndex;
@@ -153,6 +177,7 @@ namespace arctic_seasport_admin
             Report.new_Booking(Int32.Parse(bid));
         }
 
+        /* Fast check in */
         private void arrivalsTable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int selectedrowindex = arrivalsTable.SelectedCells[0].RowIndex;
@@ -168,6 +193,7 @@ namespace arctic_seasport_admin
             update_Tables();
         }
 
+        /* Fast check out */
         private void departureTable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int selectedrowindex = departureTable.SelectedCells[0].RowIndex;

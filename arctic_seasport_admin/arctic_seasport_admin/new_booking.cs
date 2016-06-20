@@ -124,6 +124,7 @@ namespace arctic_seasport_admin
 
         private void fill_Overview()
         {
+            Cursor.Current = Cursors.WaitCursor;
             Database_adapter db = new Database_adapter();
             dataGridView1.DataSource = null;
             var dates = get_Dates();
@@ -132,6 +133,7 @@ namespace arctic_seasport_admin
             if (dates == null || types == null)
             {
                 MessageBox.Show("Value error.");
+                Cursor.Current = Cursors.Default;
                 return;
             }
 
@@ -183,6 +185,7 @@ namespace arctic_seasport_admin
             dataGridView1.RowHeadersWidth = 200;
             dataGridView1.ClearSelection();
             dataGridView1.Show();
+            Cursor.Current = Cursors.Default;
         }
 
 
@@ -319,7 +322,9 @@ namespace arctic_seasport_admin
         /* Double click in Booking overview */
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             add_BookingLine();
+            Cursor.Current = Cursors.Default;
         }
 
 

@@ -21,11 +21,11 @@ namespace arctic_seasport_admin
 
         private void Check_inn_Load(object sender, EventArgs e)
         {
-            refresh();
+            refreash_Content();
             allow_select = true;
         }
 
-        private void refresh()
+        private void refreash_Content()
         {
             allow_select = false;
             fill_Table();
@@ -133,7 +133,7 @@ namespace arctic_seasport_admin
 
             var query = string.Format("update rent_objects set currentUser = {0} where Name = '{1}';", customerComboBox.SelectedValue, roComboBox.SelectedValue);
             Database.set(query);
-            refresh();
+            refreash_Content();
         }
 
 
@@ -217,7 +217,7 @@ namespace arctic_seasport_admin
                 }
             }
 
-            refresh();
+            refreash_Content();
         }
     }
 }

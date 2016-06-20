@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace arctic_seasport_admin
@@ -13,6 +14,7 @@ namespace arctic_seasport_admin
     {
         static public void new_Booking(int bid)
         {
+            Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
 
             string bDate   = adapter.get_Value(string.Format("select bookingDate from bookings where bid = {0}", bid));
@@ -136,7 +138,7 @@ namespace arctic_seasport_admin
 
 
             adapter.close();
-
+            Cursor.Current = Cursors.Default;
             ReportViewer view = new ReportViewer(report);
             view.ShowDialog();
             
@@ -151,6 +153,7 @@ namespace arctic_seasport_admin
         
         static public void arrivals()
         {
+            Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
             
             var report = @"
@@ -186,7 +189,7 @@ namespace arctic_seasport_admin
             DateTime date = DateTime.Now;
             for (int i = 0; i < 4; i++)
             {
-                report += string.Format(@"
+                var nextDay = string.Format(@"
                     <br>
                     <br>
 
@@ -216,12 +219,16 @@ namespace arctic_seasport_admin
                     ;", date.AddDays(i).ToString("yyyy-MM-dd")));
 
                 DataTable table = lines.Tables[0];
+                if (table.Rows.Count == 0)
+                    continue;
+
                 foreach (DataRow row in table.Rows)
                 {
-                    report += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> </tr>
+                    nextDay += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> </tr>
                                                 ", row[1], row[2], row[3], row[4], row[5], row[6].ToString().Replace("\n", "<br>"));
                 }
 
+                report += nextDay;
                 report += "</table>";
             }
 
@@ -231,10 +238,103 @@ namespace arctic_seasport_admin
             ";
 
             adapter.close();
-
+            Cursor.Current = Cursors.Default;
             ReportViewer view = new ReportViewer(report);
             view.ShowDialog();
         }
-        
+
+
+        static public void departures()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            var adapter = new Database_adapter();
+
+            var report = @"
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <img src=""http://www.arctic-seasport.no/img/LOGO.gif"" alt=""Logo"" style=""width:300px;height:111px;"">
+
+                <br>
+
+                <font size=""6""> Departures </font>
+
+                    <style>
+                    table {
+                        width:100%;
+                    }
+                    table, th, td {
+                        border-collapse: collapse;
+                    }
+
+                    th, td {
+                        padding: 5px;
+                        text-align: left;
+                    }
+
+                    table th {
+                        border-bottom: 1px solid black;
+                    }
+                    </style>
+            ";
+
+            DateTime date = DateTime.Now;
+            for (int i = 0; i < 4; i++)
+            {
+                var nextDay = string.Format(@"
+                    <br>
+                    <br>
+
+                    <font size='4'> Date: {0} </font>
+
+                    <table id='t01'>
+                      <tr>
+                        <th>BID</th>
+                        <th>Description</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Country</th> 
+                        <th>Notes</th>                       
+                      </tr>
+                ", date.AddDays(i).ToString("dd.MM.yyy"));
+
+                var lines = adapter.get_DataSet(string.Format(@"
+                    select endDate, bid, description, name, phone, country, notes
+                    from customers
+                    natural join bookings
+                    natural join booking_lines
+                    natural join booking_entries
+                    natural join rent_object_types
+                    group by blid
+                    having endDate = '{0}'
+                    order by bid
+                    ;", date.AddDays(i).ToString("yyyy-MM-dd")));
+
+                DataTable table = lines.Tables[0];
+                if (table.Rows.Count == 0)
+                    continue;
+
+                foreach (DataRow row in table.Rows)
+                {
+                    nextDay += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> </tr>
+                                                ", row[1], row[2], row[3], row[4], row[5], row[6].ToString().Replace("\n", "<br>"));
+                }
+
+                report += nextDay;
+                report += "</table>";
+            }
+
+            report += @"
+                </body>
+                </html>
+            ";
+
+            adapter.close();
+            Cursor.Current = Cursors.Default;
+            ReportViewer view = new ReportViewer(report);
+            view.ShowDialog();
+        }
+
     }
 }

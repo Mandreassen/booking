@@ -149,9 +149,15 @@ namespace arctic_seasport_admin
         }
 
 
+        /* Fill SUM box */ 
         private void fill_sumBox(string bid)
         {
-            var sum = Database.get_Value(string.Format("select sum(Price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
+            var sum = Database.get_Value(string.Format(@"select sum(price)
+                                                    from booking_lines 
+                                                    natural join booking_entries
+                                                    natural join rent_object_types 
+                                                    where bid = {0};", bid));
+
             sumBox.Text = string.Format("{0},- ", sum);
         }
 

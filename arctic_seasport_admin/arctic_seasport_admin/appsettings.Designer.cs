@@ -54,7 +54,7 @@
             this.uidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uidBox.Location = new System.Drawing.Point(16, 33);
             this.uidBox.Name = "uidBox";
-            this.uidBox.Size = new System.Drawing.Size(214, 26);
+            this.uidBox.Size = new System.Drawing.Size(296, 26);
             this.uidBox.TabIndex = 1;
             // 
             // passBox
@@ -63,7 +63,7 @@
             this.passBox.Location = new System.Drawing.Point(16, 86);
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '*';
-            this.passBox.Size = new System.Drawing.Size(214, 26);
+            this.passBox.Size = new System.Drawing.Size(296, 26);
             this.passBox.TabIndex = 3;
             // 
             // label2
@@ -91,7 +91,7 @@
             this.serverBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serverBox.Location = new System.Drawing.Point(16, 178);
             this.serverBox.Name = "serverBox";
-            this.serverBox.Size = new System.Drawing.Size(214, 26);
+            this.serverBox.Size = new System.Drawing.Size(296, 26);
             this.serverBox.TabIndex = 5;
             // 
             // portBox
@@ -99,7 +99,7 @@
             this.portBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.portBox.Location = new System.Drawing.Point(16, 231);
             this.portBox.Name = "portBox";
-            this.portBox.Size = new System.Drawing.Size(214, 26);
+            this.portBox.Size = new System.Drawing.Size(296, 26);
             this.portBox.TabIndex = 7;
             this.portBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -118,7 +118,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(53, 274);
+            this.button1.Location = new System.Drawing.Point(99, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 35);
             this.button1.TabIndex = 8;
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(252, 345);
+            this.ClientSize = new System.Drawing.Size(324, 345);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.portBox);
             this.Controls.Add(this.label4);

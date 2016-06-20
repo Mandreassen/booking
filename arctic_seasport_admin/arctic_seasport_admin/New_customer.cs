@@ -194,12 +194,13 @@ namespace arctic_seasport_admin
         /* Save button clicked */
         private void button1_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             bool success;
             if (cid == Database.DEFAULT_CUSTOMER)
                 success = insert_New_Customer();
             else
                 success = update_Customer();
-
+            Cursor.Current = Cursors.Default;
             if (success)
             {
                 Report.new_Booking(bid);
