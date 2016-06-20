@@ -81,9 +81,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Name";
+            this.label1.Text = "Customer";
             // 
             // label2
             // 
@@ -171,10 +171,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(40, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 31);
+            this.button2.Size = new System.Drawing.Size(174, 37);
             this.button2.TabIndex = 11;
             this.button2.Text = "Find existing customer";
             this.button2.UseVisualStyleBackColor = false;
@@ -183,7 +183,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 17);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 20);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 22);
             this.pictureBox2.TabIndex = 24;

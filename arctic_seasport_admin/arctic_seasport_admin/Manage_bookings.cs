@@ -35,7 +35,7 @@ namespace arctic_seasport_admin
             switch (State)
             {
                 case STATE.UPCOMING:
-                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -50,7 +50,7 @@ namespace arctic_seasport_admin
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"));
 
                 case STATE.PREVIOUS:
-                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -65,7 +65,7 @@ namespace arctic_seasport_admin
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd")); 
 
                 case STATE.ALL:
-                    return string.Format(@"select bid as 'Booking', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -142,7 +142,7 @@ namespace arctic_seasport_admin
 
                 DataGridViewRow selectedRow = bookingsView.Rows[selectedrowindex];
 
-                return selectedRow.Cells["Booking"].Value.ToString();
+                return selectedRow.Cells["BID"].Value.ToString();
             }
 
             return null; // Error

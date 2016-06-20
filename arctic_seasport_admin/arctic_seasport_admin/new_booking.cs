@@ -72,10 +72,10 @@ namespace arctic_seasport_admin
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            if (dateTimePicker1.Value >= dateTimePicker2.Value)
-            {
+            //if (dateTimePicker1.Value.Date >= dateTimePicker2.Value.Date)
+            //{
                 dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-            }
+            //}
 
             fill_Overview();
         }
@@ -84,7 +84,7 @@ namespace arctic_seasport_admin
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            if (dateTimePicker2.Value <= dateTimePicker1.Value)
+            if (dateTimePicker2.Value.Date <= dateTimePicker1.Value.Date)
             {
                 dateTimePicker1.Value = dateTimePicker2.Value.AddDays(-1);
             }
