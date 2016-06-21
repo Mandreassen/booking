@@ -215,6 +215,7 @@
             this.Controls.Add(this.addObjectBtn);
             this.Controls.Add(this.rentObjectTypesView);
             this.Controls.Add(this.rentObjectsView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Edit_rent_objects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit_rent_objects";

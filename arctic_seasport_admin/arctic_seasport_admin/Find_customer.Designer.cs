@@ -105,6 +105,7 @@
             this.Controls.Add(this.cross);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.searchBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Find_customer";
             this.Text = "Find_customer";
             this.Load += new System.EventHandler(this.Find_customer_Load);

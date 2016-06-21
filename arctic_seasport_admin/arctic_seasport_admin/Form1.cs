@@ -27,6 +27,16 @@ namespace arctic_seasport_admin
             remove_ButtonBorder(editRoBtn);
             remove_ButtonBorder(depatures);
             update_Tables();
+
+            Timer timer = new Timer();
+            timer.Interval = (12000 * 1000); // 20min
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            update_Tables();
         }
 
         private void remove_ButtonBorder(Button button)

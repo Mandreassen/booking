@@ -162,6 +162,18 @@ namespace arctic_seasport_admin
         }
 
 
+        private void fill_BookerBox(string bid)
+        {
+            bookerBox.Text = "  " + Database.get_Value(string.Format("select booker from bookings where bid = {0};", bid));            
+        }
+
+
+        private void fill_PersonsBox(string bid)
+        {
+            personsBox.Text = Database.get_Value(string.Format("select persons from bookings where bid = {0}", bid)) + "  ";
+        }
+
+
         /* Booking selected
          * Update Booking Lines and Notes box  */
         private void bookingView_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -172,6 +184,8 @@ namespace arctic_seasport_admin
 
             fill_BookingLinesTable(bid);
             fill_sumBox(bid);
+            fill_PersonsBox(bid);
+            fill_BookerBox(bid);
             var query = string.Format("select Notes from bookings where bid = {0};", bid);
             noteBox.Text = Database.get_Value(query);
         }

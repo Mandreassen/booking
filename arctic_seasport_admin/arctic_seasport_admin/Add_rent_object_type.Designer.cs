@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_rent_object_type));
             this.label3 = new System.Windows.Forms.Label();
             this.priceBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.priceBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.descriptionBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_rent_object_type";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_rent_object_type";
