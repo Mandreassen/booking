@@ -61,7 +61,7 @@ namespace arctic_seasport_admin
         private void fill_ArrivalsTable()
         {
             var data = Database.get_DataSet(string.Format(@"
-                select blid, description AS 'Object', name AS 'Name', country AS 'Country' 
+                select blid, description AS 'Object', name AS 'Name', count(beid) AS 'Days', country AS 'Country' 
                 from customers
                 natural join bookings
                 natural join booking_lines
@@ -73,6 +73,7 @@ namespace arctic_seasport_admin
                 ", DateTime.Now.ToString("yyyy-MM-dd")));
 
             arrivalsTable.DataSource = data.Tables[0];
+            arrivalsTable.Columns[0].Visible = false;
             arrivalsTable.AutoResizeColumns();
             arrivalsTable.ClearSelection();
         }

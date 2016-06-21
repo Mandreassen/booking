@@ -24,6 +24,7 @@ namespace arctic_seasport_admin
             string country = adapter.get_Value(string.Format("select country from bookings natural join customers where bid = {0};", bid));
             string note    = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br>");
             string price   = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
+            string persons = adapter.get_Value(string.Format("select persons from bookings where bid = {0}", bid));
 
             DataSet details = adapter.get_DataSet(string.Format("select description, startDate, endDate from booking_lines natural join booking_entries natural join rent_object_types where bid = {0} group by blid;", bid));
 
@@ -44,10 +45,12 @@ namespace arctic_seasport_admin
                 <font size=""4"">
                     Date: {0} <br>
                     Booking reference: {1} <br>
-                    {2} <br>
+                    Persons: {2} <br>
+                    <br>
                     {3} <br>
                     {4} <br>
                     {5} <br>
+                    {6} <br>
                 </font>            
 
                 <br>
@@ -56,7 +59,7 @@ namespace arctic_seasport_admin
                     Details
                 </font>
                
-                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), name, email, tlf, country);
+                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), persons, name, email, tlf, country);
             
 
             // Booking lines
@@ -291,6 +294,7 @@ namespace arctic_seasport_admin
                     <table id='t01'>
                       <tr>
                         <th>BID</th>
+                        <th>Object</th>
                         <th>Description</th>
                         <th>Name</th>
                         <th>Phone</th>
@@ -300,7 +304,7 @@ namespace arctic_seasport_admin
                 ", date.AddDays(i).ToString("dd.MM.yyy"));
 
                 var lines = adapter.get_DataSet(string.Format(@"
-                    select endDate, bid, description, name, phone, country, notes
+                    select blid, endDate, bid, description, name, phone, country, notes
                     from customers
                     natural join bookings
                     natural join booking_lines
@@ -317,8 +321,11 @@ namespace arctic_seasport_admin
 
                 foreach (DataRow row in table.Rows)
                 {
-                    nextDay += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> </tr>
-                                                ", row[1], row[2], row[3], row[4], row[5], row[6].ToString().Replace("\n", "<br>"));
+                    string ro = adapter.get_Value(string.Format("select name from rent_objects where currentUser = {0};", row[0]));
+                    if (ro == null || ro == "")
+                        ro = "-";
+                    nextDay += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> <td> {5} </td> <td> {6} </td> </tr>
+                                                ", row[2], ro, row[3], row[4], row[5], row[6], row[7].ToString().Replace("\n", "<br>"));
                 }
 
                 report += nextDay;
