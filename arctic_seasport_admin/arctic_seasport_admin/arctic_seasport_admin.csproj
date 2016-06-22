@@ -148,6 +148,12 @@
     <Compile Include="ReportViewer.Designer.cs">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_rent_object.resx">
       <DependentUpon>Add_rent_object.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\appsettings.datasource" />
     <None Include="Properties\DataSources\arctic_seasport_admin.Properties.Resources.datasource" />

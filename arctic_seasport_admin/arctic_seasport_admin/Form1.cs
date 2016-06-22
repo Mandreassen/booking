@@ -26,6 +26,7 @@ namespace arctic_seasport_admin
             remove_ButtonBorder(arrival_button);
             remove_ButtonBorder(editRoBtn);
             remove_ButtonBorder(depatures);
+            remove_ButtonBorder(transferButton);
             update_Tables();
 
             Timer timer = new Timer();
@@ -61,12 +62,13 @@ namespace arctic_seasport_admin
         private void fill_ArrivalsTable()
         {
             var data = Database.get_DataSet(string.Format(@"
-                select blid, description AS 'Object', name AS 'Name', count(beid) AS 'Days', country AS 'Country' 
+                select blid, description AS 'Object', name AS 'Name', count(beid) AS 'Days', DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer', country AS 'Country' 
                 from customers
-                natural join bookings
+                natural join bookings            
                 natural join booking_lines
                 natural join booking_entries
-                natural join rent_object_types
+                natural join rent_object_types 
+                left outer join transfers on bookings.bid = transfers.bid                             
                 where startDate = '{0}'
                 and blid not in (select currentUser from rent_objects)
                 group by blid;
@@ -226,6 +228,11 @@ namespace arctic_seasport_admin
             Database.set(query);
 
             update_Tables();
+        }
+
+        private void transferButton_Click(object sender, EventArgs e)
+        {
+            Report.transfers();
         }
     }
 }

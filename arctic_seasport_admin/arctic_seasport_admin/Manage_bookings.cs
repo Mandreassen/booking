@@ -270,5 +270,18 @@ namespace arctic_seasport_admin
         {
             searchBox.Text = "";
         }
+
+        private void transferButton_Click(object sender, EventArgs e)
+        {
+            string bid = get_SelectedBid();
+            if (bid == null)
+            {
+                MessageBox.Show("No booking selected");
+                return;
+            }
+
+            var form = new Transfer(bid);
+            form.ShowDialog();
+        }
     }
 }

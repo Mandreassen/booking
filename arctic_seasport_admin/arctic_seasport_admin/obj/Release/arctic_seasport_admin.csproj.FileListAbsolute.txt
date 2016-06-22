@@ -73,3 +73,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arcti
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Ready_rent_objects.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.ReportViewer.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.csproj.GenerateResource.Cache
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Transfer.resources

@@ -79,3 +79,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.csproj.GenerateResource.Cache
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.ReportViewer.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Fast_check_in.resources
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Transfer.resources
