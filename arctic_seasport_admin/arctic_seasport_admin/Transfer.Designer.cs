@@ -44,6 +44,7 @@
             this.departureOnly = new System.Windows.Forms.RadioButton();
             this.personsBox = new System.Windows.Forms.TextBox();
             this.personsLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // arrivalTime
@@ -137,9 +138,9 @@
             this.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Header.Location = new System.Drawing.Point(12, 9);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(205, 25);
+            this.Header.Size = new System.Drawing.Size(92, 25);
             this.Header.TabIndex = 8;
-            this.Header.Text = "Transfer for booking";
+            this.Header.Text = "Transfer";
             // 
             // saveButton
             // 
@@ -207,12 +208,25 @@
             this.personsLabel.TabIndex = 14;
             this.personsLabel.Text = "Persons";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(338, 9);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(93, 33);
+            this.deleteButton.TabIndex = 15;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // Transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(443, 283);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.personsLabel);
             this.Controls.Add(this.personsBox);
             this.Controls.Add(this.departureOnly);
@@ -254,5 +268,6 @@
         private System.Windows.Forms.RadioButton departureOnly;
         private System.Windows.Forms.TextBox personsBox;
         private System.Windows.Forms.Label personsLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

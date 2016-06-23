@@ -201,7 +201,7 @@ namespace arctic_seasport_admin
                 MessageBox.Show(ex.Message);
                 conn.Close();
                 return null; // Error
-            }            
+            }
 
             conn.Close();
 

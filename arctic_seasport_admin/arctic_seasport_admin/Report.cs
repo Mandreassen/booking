@@ -173,7 +173,7 @@ namespace arctic_seasport_admin
                 </style>
 
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
-                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/arrival.jpg"" alt=""arrival"" height=""70"" width=""95"" ""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/arrival.jpg"" alt=""arrival"" height=""60"" width=""81""> </div>
                 <br>
 
                 <font size=""6""> Arrivals </font>
@@ -280,7 +280,7 @@ namespace arctic_seasport_admin
                 </style>
 
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
-                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/departure.jpg"" alt=""arrival"" height=""70"" width=""100"" ""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/departure.jpg"" alt=""arrival"" height=""60"" width=""85""> </div>
                 <br>
 
                 <font size=""6""> Departures </font>
@@ -391,7 +391,7 @@ namespace arctic_seasport_admin
                 </style>
 
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
-                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/transfer.jpg"" alt=""arrival"" height=""70"" width=""100"" ""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/transfer.jpg"" alt=""arrival"" height=""60"" width=""101""> </div>
                 <br>
 
                 <font size=""6""> Transfers </font>

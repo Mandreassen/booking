@@ -155,7 +155,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(314, 28);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 11;
             this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = false;
@@ -167,7 +167,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(395, 28);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 29);
+            this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 12;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = false;
@@ -179,7 +179,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(233, 28);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 29);
+            this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 13;
             this.button3.Text = "View";
             this.button3.UseVisualStyleBackColor = false;
@@ -361,9 +361,9 @@
             // 
             this.transferButton.BackColor = System.Drawing.SystemColors.Window;
             this.transferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transferButton.Location = new System.Drawing.Point(502, 28);
+            this.transferButton.Location = new System.Drawing.Point(498, 28);
             this.transferButton.Name = "transferButton";
-            this.transferButton.Size = new System.Drawing.Size(75, 29);
+            this.transferButton.Size = new System.Drawing.Size(86, 30);
             this.transferButton.TabIndex = 28;
             this.transferButton.Text = "Transfer";
             this.transferButton.UseVisualStyleBackColor = false;

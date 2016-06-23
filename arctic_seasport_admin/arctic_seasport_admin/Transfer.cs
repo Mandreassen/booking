@@ -13,6 +13,7 @@ namespace arctic_seasport_admin
     public partial class Transfer : Form
     {
         private string bid;
+        private bool new_transfer;
 
         public Transfer(string booking_id)
         {
@@ -20,9 +21,44 @@ namespace arctic_seasport_admin
             InitializeComponent();
             arrivalTime.CustomFormat = "HH:mm";
             departureTime.CustomFormat = "HH:mm";
-            Header.Text += " " + booking_id;
 
-            personsBox.Text = Database.get_Value(string.Format("select persons from bookings where bid = {0};", booking_id));
+
+            var existing = Database.get_DataSet(string.Format("select * from transfers where bid = {0};", booking_id));
+            var table = existing.Tables[0];
+
+            // New Transfer
+            if (table.Rows.Count == 0)
+            {
+                new_transfer = true;
+                deleteButton.Visible = false;
+                Header.Text = String.Format("New transfer for booking {0}", booking_id);
+                personsBox.Text = Database.get_Value(string.Format("select persons from bookings where bid = {0};", booking_id));
+            }
+
+            // Edit old transfer
+            else
+            {
+                new_transfer = false;
+                var data = table.Rows[0];
+
+                Header.Text = String.Format("Edit transfer for booking {0}", booking_id);
+
+                personsBox.Text = data["personsTransfer"].ToString();
+
+                arrivalFlight.Text = data["arrivalFlight"].ToString();
+                arrivalFlight.ForeColor = SystemColors.ControlText;                
+
+                departureFlight.Text = data["departureFlight"].ToString();
+                departureFlight.ForeColor = SystemColors.ControlText;
+
+                var arrivaltime = DateTime.Parse(data["arrivalTime"].ToString());
+                arrivalDate.Value = arrivaltime;
+                arrivalTime.Value = arrivaltime;
+
+                var departuretime = DateTime.Parse(data["departureTime"].ToString());
+                departureDate.Value = departuretime;
+                departureTime.Value = departuretime;
+            }
         }
 
         private void arrivalFlight_Enter(object sender, EventArgs e)
@@ -82,11 +118,23 @@ namespace arctic_seasport_admin
                 departureflight = string.Format("'{0}'", (departureFlight.Text != "Departure flight") ? departureFlight.Text : "");
             }
 
-            Database.set(string.Format(@"
-                insert into transfers
-                values(NULL, {0}, {1}, {2}, {3}, {4}, {5});
-                ", bid, arrivaltime, arrivalflight, departuretime, departureflight, personsBox.Text)
-            );
+            if (new_transfer)
+            {
+                Database.set(string.Format(@"
+                    insert into transfers
+                    values(NULL, {0}, {1}, {2}, {3}, {4}, {5});
+                    ", bid, arrivaltime, arrivalflight, departuretime, departureflight, personsBox.Text)
+                );
+            }
+            else
+            {
+                Database.set(String.Format(@"
+                    update transfers
+                    set arrivalTime = {0}, arrivalFlight = {1}, departureTime = {2}, departureFlight = {3}, personsTransfer = {4}
+                    where bid = {5};  
+                    ", arrivaltime, arrivalflight, departuretime, departureflight, personsBox.Text, bid)
+                );
+            }
 
             this.Close();
         }
@@ -133,6 +181,17 @@ namespace arctic_seasport_admin
         private void arrivalDate_ValueChanged(object sender, EventArgs e)
         {
             departureDate.Value = arrivalDate.Value.AddDays(1);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            // Ask user if data should be deleted
+            DialogResult dialogResult = MessageBox.Show("Delete transfer?", "Delete?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+                return;
+
+            Database.set(string.Format("delete from transfers where bid = {0};", bid));
+            this.Close();
         }
     }
 }
