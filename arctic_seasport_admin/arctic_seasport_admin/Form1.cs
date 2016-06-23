@@ -19,6 +19,7 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            remove_ButtonBorder(button3);
             remove_ButtonBorder(button1);
             remove_ButtonBorder(checkinnButton);
             remove_ButtonBorder(manageBookingsButton);
@@ -62,7 +63,7 @@ namespace arctic_seasport_admin
         private void fill_ArrivalsTable()
         {
             var data = Database.get_DataSet(string.Format(@"
-                select blid, description AS 'Object', name AS 'Name', count(beid) AS 'Days', DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer', country AS 'Country' 
+                select blid, description AS 'Object', name AS 'Customer', count(beid) AS 'Days', country AS 'Country' , DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer'
                 from customers
                 natural join bookings            
                 natural join booking_lines
@@ -84,13 +85,14 @@ namespace arctic_seasport_admin
         private void fill_DepartureTable()
         {
             var data = Database.get_DataSet(string.Format(@"
-                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'User'
+                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'Customer', DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer'
                 from rent_object_types
                 natural join rent_objects
                 join (booking_lines 
                     natural join bookings
                     natural join customers)
                 on rent_objects.currentUser = booking_lines.blid
+                left outer join transfers on bookings.bid = transfers.bid 
                 where currentUser != 0
                 and endDate = '{0}'                
             ;", DateTime.Now.ToString("yyyy-MM-dd")));
@@ -104,7 +106,7 @@ namespace arctic_seasport_admin
         private void fill_CheckinnTable()
         {
             var checkedIn = Database.get_DataSet(string.Format(@"
-                select bid AS 'BID', customers.Name as 'User', endDate AS 'Departure', rent_objects.name AS 'Object', description AS 'Type', country AS 'Country' 
+                select bid AS 'ID', customers.Name as 'User', DATE_FORMAT(startDate, '%d. %m') AS 'From', DATE_FORMAT(endDate, '%d. %m') AS 'To', description AS 'Type', rent_objects.name AS 'Object', country AS 'Country' 
                 from rent_object_types
                 natural join rent_objects
                 join (booking_lines 

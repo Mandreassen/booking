@@ -35,7 +35,9 @@ namespace arctic_seasport_admin
                 <body>              
 
                 <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
+                
                     <br>
+
                 <font size=""6""> Booking confirmation </font>    
 
                 <br>
@@ -144,13 +146,7 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
             ReportViewer view = new ReportViewer(report);
             view.ShowDialog();
-            
-
-            //FileStream f = File.Open("C:\\Users\\manau\\Desktop\\test.html", FileMode.CreateNew);
-            //var plain = new UTF8Encoding(true).GetBytes(report);
-            //f.Write(plain, 0, plain.Length);
-            //f.Close();   
-        }
+       }
 
 
         
@@ -164,8 +160,20 @@ namespace arctic_seasport_admin
                 <html>
                 <body>
 
-                <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
+                <style>
+                .arrival {
+                    text-align: center;
 
+                }
+                .logo {
+                    float: left;
+                    position: absolute;
+                }
+                
+                </style>
+
+                <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/arrival.jpg"" alt=""arrival"" height=""70"" width=""95"" ""> </div>
                 <br>
 
                 <font size=""6""> Arrivals </font>
@@ -259,8 +267,20 @@ namespace arctic_seasport_admin
                 <html>
                 <body>
 
-                <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
+                <style>
+                .arrival {
+                    text-align: center;
 
+                }
+                .logo {
+                    float: left;
+                    position: absolute;
+                }
+                
+                </style>
+
+                <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/departure.jpg"" alt=""arrival"" height=""70"" width=""100"" ""> </div>
                 <br>
 
                 <font size=""6""> Departures </font>
@@ -358,8 +378,20 @@ namespace arctic_seasport_admin
                 <html>
                 <body>
 
-                <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
+                <style>
+                .arrival {
+                    text-align: center;
 
+                }
+                .logo {
+                    float: left;
+                    position: absolute;
+                }
+                
+                </style>
+
+                <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/transfer.jpg"" alt=""arrival"" height=""70"" width=""100"" ""> </div>
                 <br>
 
                 <font size=""6""> Transfers </font>
