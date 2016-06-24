@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net.Mail;
 
 namespace arctic_seasport_admin
 {
@@ -38,6 +39,7 @@ namespace arctic_seasport_admin
         {
             if (cid != Database.DEFAULT_CUSTOMER)
             {
+                Cursor.Current = Cursors.WaitCursor;
                 var adapter = new Database_adapter();
                 fill_Name_Box(adapter);
                 fill_EmailBox(adapter);
@@ -50,6 +52,7 @@ namespace arctic_seasport_admin
                 fill_BookerBox(adapter);
                 fill_PersonsBox(adapter);
                 adapter.close();
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -191,9 +194,43 @@ namespace arctic_seasport_admin
         }
 
 
+        private void mailer(string report, string recirver)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("mail.arctic-seasport.no");
+
+                mail.From = new MailAddress("info@arctic-seasport.no");
+                mail.To.Add("post@mandreassen.no");
+                mail.Subject = "Booking confirmation";
+                
+                mail.IsBodyHtml = true;
+                mail.Body = report;
+
+                SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("info@arctic-seasport.no", "123qwe!");
+                SmtpServer.EnableSsl = false;
+
+                SmtpServer.Send(mail);
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show("Mail Sendt");
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
         /* Save button clicked */
         private void button1_Click(object sender, EventArgs e)
         {
+            // <satity check>
             if (nameBox.Text == "")
             {
                 MessageBox.Show("Customer is missing");
@@ -223,9 +260,10 @@ namespace arctic_seasport_admin
                 var dialogResult = MessageBox.Show("Email is missing. Continue?", "Missing email", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
                     return;
-            }
+            }            
+            // </sanity check>
 
-
+            
             Cursor.Current = Cursors.WaitCursor;
             bool success;
             if (cid == Database.DEFAULT_CUSTOMER)
@@ -235,9 +273,22 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
             if (success)
             {
-                Report.new_Booking(bid);
+                var report = Report.booking_Confirmation(bid);
+                var viewer = new ReportViewer(report);                
+
+                if (emailBox.Text != "")
+                {                    
+                    var dialogResult = MessageBox.Show(string.Format("Send booking confirmation to {0}?", emailBox.Text), "Mail confermation?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        mailer(report, emailBox.Text);
+                    }
+                }
+
+                viewer.ShowDialog();
 
                 prevForm.set_Done();
+
                 this.Close();
             }
         }

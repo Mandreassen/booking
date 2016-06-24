@@ -260,7 +260,9 @@ namespace arctic_seasport_admin
                 return;
             }
 
-            Report.new_Booking(System.Int32.Parse(bid));
+            var report = Report.booking_Confirmation(System.Int32.Parse(bid));
+            var viewer = new ReportViewer(report);
+            viewer.ShowDialog();
         }
 
 

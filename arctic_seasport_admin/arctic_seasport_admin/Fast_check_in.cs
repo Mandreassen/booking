@@ -50,7 +50,9 @@ namespace arctic_seasport_admin
         private void detailsButton_Click(object sender, EventArgs e)
         {
             string bid = Database.get_Value(String.Format("select bid from booking_lines where blid = {0};", blid));
-            Report.new_Booking(Int32.Parse(bid));
+            var report = Report.booking_Confirmation(Int32.Parse(bid));
+            var viewer = new ReportViewer(report);
+            viewer.ShowDialog();
         }
     }
 }

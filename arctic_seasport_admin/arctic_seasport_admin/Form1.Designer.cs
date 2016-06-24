@@ -92,7 +92,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1296, 12);
+            this.button3.Location = new System.Drawing.Point(1296, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 38);
             this.button3.TabIndex = 7;
@@ -312,7 +312,7 @@
             this.arrival_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.arrival_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arrival_button.Image = ((System.Drawing.Image)(resources.GetObject("arrival_button.Image")));
-            this.arrival_button.Location = new System.Drawing.Point(996, 12);
+            this.arrival_button.Location = new System.Drawing.Point(996, 17);
             this.arrival_button.Name = "arrival_button";
             this.arrival_button.Size = new System.Drawing.Size(68, 68);
             this.arrival_button.TabIndex = 37;
@@ -327,7 +327,7 @@
             this.depatures.Cursor = System.Windows.Forms.Cursors.Hand;
             this.depatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.depatures.Image = ((System.Drawing.Image)(resources.GetObject("depatures.Image")));
-            this.depatures.Location = new System.Drawing.Point(1067, 12);
+            this.depatures.Location = new System.Drawing.Point(1067, 17);
             this.depatures.Name = "depatures";
             this.depatures.Size = new System.Drawing.Size(92, 68);
             this.depatures.TabIndex = 38;
@@ -342,7 +342,7 @@
             this.transferButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transferButton.Image = ((System.Drawing.Image)(resources.GetObject("transferButton.Image")));
-            this.transferButton.Location = new System.Drawing.Point(1162, 12);
+            this.transferButton.Location = new System.Drawing.Point(1162, 17);
             this.transferButton.Name = "transferButton";
             this.transferButton.Size = new System.Drawing.Size(85, 68);
             this.transferButton.TabIndex = 39;

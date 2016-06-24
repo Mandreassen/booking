@@ -12,7 +12,7 @@ namespace arctic_seasport_admin
 {
     static class Report
     {
-        static public void new_Booking(int bid)
+        static public string booking_Confirmation(int bid)
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -49,10 +49,10 @@ namespace arctic_seasport_admin
                     Booking reference: {1} <br>
                     Persons: {2} <br>
                     <br>
-                    {3} <br>
-                    {4} <br>
-                    {5} <br>
-                    {6} <br>
+                    {3} 
+                    {4} 
+                    {5}
+                    {6}
                 </font>            
 
                 <br>
@@ -61,7 +61,7 @@ namespace arctic_seasport_admin
                     Details
                 </font>
                
-                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), persons, name, email, tlf, country);
+                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), persons, (name != "") ? name + "<br>" : "", (email != "") ? email + "<br>" : "", (tlf != "") ? tlf + "<br>" : "", (country != "") ? country + "<br>" : "");
             
 
             // Booking lines
@@ -102,31 +102,43 @@ namespace arctic_seasport_admin
 
             report += "</table>";
 
-            
-            // Notes and footer
-            report += string.Format(@"                
-                <br>                 
-
+            // Price
+            report += string.Format(@"
+                <br>
                 <font size=""4"">                  
                     <div align=""left""> SUM: NOK {0},- </div>
-                </font>                      
+                </font>  
+            ", price);
 
+
+            // Notes
+            if (note != "")
+            {
+                report += string.Format(@"
+                    <br>
+                    <br>                      
+
+                    <font size=""5"">
+                        Notes
+                    </font>
+
+                    <hr>                      
+
+                    <font size=""4"">
+                        {0}
+                    </font>
+                ", note);
+            }         
+
+
+            // Footer
+            report += @"            
                 <br>
-                <br>                      
-
-                <font size=""5"">
-                    Notes
-                </font>
-
-                <hr>                      
-
-                <font size=""4"">
-                    {1}
-                </font>
-
+                <br>
+                <br>       
                 <br>
                 <br>
-                <br>                       
+                <br>                
 
                 <font size=""4"">
                     Arctic Seasport AS <br>
@@ -137,20 +149,19 @@ namespace arctic_seasport_admin
                 </font>
 
                 </body>
-                </html>
-            ", price, note);
+                </html>";
             // END REPORT
 
 
             adapter.close();
             Cursor.Current = Cursors.Default;
-            ReportViewer view = new ReportViewer(report);
-            view.ShowDialog();
+
+            return report;
        }
 
 
         
-        static public void arrivals()
+        static public string arrivals()
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -252,12 +263,12 @@ namespace arctic_seasport_admin
 
             adapter.close();
             Cursor.Current = Cursors.Default;
-            ReportViewer view = new ReportViewer(report);
-            view.ShowDialog();
+
+            return report;
         }
 
 
-        static public void departures()
+        static public string departures()
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -363,12 +374,12 @@ namespace arctic_seasport_admin
 
             adapter.close();
             Cursor.Current = Cursors.Default;
-            ReportViewer view = new ReportViewer(report);
-            view.ShowDialog();
+
+            return report;
         }
 
 
-        static public void transfers()
+        static public string transfers()
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -457,8 +468,8 @@ namespace arctic_seasport_admin
 
             adapter.close();
             Cursor.Current = Cursors.Default;
-            ReportViewer view = new ReportViewer(report);
-            view.ShowDialog();
+
+            return report;
         }
 
     }

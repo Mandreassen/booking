@@ -53,6 +53,8 @@
             // 
             this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
+            this.dataView.AllowUserToResizeColumns = false;
+            this.dataView.AllowUserToResizeRows = false;
             this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

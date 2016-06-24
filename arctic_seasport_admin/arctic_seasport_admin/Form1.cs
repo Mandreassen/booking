@@ -174,13 +174,17 @@ namespace arctic_seasport_admin
         /* Show arrival list */
         private void arrival_button_Click(object sender, EventArgs e)
         {
-            Report.arrivals();
+            var report = Report.arrivals();
+            var viewer = new ReportViewer(report);
+            viewer.ShowDialog();
         }
 
         /* Show departure list */
         private void depatures_Click(object sender, EventArgs e)
         {
-            Report.departures();
+            var report = Report.departures();
+            var viewer = new ReportViewer(report);
+            viewer.ShowDialog();
         }
 
         /* Show booking confermation on selected customer in checked in table */
@@ -192,7 +196,9 @@ namespace arctic_seasport_admin
 
             string bid = selectedRow.Cells[0].Value.ToString();
 
-            Report.new_Booking(Int32.Parse(bid));
+            var report = Report.booking_Confirmation(Int32.Parse(bid));
+            var viewer = new ReportViewer(report);
+            viewer.ShowDialog();
         }
 
         /* Fast check in */
@@ -237,7 +243,9 @@ namespace arctic_seasport_admin
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            Report.transfers();
+            var report = Report.transfers();
+            var view = new ReportViewer(report);
+            view.ShowDialog();
         }
 
         private void hotelStatisticsButton_Click(object sender, EventArgs e)
