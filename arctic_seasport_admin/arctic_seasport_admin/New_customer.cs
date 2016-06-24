@@ -194,6 +194,38 @@ namespace arctic_seasport_admin
         /* Save button clicked */
         private void button1_Click(object sender, EventArgs e)
         {
+            if (nameBox.Text == "")
+            {
+                MessageBox.Show("Customer is missing");
+                return;
+            }
+
+            if (countryBox.Text == "")
+            {
+                MessageBox.Show("Country is missing");
+                return;
+            }
+
+            if (nCustomers.Value <= 0)
+            {
+                MessageBox.Show("Invalid value for number of persons");
+                return;
+            }
+
+            if (bookerBox.Text == "")
+            {
+                MessageBox.Show("Booker missing");
+                return;
+            }
+
+            if (emailBox.Text == "")
+            {
+                var dialogResult = MessageBox.Show("Email is missing. Continue?", "Missing email", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                    return;
+            }
+
+
             Cursor.Current = Cursors.WaitCursor;
             bool success;
             if (cid == Database.DEFAULT_CUSTOMER)

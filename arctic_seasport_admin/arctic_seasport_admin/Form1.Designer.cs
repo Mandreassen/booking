@@ -51,6 +51,7 @@
             this.arrival_button = new System.Windows.Forms.Button();
             this.depatures = new System.Windows.Forms.Button();
             this.transferButton = new System.Windows.Forms.Button();
+            this.hotelStatisticsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.useTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrivalsTable)).BeginInit();
@@ -66,7 +67,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(261, 12);
+            this.button1.Location = new System.Drawing.Point(263, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 68);
             this.button1.TabIndex = 1;
@@ -91,7 +92,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1195, 12);
+            this.button3.Location = new System.Drawing.Point(1296, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 38);
             this.button3.TabIndex = 7;
@@ -104,7 +105,7 @@
             this.manageBookingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manageBookingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBookingsButton.Image = ((System.Drawing.Image)(resources.GetObject("manageBookingsButton.Image")));
-            this.manageBookingsButton.Location = new System.Drawing.Point(366, 12);
+            this.manageBookingsButton.Location = new System.Drawing.Point(368, 12);
             this.manageBookingsButton.Name = "manageBookingsButton";
             this.manageBookingsButton.Size = new System.Drawing.Size(104, 68);
             this.manageBookingsButton.TabIndex = 8;
@@ -119,7 +120,7 @@
             this.checkinnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkinnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkinnButton.Image = ((System.Drawing.Image)(resources.GetObject("checkinnButton.Image")));
-            this.checkinnButton.Location = new System.Drawing.Point(527, 12);
+            this.checkinnButton.Location = new System.Drawing.Point(637, 12);
             this.checkinnButton.Name = "checkinnButton";
             this.checkinnButton.Size = new System.Drawing.Size(94, 68);
             this.checkinnButton.TabIndex = 9;
@@ -173,7 +174,7 @@
             this.useTable.ReadOnly = true;
             this.useTable.RowHeadersVisible = false;
             this.useTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.useTable.Size = new System.Drawing.Size(695, 503);
+            this.useTable.Size = new System.Drawing.Size(729, 503);
             this.useTable.TabIndex = 28;
             this.useTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.useTable_CellDoubleClick);
             // 
@@ -207,12 +208,12 @@
             this.arrivalsTable.DefaultCellStyle = dataGridViewCellStyle4;
             this.arrivalsTable.EnableHeadersVisualStyles = false;
             this.arrivalsTable.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.arrivalsTable.Location = new System.Drawing.Point(741, 146);
+            this.arrivalsTable.Location = new System.Drawing.Point(773, 146);
             this.arrivalsTable.Name = "arrivalsTable";
             this.arrivalsTable.ReadOnly = true;
             this.arrivalsTable.RowHeadersVisible = false;
             this.arrivalsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.arrivalsTable.Size = new System.Drawing.Size(496, 232);
+            this.arrivalsTable.Size = new System.Drawing.Size(565, 232);
             this.arrivalsTable.TabIndex = 30;
             this.arrivalsTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.arrivalsTable_CellContentDoubleClick);
             // 
@@ -220,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(737, 119);
+            this.label2.Location = new System.Drawing.Point(769, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 24);
             this.label2.TabIndex = 31;
@@ -232,7 +233,7 @@
             this.ready_rent_objects_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ready_rent_objects_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ready_rent_objects_button.Image = ((System.Drawing.Image)(resources.GetObject("ready_rent_objects_button.Image")));
-            this.ready_rent_objects_button.Location = new System.Drawing.Point(624, 12);
+            this.ready_rent_objects_button.Location = new System.Drawing.Point(733, 12);
             this.ready_rent_objects_button.Name = "ready_rent_objects_button";
             this.ready_rent_objects_button.Size = new System.Drawing.Size(94, 68);
             this.ready_rent_objects_button.TabIndex = 32;
@@ -245,7 +246,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(737, 390);
+            this.label3.Location = new System.Drawing.Point(769, 390);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 24);
             this.label3.TabIndex = 34;
@@ -281,12 +282,12 @@
             this.departureTable.DefaultCellStyle = dataGridViewCellStyle6;
             this.departureTable.EnableHeadersVisualStyles = false;
             this.departureTable.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.departureTable.Location = new System.Drawing.Point(741, 417);
+            this.departureTable.Location = new System.Drawing.Point(773, 417);
             this.departureTable.Name = "departureTable";
             this.departureTable.ReadOnly = true;
             this.departureTable.RowHeadersVisible = false;
             this.departureTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.departureTable.Size = new System.Drawing.Size(496, 232);
+            this.departureTable.Size = new System.Drawing.Size(565, 232);
             this.departureTable.TabIndex = 35;
             this.departureTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.departureTable_CellContentDoubleClick);
             // 
@@ -296,7 +297,7 @@
             this.editRoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editRoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRoBtn.Image = ((System.Drawing.Image)(resources.GetObject("editRoBtn.Image")));
-            this.editRoBtn.Location = new System.Drawing.Point(721, 12);
+            this.editRoBtn.Location = new System.Drawing.Point(830, 12);
             this.editRoBtn.Name = "editRoBtn";
             this.editRoBtn.Size = new System.Drawing.Size(112, 68);
             this.editRoBtn.TabIndex = 36;
@@ -311,7 +312,7 @@
             this.arrival_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.arrival_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arrival_button.Image = ((System.Drawing.Image)(resources.GetObject("arrival_button.Image")));
-            this.arrival_button.Location = new System.Drawing.Point(888, 12);
+            this.arrival_button.Location = new System.Drawing.Point(996, 12);
             this.arrival_button.Name = "arrival_button";
             this.arrival_button.Size = new System.Drawing.Size(68, 68);
             this.arrival_button.TabIndex = 37;
@@ -326,7 +327,7 @@
             this.depatures.Cursor = System.Windows.Forms.Cursors.Hand;
             this.depatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.depatures.Image = ((System.Drawing.Image)(resources.GetObject("depatures.Image")));
-            this.depatures.Location = new System.Drawing.Point(959, 12);
+            this.depatures.Location = new System.Drawing.Point(1067, 12);
             this.depatures.Name = "depatures";
             this.depatures.Size = new System.Drawing.Size(92, 68);
             this.depatures.TabIndex = 38;
@@ -341,7 +342,7 @@
             this.transferButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transferButton.Image = ((System.Drawing.Image)(resources.GetObject("transferButton.Image")));
-            this.transferButton.Location = new System.Drawing.Point(1054, 12);
+            this.transferButton.Location = new System.Drawing.Point(1162, 12);
             this.transferButton.Name = "transferButton";
             this.transferButton.Size = new System.Drawing.Size(85, 68);
             this.transferButton.TabIndex = 39;
@@ -350,12 +351,27 @@
             this.transferButton.UseVisualStyleBackColor = false;
             this.transferButton.Click += new System.EventHandler(this.transferButton_Click);
             // 
+            // hotelStatisticsButton
+            // 
+            this.hotelStatisticsButton.BackColor = System.Drawing.SystemColors.Window;
+            this.hotelStatisticsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotelStatisticsButton.Image = ((System.Drawing.Image)(resources.GetObject("hotelStatisticsButton.Image")));
+            this.hotelStatisticsButton.Location = new System.Drawing.Point(474, 12);
+            this.hotelStatisticsButton.Name = "hotelStatisticsButton";
+            this.hotelStatisticsButton.Size = new System.Drawing.Size(113, 68);
+            this.hotelStatisticsButton.TabIndex = 40;
+            this.hotelStatisticsButton.Text = "Hotel Statistics";
+            this.hotelStatisticsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.hotelStatisticsButton.UseVisualStyleBackColor = false;
+            this.hotelStatisticsButton.Click += new System.EventHandler(this.hotelStatisticsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1258, 661);
+            this.ClientSize = new System.Drawing.Size(1350, 661);
+            this.Controls.Add(this.hotelStatisticsButton);
             this.Controls.Add(this.transferButton);
             this.Controls.Add(this.depatures);
             this.Controls.Add(this.arrival_button);
@@ -403,6 +419,7 @@
         private System.Windows.Forms.Button arrival_button;
         private System.Windows.Forms.Button depatures;
         private System.Windows.Forms.Button transferButton;
+        private System.Windows.Forms.Button hotelStatisticsButton;
     }
 }
 

@@ -28,6 +28,7 @@ namespace arctic_seasport_admin
             remove_ButtonBorder(editRoBtn);
             remove_ButtonBorder(depatures);
             remove_ButtonBorder(transferButton);
+            remove_ButtonBorder(hotelStatisticsButton);
             update_Tables();
 
             Timer timer = new Timer();
@@ -53,16 +54,18 @@ namespace arctic_seasport_admin
         private void update_Tables()
         {
             Cursor.Current = Cursors.WaitCursor;
-            fill_ArrivalsTable();
-            fill_DepartureTable();
-            fill_CheckinnTable();
+            var adapter = new Database_adapter();
+            fill_ArrivalsTable(adapter);
+            fill_DepartureTable(adapter);
+            fill_CheckinnTable(adapter);
+            adapter.close();
             Cursor.Current = Cursors.Default;
         }
 
         /* Fill arrivals table whith todays arrivals */
-        private void fill_ArrivalsTable()
+        private void fill_ArrivalsTable(Database_adapter adapter)
         {
-            var data = Database.get_DataSet(string.Format(@"
+            var data = adapter.get_DataSet(string.Format(@"
                 select blid, description AS 'Object', name AS 'Customer', count(beid) AS 'Days', country AS 'Country' , DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer'
                 from customers
                 natural join bookings            
@@ -82,10 +85,10 @@ namespace arctic_seasport_admin
         }
 
         /* Fill departure table with todays departures */
-        private void fill_DepartureTable()
+        private void fill_DepartureTable(Database_adapter adapter)
         {
-            var data = Database.get_DataSet(string.Format(@"
-                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'Customer', DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer'
+            var data = adapter.get_DataSet(string.Format(@"
+                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'Customer', DATE_FORMAT(departureTime, '%k:%i') AS 'Transfer'
                 from rent_object_types
                 natural join rent_objects
                 join (booking_lines 
@@ -103,9 +106,9 @@ namespace arctic_seasport_admin
         }
 
         /* Fill Checked in table */
-        private void fill_CheckinnTable()
+        private void fill_CheckinnTable(Database_adapter adapter)
         {
-            var checkedIn = Database.get_DataSet(string.Format(@"
+            var checkedIn = adapter.get_DataSet(string.Format(@"
                 select bid AS 'ID', customers.Name as 'User', DATE_FORMAT(startDate, '%d. %m') AS 'From', DATE_FORMAT(endDate, '%d. %m') AS 'To', description AS 'Type', rent_objects.name AS 'Object', country AS 'Country' 
                 from rent_object_types
                 natural join rent_objects
@@ -235,6 +238,12 @@ namespace arctic_seasport_admin
         private void transferButton_Click(object sender, EventArgs e)
         {
             Report.transfers();
+        }
+
+        private void hotelStatisticsButton_Click(object sender, EventArgs e)
+        {
+            var form = new Hotel_statistics();
+            form.ShowDialog();
         }
     }
 }

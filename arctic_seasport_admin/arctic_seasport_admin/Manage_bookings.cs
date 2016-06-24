@@ -84,9 +84,11 @@ namespace arctic_seasport_admin
         /* Fill Bookings table. */
         private void fill_Table()
         {
+            Cursor.Current = Cursors.WaitCursor;
             bookingsView.DataSource = Database.get_DataSet( select_StateQuery() ).Tables[0];
             bookingsView.AutoResizeColumns();        
             bookingsView.ClearSelection();
+            Cursor.Current = Cursors.Default;
         }
 
 
@@ -205,12 +207,14 @@ namespace arctic_seasport_admin
             DataGridViewRow selectedRow = bookingsView.Rows[bookingsView.SelectedCells[0].RowIndex];
 
             // Get selected Booking ID
-            string bid = selectedRow.Cells["Booking"].Value.ToString();
+            string bid = selectedRow.Cells["BID"].Value.ToString();
 
             // Ask user if data should be deleted
             DialogResult dialogResult = MessageBox.Show(string.Format("Are you sure you want to delete booking {0} ?", bid), "Delete?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
                 return;
+
+            Cursor.Current = Cursors.WaitCursor;
 
             // Delete data
             var adapter = new Database_adapter();
@@ -226,7 +230,9 @@ namespace arctic_seasport_admin
 
             adapter.close();
 
-            // Udate table
+            Cursor.Current = Cursors.Default;
+
+            // Update table
             fill_Table();
         }
 
