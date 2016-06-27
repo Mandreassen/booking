@@ -45,19 +45,41 @@ namespace arctic_seasport_admin
 
                 personsBox.Text = data["personsTransfer"].ToString();
 
-                arrivalFlight.Text = data["arrivalFlight"].ToString();
-                arrivalFlight.ForeColor = SystemColors.ControlText;                
+                try
+                {
+                    arrivalFlight.Text = data["arrivalFlight"].ToString();
+                    arrivalFlight.ForeColor = SystemColors.ControlText;
+                }
+                catch { }
 
-                departureFlight.Text = data["departureFlight"].ToString();
-                departureFlight.ForeColor = SystemColors.ControlText;
+                try
+                {
+                    departureFlight.Text = data["departureFlight"].ToString();
+                    departureFlight.ForeColor = SystemColors.ControlText;
+                }
+                catch { }
 
-                var arrivaltime = DateTime.Parse(data["arrivalTime"].ToString());
-                arrivalDate.Value = arrivaltime;
-                arrivalTime.Value = arrivaltime;
+                try
+                {
+                    var arrivaltime = DateTime.Parse(data["arrivalTime"].ToString());
+                    arrivalDate.Value = arrivaltime;
+                    arrivalTime.Value = arrivaltime;
+                }
+                catch
+                {
+                    departureOnly.Checked = true;
+                }
 
-                var departuretime = DateTime.Parse(data["departureTime"].ToString());
-                departureDate.Value = departuretime;
-                departureTime.Value = departuretime;
+                try
+                {
+                    var departuretime = DateTime.Parse(data["departureTime"].ToString());
+                    departureDate.Value = departuretime;
+                    departureTime.Value = departuretime;
+                }
+                catch
+                {
+                    arrivalOnly.Checked = true;
+                }
             }
         }
 
