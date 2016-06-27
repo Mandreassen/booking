@@ -77,6 +77,12 @@
     <Compile Include="Add_rent_object_type.Designer.cs">
       <DependentUpon>Add_rent_object_type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alerts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts.Designer.cs">
+      <DependentUpon>Alerts.cs</DependentUpon>
+    </Compile>
     <Compile Include="appsettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_rent_object_type.resx">
       <DependentUpon>Add_rent_object_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alerts.resx">
+      <DependentUpon>Alerts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="appsettings.resx">
       <DependentUpon>appsettings.cs</DependentUpon>

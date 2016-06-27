@@ -52,6 +52,8 @@
             this.depatures = new System.Windows.Forms.Button();
             this.transferButton = new System.Windows.Forms.Button();
             this.hotelStatisticsButton = new System.Windows.Forms.Button();
+            this.alertButton = new System.Windows.Forms.Button();
+            this.alertCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.useTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrivalsTable)).BeginInit();
@@ -67,7 +69,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(263, 12);
+            this.button1.Location = new System.Drawing.Point(253, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 68);
             this.button1.TabIndex = 1;
@@ -92,7 +94,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1296, 16);
+            this.button3.Location = new System.Drawing.Point(205, 27);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 38);
             this.button3.TabIndex = 7;
@@ -105,7 +107,7 @@
             this.manageBookingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manageBookingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBookingsButton.Image = ((System.Drawing.Image)(resources.GetObject("manageBookingsButton.Image")));
-            this.manageBookingsButton.Location = new System.Drawing.Point(368, 12);
+            this.manageBookingsButton.Location = new System.Drawing.Point(358, 12);
             this.manageBookingsButton.Name = "manageBookingsButton";
             this.manageBookingsButton.Size = new System.Drawing.Size(104, 68);
             this.manageBookingsButton.TabIndex = 8;
@@ -120,7 +122,7 @@
             this.checkinnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkinnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkinnButton.Image = ((System.Drawing.Image)(resources.GetObject("checkinnButton.Image")));
-            this.checkinnButton.Location = new System.Drawing.Point(637, 12);
+            this.checkinnButton.Location = new System.Drawing.Point(617, 12);
             this.checkinnButton.Name = "checkinnButton";
             this.checkinnButton.Size = new System.Drawing.Size(94, 68);
             this.checkinnButton.TabIndex = 9;
@@ -231,7 +233,7 @@
             this.ready_rent_objects_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ready_rent_objects_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ready_rent_objects_button.Image = ((System.Drawing.Image)(resources.GetObject("ready_rent_objects_button.Image")));
-            this.ready_rent_objects_button.Location = new System.Drawing.Point(733, 12);
+            this.ready_rent_objects_button.Location = new System.Drawing.Point(713, 12);
             this.ready_rent_objects_button.Name = "ready_rent_objects_button";
             this.ready_rent_objects_button.Size = new System.Drawing.Size(94, 68);
             this.ready_rent_objects_button.TabIndex = 32;
@@ -294,7 +296,7 @@
             this.editRoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editRoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRoBtn.Image = ((System.Drawing.Image)(resources.GetObject("editRoBtn.Image")));
-            this.editRoBtn.Location = new System.Drawing.Point(830, 12);
+            this.editRoBtn.Location = new System.Drawing.Point(810, 12);
             this.editRoBtn.Name = "editRoBtn";
             this.editRoBtn.Size = new System.Drawing.Size(112, 68);
             this.editRoBtn.TabIndex = 36;
@@ -309,7 +311,7 @@
             this.arrival_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.arrival_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arrival_button.Image = ((System.Drawing.Image)(resources.GetObject("arrival_button.Image")));
-            this.arrival_button.Location = new System.Drawing.Point(996, 17);
+            this.arrival_button.Location = new System.Drawing.Point(966, 17);
             this.arrival_button.Name = "arrival_button";
             this.arrival_button.Size = new System.Drawing.Size(68, 68);
             this.arrival_button.TabIndex = 37;
@@ -324,7 +326,7 @@
             this.depatures.Cursor = System.Windows.Forms.Cursors.Hand;
             this.depatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.depatures.Image = ((System.Drawing.Image)(resources.GetObject("depatures.Image")));
-            this.depatures.Location = new System.Drawing.Point(1067, 17);
+            this.depatures.Location = new System.Drawing.Point(1037, 17);
             this.depatures.Name = "depatures";
             this.depatures.Size = new System.Drawing.Size(92, 68);
             this.depatures.TabIndex = 38;
@@ -339,7 +341,7 @@
             this.transferButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transferButton.Image = ((System.Drawing.Image)(resources.GetObject("transferButton.Image")));
-            this.transferButton.Location = new System.Drawing.Point(1162, 17);
+            this.transferButton.Location = new System.Drawing.Point(1132, 17);
             this.transferButton.Name = "transferButton";
             this.transferButton.Size = new System.Drawing.Size(85, 68);
             this.transferButton.TabIndex = 39;
@@ -353,7 +355,7 @@
             this.hotelStatisticsButton.BackColor = System.Drawing.SystemColors.Window;
             this.hotelStatisticsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelStatisticsButton.Image = ((System.Drawing.Image)(resources.GetObject("hotelStatisticsButton.Image")));
-            this.hotelStatisticsButton.Location = new System.Drawing.Point(474, 12);
+            this.hotelStatisticsButton.Location = new System.Drawing.Point(464, 12);
             this.hotelStatisticsButton.Name = "hotelStatisticsButton";
             this.hotelStatisticsButton.Size = new System.Drawing.Size(113, 68);
             this.hotelStatisticsButton.TabIndex = 40;
@@ -362,12 +364,41 @@
             this.hotelStatisticsButton.UseVisualStyleBackColor = false;
             this.hotelStatisticsButton.Click += new System.EventHandler(this.hotelStatisticsButton_Click);
             // 
+            // alertButton
+            // 
+            this.alertButton.BackColor = System.Drawing.SystemColors.Window;
+            this.alertButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.alertButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.alertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertButton.Image = ((System.Drawing.Image)(resources.GetObject("alertButton.Image")));
+            this.alertButton.Location = new System.Drawing.Point(1258, -1);
+            this.alertButton.Name = "alertButton";
+            this.alertButton.Size = new System.Drawing.Size(80, 69);
+            this.alertButton.TabIndex = 41;
+            this.alertButton.UseVisualStyleBackColor = false;
+            this.alertButton.Click += new System.EventHandler(this.alertButton_Click);
+            // 
+            // alertCount
+            // 
+            this.alertCount.AutoSize = true;
+            this.alertCount.BackColor = System.Drawing.Color.White;
+            this.alertCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertCount.Location = new System.Drawing.Point(1306, -1);
+            this.alertCount.Name = "alertCount";
+            this.alertCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.alertCount.Size = new System.Drawing.Size(32, 24);
+            this.alertCount.TabIndex = 42;
+            this.alertCount.Text = "12";
+            this.alertCount.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1350, 661);
+            this.Controls.Add(this.alertCount);
+            this.Controls.Add(this.alertButton);
             this.Controls.Add(this.hotelStatisticsButton);
             this.Controls.Add(this.transferButton);
             this.Controls.Add(this.depatures);
@@ -417,6 +448,8 @@
         private System.Windows.Forms.Button depatures;
         private System.Windows.Forms.Button transferButton;
         private System.Windows.Forms.Button hotelStatisticsButton;
+        private System.Windows.Forms.Button alertButton;
+        private System.Windows.Forms.Label alertCount;
     }
 }
 

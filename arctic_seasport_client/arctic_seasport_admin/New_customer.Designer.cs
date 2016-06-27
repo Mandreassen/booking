@@ -35,8 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.phoneBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.countryBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.noteBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -116,26 +114,6 @@
             this.phoneBox.Size = new System.Drawing.Size(282, 26);
             this.phoneBox.TabIndex = 4;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.CausesValidation = false;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 374);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Country";
-            // 
-            // countryBox
-            // 
-            this.countryBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countryBox.Location = new System.Drawing.Point(17, 397);
-            this.countryBox.MaxLength = 45;
-            this.countryBox.Name = "countryBox";
-            this.countryBox.Size = new System.Drawing.Size(282, 26);
-            this.countryBox.TabIndex = 6;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -154,13 +132,13 @@
             this.noteBox.MaxLength = 256;
             this.noteBox.Multiline = true;
             this.noteBox.Name = "noteBox";
-            this.noteBox.Size = new System.Drawing.Size(282, 277);
+            this.noteBox.Size = new System.Drawing.Size(282, 213);
             this.noteBox.TabIndex = 8;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(249, 442);
+            this.button1.Location = new System.Drawing.Point(250, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 10;
@@ -293,7 +271,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(618, 496);
+            this.ClientSize = new System.Drawing.Size(618, 434);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.nCustomers);
             this.Controls.Add(this.label9);
@@ -309,8 +287,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.noteBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.countryBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.phoneBox);
             this.Controls.Add(this.label2);
@@ -337,8 +313,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox phoneBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox countryBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox noteBox;
         private System.Windows.Forms.Button button1;

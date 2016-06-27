@@ -104,13 +104,25 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test-client")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Kingfisher")]
         public string company {
             get {
                 return ((string)(this["company"]));
             }
             set {
                 this["company"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tyskland")]
+        public string country {
+            get {
+                return ((string)(this["country"]));
+            }
+            set {
+                this["country"] = value;
             }
         }
     }

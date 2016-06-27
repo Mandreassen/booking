@@ -47,7 +47,6 @@ namespace arctic_seasport_admin
                 fill_AddressBox(adapter);
                 fill_postnrBox(adapter);
                 fill_postLocationBox(adapter);
-                fill_CountryBox(adapter);
                 fill_NoteBox(adapter);
                 fill_BookerBox(adapter);
                 fill_PersonsBox(adapter);
@@ -120,17 +119,6 @@ namespace arctic_seasport_admin
             }
         }
 
-        private void fill_CountryBox(Database_adapter adapter)
-        {
-            var query = string.Format("select Country from customers natural join bookings where bid = {0};", bid);
-            string data = adapter.get_Value(query);
-            if (data != null)
-            {
-                countryBox.Text = data;
-            }
-        }
-
-
         private void fill_NoteBox(Database_adapter adapter)
         {
             var query = string.Format("select Notes from bookings where bid = {0};", bid);
@@ -165,7 +153,7 @@ namespace arctic_seasport_admin
         /* Insert new customer */
         private bool insert_New_Customer()
         {
-            var query = string.Format("insert into customers values(NULL, \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\', \'{5}\', \'{6}\', NULL);select last_insert_id();", nameBox.Text, emailBox.Text, phoneBox.Text, addressBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text);
+            var query = string.Format("insert into customers values(NULL, \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\', \'{5}\', \'{6}\', NULL);select last_insert_id();", nameBox.Text, emailBox.Text, phoneBox.Text, addressBox.Text, postNrBox.Text, postLocation.Text, Properties.Settings.Default.country);
             string new_cid = Database.get_Value(query);
             if (new_cid == null)
                 return false;
@@ -181,7 +169,7 @@ namespace arctic_seasport_admin
         private bool update_Customer()
         {
             // Update customer
-            var query = string.Format("update customers set name = \'{0}\', email = \'{1}\', phone = \'{2}\', postnr = \'{3}\', postlocation = \'{4}\', country = \'{5}\' where cid = {6};", nameBox.Text, emailBox.Text, phoneBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text, cid);
+            var query = string.Format("update customers set name = \'{0}\', email = \'{1}\', phone = \'{2}\', postnr = \'{3}\', postlocation = \'{4}\', country = \'{5}\' where cid = {6};", nameBox.Text, emailBox.Text, phoneBox.Text, postNrBox.Text, postLocation.Text, Properties.Settings.Default.country, cid);
             bool success = Database.set(query);
             if (!success)
                 return false;
@@ -193,40 +181,6 @@ namespace arctic_seasport_admin
             return success;
         }
 
-
-        private void mailer(string report, string recirver)
-        {
-            try
-            {
-                Cursor.Current = Cursors.WaitCursor;
-
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("mail.arctic-seasport.no");
-
-                mail.From = new MailAddress("info@arctic-seasport.no");
-                mail.To.Add("post@mandreassen.no");
-                mail.Subject = "Booking confirmation";
-                
-                mail.IsBodyHtml = true;
-                mail.Body = report;
-
-                SmtpServer.Port = 587;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("info@arctic-seasport.no", "123qwe!");
-                SmtpServer.EnableSsl = false;
-
-                SmtpServer.Send(mail);
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show("Mail Sendt");
-            }
-            catch (Exception ex)
-            {
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-
         /* Save button clicked */
         private void button1_Click(object sender, EventArgs e)
         {
@@ -234,12 +188,6 @@ namespace arctic_seasport_admin
             if (nameBox.Text == "")
             {
                 MessageBox.Show("Customer is missing");
-                return;
-            }
-
-            if (countryBox.Text == "")
-            {
-                MessageBox.Show("Country is missing");
                 return;
             }
 
@@ -275,15 +223,6 @@ namespace arctic_seasport_admin
             {
                 var report = Report.booking_Confirmation(bid, false);
                 var viewer = new ReportViewer(report);                
-
-                if (emailBox.Text != "")
-                {                    
-                    var dialogResult = MessageBox.Show(string.Format("Send booking confirmation to {0}?", emailBox.Text), "Mail confermation?", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        mailer(report, emailBox.Text);
-                    }
-                }
 
                 viewer.ShowDialog();
 

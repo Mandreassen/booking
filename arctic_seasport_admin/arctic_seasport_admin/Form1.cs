@@ -19,6 +19,15 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            button3.Visible = false;
+
+            var pos = this.PointToScreen(alertCount.Location);
+            pos = alertButton.PointToClient(pos);
+            alertCount.Parent = alertButton;
+            alertCount.Location = pos;
+            alertCount.BackColor = Color.Transparent;
+
+
             remove_ButtonBorder(button3);
             remove_ButtonBorder(button1);
             remove_ButtonBorder(checkinnButton);
@@ -29,6 +38,7 @@ namespace arctic_seasport_admin
             remove_ButtonBorder(depatures);
             remove_ButtonBorder(transferButton);
             remove_ButtonBorder(hotelStatisticsButton);
+            remove_ButtonBorder(alertButton);
             update_Tables();
 
             Timer timer = new Timer();
@@ -58,8 +68,27 @@ namespace arctic_seasport_admin
             fill_ArrivalsTable(adapter);
             fill_DepartureTable(adapter);
             fill_CheckinnTable(adapter);
+            check_Alert(adapter);
             adapter.close();
             Cursor.Current = Cursors.Default;
+            
+        }
+
+        private void check_Alert(Database_adapter adapter)
+        {
+            string data = adapter.get_Value("select count(aid) from alerts;");
+            alertCount.Text = data;
+
+            int num = Int32.Parse(data);
+
+            if (num > 0)
+            {
+                alertCount.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                alertCount.ForeColor = System.Drawing.Color.Black;
+            }
         }
 
         /* Fill arrivals table whith todays arrivals */
@@ -254,9 +283,11 @@ namespace arctic_seasport_admin
             form.ShowDialog();
         }
 
-        private void checkFlight_Click(object sender, EventArgs e)
+        private void alertButton_Click(object sender, EventArgs e)
         {
-
+            var form = new Alerts();
+            form.ShowDialog();
+            update_Tables();
         }
     }
 }
