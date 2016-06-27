@@ -101,5 +101,17 @@ namespace arctic_seasport_admin.Properties {
                 return ((string)(this["arctic_seasport_dbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arctic-Seasport")]
+        public string company {
+            get {
+                return ((string)(this["company"]));
+            }
+            set {
+                this["company"] = value;
+            }
+        }
     }
 }

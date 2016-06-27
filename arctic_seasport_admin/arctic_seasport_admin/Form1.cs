@@ -253,5 +253,10 @@ namespace arctic_seasport_admin
             var form = new Hotel_statistics();
             form.ShowDialog();
         }
+
+        private void checkFlight_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,5 +28,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;user id=admin1;database=arctic_seasport_db</Value>
     </Setting>
+    <Setting Name="company" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arctic-Seasport</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

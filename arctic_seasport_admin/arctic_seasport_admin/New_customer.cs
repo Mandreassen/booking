@@ -273,7 +273,7 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
             if (success)
             {
-                var report = Report.booking_Confirmation(bid);
+                var report = Report.booking_Confirmation(bid, false);
                 var viewer = new ReportViewer(report);                
 
                 if (emailBox.Text != "")

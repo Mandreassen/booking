@@ -12,7 +12,7 @@ namespace arctic_seasport_admin
 {
     static class Report
     {
-        static public string booking_Confirmation(int bid)
+        static public string booking_Confirmation(int bid, bool display_price = true)
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -103,13 +103,15 @@ namespace arctic_seasport_admin
             report += "</table>";
 
             // Price
-            report += string.Format(@"
-                <br>
-                <font size=""4"">                  
-                    <div align=""left""> SUM: NOK {0},- </div>
-                </font>  
-            ", price);
-
+            if (display_price)
+            {
+                report += string.Format(@"
+                    <br>
+                    <font size=""4"">                  
+                        <div align=""left""> SUM: NOK {0},- </div>
+                    </font>  
+                ", price);
+            }
 
             // Notes
             if (note != "")
