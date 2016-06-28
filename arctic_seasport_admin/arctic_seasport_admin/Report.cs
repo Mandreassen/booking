@@ -25,6 +25,12 @@ namespace arctic_seasport_admin
             string note    = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br>");
             string price   = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
             string persons = adapter.get_Value(string.Format("select persons from bookings where bid = {0}", bid));
+            var transfer = adapter.get_DataSet(string.Format(@"
+                select arrivalTime, arrivalFlight, departureTime, departureFlight, personsTransfer
+                from transfers
+                where bid = {0}
+                ;", bid));
+
 
             DataSet details = adapter.get_DataSet(string.Format("select description, startDate, endDate from booking_lines natural join booking_entries natural join rent_object_types where bid = {0} group by blid;", bid));
 
@@ -113,6 +119,39 @@ namespace arctic_seasport_admin
                 ", price);
             }
 
+            
+            // Transfer
+            if (transfer.Tables[0].Rows.Count > 0)
+            {
+                report += string.Format(@"
+                    <br>
+                    <br>
+
+                    <font size=""5"">
+                        Transfer
+                    </font>
+
+                    <table id='t01'>
+                        <tr>
+                        <th>Arrival</th>
+                        <th>Flight</th>
+                        <th>Departure</th>
+                        <th>Flight</th> 
+                        <th>Persons</th>                     
+                        </tr>
+                ");
+
+                table = transfer.Tables[0];
+                foreach (DataRow row in table.Rows)
+                {
+                    report += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> </tr>
+                                            ", (row[0].ToString() != "") ? DateTime.Parse(row[0].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[1], (row[2].ToString() != "") ? DateTime.Parse(row[2].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[3], row[4]);
+                }
+
+                report += "</table>";
+            }
+
+
             // Notes
             if (note != "")
             {
@@ -130,7 +169,7 @@ namespace arctic_seasport_admin
                         {0}
                     </font>
                 ", note);
-            }         
+            }
 
 
             // Footer

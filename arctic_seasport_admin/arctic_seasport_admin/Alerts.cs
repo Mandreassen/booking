@@ -71,6 +71,12 @@ namespace arctic_seasport_admin
         private void viewButton_Click(object sender, EventArgs e)
         {
             var bid = get_SelectedBid();
+            if (bid == null)
+            {
+                MessageBox.Show("No item selected");
+                return;
+            }
+
             var report = Report.booking_Confirmation(Int32.Parse(bid));
             var viewer = new ReportViewer(report);
             viewer.ShowDialog();
@@ -78,9 +84,16 @@ namespace arctic_seasport_admin
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            var aid = get_SelectedAid();
+            if (aid == null)
+            {
+                MessageBox.Show("No item selected");
+                return;
+            }
+
             Database.set(string.Format(@"
                 delete from alerts where aid = {0};
-            ", get_SelectedAid()));
+            ", aid));
 
             fill_Table();
         }

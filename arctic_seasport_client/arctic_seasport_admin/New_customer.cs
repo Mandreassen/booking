@@ -202,16 +202,17 @@ namespace arctic_seasport_admin
                 MessageBox.Show("Booker missing");
                 return;
             }
-
+            /*
             if (emailBox.Text == "")
             {
                 var dialogResult = MessageBox.Show("Email is missing. Continue?", "Missing email", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
                     return;
-            }            
+            }  
+            */
             // </sanity check>
 
-            
+
             Cursor.Current = Cursors.WaitCursor;
             bool success;
             if (cid == Database.DEFAULT_CUSTOMER)

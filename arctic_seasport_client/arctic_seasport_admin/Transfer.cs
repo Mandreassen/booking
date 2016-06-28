@@ -141,11 +141,15 @@ namespace arctic_seasport_admin
 
             if (new_transfer)
             {
-                Database.set(string.Format(@"
+                var adapter = new Database_adapter();
+                adapter.set(string.Format(@"
                     insert into transfers
                     values(NULL, {0}, {1}, {2}, {3}, {4}, {5});
                     ", bid, arrivaltime, arrivalflight, departuretime, departureflight, personsBox.Text)
                 );
+
+                adapter.set(string.Format("insert into alerts values (NULL, {0}, 'transfer', '{1}');", bid, DateTime.Now.ToString("yyyy-MM-dd")));
+                adapter.close();
             }
             else
             {

@@ -99,8 +99,8 @@ namespace arctic_seasport_admin
             var query = string.Format("insert into bookings values (NULL, {0}, '{1}', NULL, NULL, NULL, '{2}');select last_insert_id();", Database.DEFAULT_CUSTOMER.ToString(), DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company);
             string newBID = Database.get_Value(query);
             if (newBID == null)
-                return -1;        
-
+                return -1;
+            
             return System.Int32.Parse(newBID);
         }
 
