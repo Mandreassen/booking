@@ -17,14 +17,20 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
 
-            string bDate   = adapter.get_Value(string.Format("select bookingDate from bookings where bid = {0}", bid));
-            string name    = adapter.get_Value(string.Format("select name from bookings natural join customers where bid = {0};", bid));
-            string email   = adapter.get_Value(string.Format("select email from bookings natural join customers where bid = {0};", bid));
-            string tlf     = adapter.get_Value(string.Format("select phone from bookings natural join customers where bid = {0};", bid));
+            string bDate = adapter.get_Value(string.Format("select bookingDate from bookings where bid = {0}", bid));
+            string name = adapter.get_Value(string.Format("select name from bookings natural join customers where bid = {0};", bid));
+            string email = adapter.get_Value(string.Format("select email from bookings natural join customers where bid = {0};", bid));
+            string tlf = adapter.get_Value(string.Format("select phone from bookings natural join customers where bid = {0};", bid));
             string country = adapter.get_Value(string.Format("select country from bookings natural join customers where bid = {0};", bid));
-            string note    = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br>");
-            string price   = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
+            string note = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br>");
+            //string price = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
             string persons = adapter.get_Value(string.Format("select persons from bookings where bid = {0}", bid));
+            var transfer = adapter.get_DataSet(string.Format(@"
+                select arrivalTime, arrivalFlight, departureTime, departureFlight, personsTransfer
+                from transfers
+                where bid = {0}
+                ;", bid));
+
 
             DataSet details = adapter.get_DataSet(string.Format("select description, startDate, endDate from booking_lines natural join booking_entries natural join rent_object_types where bid = {0} group by blid;", bid));
 
@@ -62,7 +68,7 @@ namespace arctic_seasport_admin
                 </font>
                
                 ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), persons, (name != "") ? name + "<br>" : "", (email != "") ? email + "<br>" : "", (tlf != "") ? tlf + "<br>" : "", (country != "") ? country + "<br>" : "");
-            
+
 
             // Booking lines
             report += @"
@@ -97,13 +103,13 @@ namespace arctic_seasport_admin
             DataTable table = details.Tables[0];
             foreach (DataRow row in table.Rows)
             {
-                report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> </tr>", row[0], ((DateTime) row[1]).ToString("dd.MM.yyyy"), ((DateTime)row[2]).ToString("dd.MM.yyyy"));              
+                report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> </tr>", row[0], ((DateTime)row[1]).ToString("dd.MM.yyyy"), ((DateTime)row[2]).ToString("dd.MM.yyyy"));
             }
 
             report += "</table>";
 
             // Price
-            if (display_price)
+            /*if (display_price)
             {
                 report += string.Format(@"
                     <br>
@@ -111,7 +117,40 @@ namespace arctic_seasport_admin
                         <div align=""left""> SUM: NOK {0},- </div>
                     </font>  
                 ", price);
+            }*/
+
+
+            // Transfer
+            if (transfer.Tables[0].Rows.Count > 0)
+            {
+                report += string.Format(@"
+                    <br>
+                    <br>
+
+                    <font size=""5"">
+                        Transfer
+                    </font>
+
+                    <table id='t01'>
+                        <tr>
+                        <th>Arrival</th>
+                        <th>Flight</th>
+                        <th>Departure</th>
+                        <th>Flight</th> 
+                        <th>Persons</th>                     
+                        </tr>
+                ");
+
+                table = transfer.Tables[0];
+                foreach (DataRow row in table.Rows)
+                {
+                    report += string.Format(@"<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> <td> {4} </td> </tr>
+                                            ", (row[0].ToString() != "") ? DateTime.Parse(row[0].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[1], (row[2].ToString() != "") ? DateTime.Parse(row[2].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[3], row[4]);
+                }
+
+                report += "</table>";
             }
+
 
             // Notes
             if (note != "")
@@ -130,7 +169,7 @@ namespace arctic_seasport_admin
                         {0}
                     </font>
                 ", note);
-            }         
+            }
 
 
             // Footer
@@ -159,10 +198,10 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
 
             return report;
-       }
+        }
 
 
-        
+
         static public string arrivals()
         {
             Cursor.Current = Cursors.WaitCursor;

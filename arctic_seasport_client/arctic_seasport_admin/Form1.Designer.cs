@@ -106,7 +106,7 @@
             this.bookingsButton.Name = "bookingsButton";
             this.bookingsButton.Size = new System.Drawing.Size(201, 44);
             this.bookingsButton.TabIndex = 9;
-            this.bookingsButton.Text = "Bookings";
+            this.bookingsButton.Text = "Your bookings";
             this.bookingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bookingsButton.UseVisualStyleBackColor = false;
             this.bookingsButton.Click += new System.EventHandler(this.bookingsButton_Click);

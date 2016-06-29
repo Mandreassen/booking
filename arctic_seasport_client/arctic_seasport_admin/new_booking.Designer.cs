@@ -248,6 +248,7 @@
             this.Name = "new_booking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "new_booking";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.new_booking_FormClosing);
             this.Load += new System.EventHandler(this.new_booking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

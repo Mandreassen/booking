@@ -35,7 +35,7 @@ namespace arctic_seasport_admin
             switch (State)
             {
                 case STATE.UPCOMING:
-                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, Country, min(date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -46,7 +46,7 @@ namespace arctic_seasport_admin
                                             (select bid 
                                             from booking_lines 
                                             natural join booking_entries 
-                                            where Date >= '{1}') 
+                                            where date >= '{1}') 
                                         order by min(Date);
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company);
 
@@ -67,7 +67,7 @@ namespace arctic_seasport_admin
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company); 
 
                 case STATE.ALL:
-                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, Country, min(date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -75,7 +75,7 @@ namespace arctic_seasport_admin
                                         where name like '%{0}%' 
                                         and company = '{1}'
                                         group by bid 
-                                        order by min(Date);
+                                        order by min(date);
                                         ", searchBox.Text, Properties.Settings.Default.company);
 
                 default:

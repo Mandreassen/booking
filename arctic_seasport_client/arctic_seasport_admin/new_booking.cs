@@ -260,19 +260,11 @@ namespace arctic_seasport_admin
             fill_Overview();
         }
 
-
-        /* Cancel/Delete button click */
-        private void button4_Click(object sender, EventArgs e)
+        private bool cancel()
         {
-            if (bid < 0)
-            {
-                this.Close();
-                return;
-            }                
-
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel this booking?", "Cancel?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.No)            
-                return;
+            if (dialogResult == DialogResult.No)
+                return false;
 
             var adapter = new Database_adapter();
 
@@ -287,6 +279,22 @@ namespace arctic_seasport_admin
             adapter.set(string.Format("delete from alerts where bid = {0};", bid));
 
             adapter.close();
+
+            return true;
+        }
+
+
+        /* Cancel/Delete button click */
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (bid < 0)
+            {
+                this.Close();
+                return;
+            }
+
+            if (!cancel())
+                return;
 
             this.Close();
         }
@@ -375,6 +383,20 @@ namespace arctic_seasport_admin
             dataGridView2.AutoResizeColumns();
             dataGridView2.ClearSelection();
             dataGridView2.Show();
+        }
+
+        private void new_booking_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bid > 0 && !done)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (!cancel())
+                {
+                    e.Cancel = true;
+                }
+                    
+                Cursor.Current = Cursors.Default;
+            }
         }
     }
 }
