@@ -33,7 +33,14 @@ namespace arctic_seasport_admin
         /* Fill Bookings table. */
         private void fill_Table()
         {
-            DataSet ds = Database.get_DataSet("select cid AS ID, name AS Name, email, country as Country from customers where Name like \'%" + searchBox.Text + "%\' and cid != 1;");
+            DataSet ds = Database.get_DataSet(string.Format(@"
+                select cid AS ID, name AS Name, email
+                from customers
+                where name like '%{0}%' 
+                and cid != 1
+                and cid in 
+	                (select cid from bookings natural join customers where company = '{1}');
+            ", searchBox.Text, Properties.Settings.Default.company));
 
             customers.DataSource = ds.Tables[0];
 

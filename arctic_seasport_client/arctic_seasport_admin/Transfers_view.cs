@@ -33,7 +33,7 @@ namespace arctic_seasport_admin
                 natural join bookings
                 natural join booking_lines
                 left outer join transfers on transfers.bid = bookings.bid
-                where startDate >= '{0}'
+                where endDate >= '{0}'
                 and company = '{1}'
                 group by bid;
                 ", DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company)
