@@ -227,6 +227,7 @@ namespace arctic_seasport_admin
 
             adapter.set(string.Format("delete from booking_lines where bid = {0};", bid));
             adapter.set(string.Format("delete from bookings where bid = {0};", bid));
+            adapter.set(string.Format("delete from transfers where bid = {0};", bid));
 
             adapter.close();
 

@@ -15,7 +15,7 @@ namespace arctic_seasport_admin
     {
         private int bid;
         private DataTable booked;
-        private bool done;
+        private bool done, edit;
         private string collumnFormat;
 
 
@@ -23,9 +23,11 @@ namespace arctic_seasport_admin
         public new_booking(int selected_bid)
         {
             InitializeComponent();
+            edit = false;
             bid = selected_bid;
             if (bid > 0)
             {
+                edit = true;
                 button4.Text = "DELETE BOOKING";
                 fill_BookingLineTable();
             }
@@ -256,18 +258,11 @@ namespace arctic_seasport_admin
         }
 
 
-        /* Cancel/Delete button click */
-        private void button4_Click(object sender, EventArgs e)
+        private bool cancel()
         {
-            if (bid < 0)
-            {
-                this.Close();
-                return;
-            }                
-
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel this booking?", "Cancel?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.No)            
-                return;
+            if (dialogResult == DialogResult.No)
+                return false;
 
             var adapter = new Database_adapter();
 
@@ -282,6 +277,22 @@ namespace arctic_seasport_admin
             adapter.set(string.Format("delete from transfers where bid = {0};", bid));
 
             adapter.close();
+
+            return true;
+        }
+
+
+        /* Cancel/Delete button click */
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (bid < 0)
+            {
+                this.Close();
+                return;
+            }
+
+            if (!cancel())
+                return;
 
             this.Close();
         }
@@ -356,6 +367,17 @@ namespace arctic_seasport_admin
             }
             fill_BookingLineTable();
             fill_Overview();
+        }
+
+        private void new_booking_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (bid > 0 && !edit && !done)
+            {
+                if (!cancel())
+                {
+                    e.Cancel = true;
+                }                    
+            }
         }
 
 
