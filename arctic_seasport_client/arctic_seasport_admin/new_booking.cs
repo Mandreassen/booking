@@ -287,15 +287,6 @@ namespace arctic_seasport_admin
         /* Cancel/Delete button click */
         private void button4_Click(object sender, EventArgs e)
         {
-            if (bid < 0)
-            {
-                this.Close();
-                return;
-            }
-
-            if (!cancel())
-                return;
-
             this.Close();
         }
 

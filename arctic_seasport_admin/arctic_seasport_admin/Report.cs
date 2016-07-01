@@ -17,33 +17,75 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
 
-            string bDate   = adapter.get_Value(string.Format("select bookingDate from bookings where bid = {0}", bid));
-            string name    = adapter.get_Value(string.Format("select name from bookings natural join customers where bid = {0};", bid));
-            string email   = adapter.get_Value(string.Format("select email from bookings natural join customers where bid = {0};", bid));
-            string tlf     = adapter.get_Value(string.Format("select phone from bookings natural join customers where bid = {0};", bid));
-            string country = adapter.get_Value(string.Format("select country from bookings natural join customers where bid = {0};", bid));
-            string note    = adapter.get_Value(string.Format("select notes from bookings where bid = {0};", bid)).Replace("\n", "<br>");
-            string price   = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
-            string persons = adapter.get_Value(string.Format("select persons from bookings where bid = {0}", bid));
+            var data = adapter.get_DataSet(string.Format(@"
+                select bookingDate, name, email, address, postnr, postlocation, phone, country, company, notes, persons
+                from bookings
+                natural join customers
+                where bid = {0};
+            ", bid)).Tables[0].Rows[0];
+
+            string bDate     = data[0].ToString();
+            string name      = data[1].ToString();
+            string email     = data[2].ToString();
+            string address   = data[3].ToString();
+            string postnr    = data[4].ToString();
+            string pLocation = data[5].ToString();
+            string tlf       = data[6].ToString();
+            string country   = data[7].ToString();
+            string company   = data[8].ToString();
+            string note      = data[9].ToString().Replace("\n", "<br>");
+            string persons   = data[10].ToString();
+
+            string price = adapter.get_Value(string.Format("select sum(price) from booking_lines natural join booking_entries natural join rent_object_types where bid = {0};", bid));
             var transfer = adapter.get_DataSet(string.Format(@"
                 select arrivalTime, arrivalFlight, departureTime, departureFlight, personsTransfer
                 from transfers
                 where bid = {0}
                 ;", bid));
 
-
-            DataSet details = adapter.get_DataSet(string.Format("select description, startDate, endDate from booking_lines natural join booking_entries natural join rent_object_types where bid = {0} group by blid;", bid));
+            DataSet details = adapter.get_DataSet(string.Format(@"
+                select description, startDate, endDate 
+                from booking_lines 
+                natural join booking_entries 
+                natural join rent_object_types 
+                where bid = {0} 
+                group by blid;", bid)
+            );
 
             // BEGIN REPORT
-            var report = string.Format(@"
+            var report = @"
                 <!DOCTYPE html>
                 <html>
                 <body>              
+            ";
 
-                <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
-                
-                    <br>
+            if (company == "Kingfisher")
+            {
+                report += @"                
+                    <style>
+                    .logo {
+                        float: left;
+                        position: absolute;
+                    }
 
+                    .kingfisher {
+                        text-align: right;
+                    </style>             
+
+                    <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                    <div class=""kingfisher""> <img src=""http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png"" alt=""kingfisher"" height=""73""> </div>
+                ";
+            }
+            else
+            {
+                report += @"
+                    <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">                    
+                ";
+            }
+
+            
+            report += string.Format(@"
+                <br>
                 <font size=""6""> Booking confirmation </font>    
 
                 <br>
@@ -59,6 +101,8 @@ namespace arctic_seasport_admin
                     {4} 
                     {5}
                     {6}
+                    {7}
+                    {8}
                 </font>            
 
                 <br>
@@ -67,7 +111,13 @@ namespace arctic_seasport_admin
                     Details
                 </font>
                
-                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), persons, (name != "") ? name + "<br>" : "", (email != "") ? email + "<br>" : "", (tlf != "") ? tlf + "<br>" : "", (country != "") ? country + "<br>" : "");
+                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), 
+                                  bid.ToString(), persons, (name != "") ? name + "<br>" : "", 
+                                  (email != "") ? email + "<br>" : "", 
+                                  (tlf != "") ? tlf + "<br>" : "", 
+                                  (address != "") ? address + "<br>" : "",
+                                  (postnr != "" && pLocation != "") ? postnr + " " + pLocation + "<br>" : "",  
+                                  (country != "") ? country + "<br>" : "");
             
 
             // Booking lines

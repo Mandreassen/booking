@@ -19,7 +19,7 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            button3.Visible = false;
         }
 
         /* New booking */
@@ -46,6 +46,11 @@ namespace arctic_seasport_admin
         {
             var form = new Manage_bookings();
             form.ShowDialog();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

@@ -53,11 +53,13 @@
             this.personsBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -74,7 +76,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(235, 84);
+            this.radioButton1.Location = new System.Drawing.Point(109, 83);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 22);
             this.radioButton1.TabIndex = 7;
@@ -87,7 +89,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(339, 84);
+            this.radioButton2.Location = new System.Drawing.Point(208, 83);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(84, 22);
             this.radioButton2.TabIndex = 8;
@@ -100,7 +102,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(431, 84);
+            this.radioButton3.Location = new System.Drawing.Point(295, 83);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(41, 22);
             this.radioButton3.TabIndex = 9;
@@ -142,7 +144,7 @@
             this.bookingsView.ReadOnly = true;
             this.bookingsView.RowHeadersVisible = false;
             this.bookingsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bookingsView.Size = new System.Drawing.Size(591, 650);
+            this.bookingsView.Size = new System.Drawing.Size(459, 650);
             this.bookingsView.TabIndex = 10;
             this.bookingsView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookingView_CellEnter);
             // 
@@ -150,7 +152,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(233, 28);
+            this.button3.Location = new System.Drawing.Point(352, 75);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 13;
@@ -187,7 +189,7 @@
             this.detailsView.DefaultCellStyle = dataGridViewCellStyle4;
             this.detailsView.EnableHeadersVisualStyles = false;
             this.detailsView.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.detailsView.Location = new System.Drawing.Point(614, 353);
+            this.detailsView.Location = new System.Drawing.Point(498, 353);
             this.detailsView.Name = "detailsView";
             this.detailsView.ReadOnly = true;
             this.detailsView.RowHeadersVisible = false;
@@ -209,7 +211,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(613, 144);
+            this.label2.Location = new System.Drawing.Point(497, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 16;
@@ -220,7 +222,7 @@
             this.noteBox.BackColor = System.Drawing.SystemColors.Menu;
             this.noteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.noteBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteBox.Location = new System.Drawing.Point(614, 167);
+            this.noteBox.Location = new System.Drawing.Point(498, 167);
             this.noteBox.Multiline = true;
             this.noteBox.Name = "noteBox";
             this.noteBox.ReadOnly = true;
@@ -231,7 +233,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(610, 330);
+            this.label3.Location = new System.Drawing.Point(494, 330);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 18;
@@ -240,7 +242,7 @@
             // searchBox
             // 
             this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(642, 28);
+            this.searchBox.Location = new System.Drawing.Point(298, 29);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(285, 26);
             this.searchBox.TabIndex = 19;
@@ -249,7 +251,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(614, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(270, 33);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 22);
             this.pictureBox2.TabIndex = 20;
@@ -258,7 +260,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(906, 34);
+            this.pictureBox3.Location = new System.Drawing.Point(562, 35);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(18, 19);
             this.pictureBox3.TabIndex = 21;
@@ -269,7 +271,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(688, 736);
+            this.label4.Location = new System.Drawing.Point(572, 736);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 22;
@@ -280,7 +282,7 @@
             this.sumBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.sumBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sumBox.Location = new System.Drawing.Point(787, 733);
+            this.sumBox.Location = new System.Drawing.Point(671, 733);
             this.sumBox.Name = "sumBox";
             this.sumBox.ReadOnly = true;
             this.sumBox.Size = new System.Drawing.Size(141, 26);
@@ -292,7 +294,7 @@
             this.bookerBox.BackColor = System.Drawing.SystemColors.Menu;
             this.bookerBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bookerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bookerBox.Location = new System.Drawing.Point(614, 107);
+            this.bookerBox.Location = new System.Drawing.Point(498, 107);
             this.bookerBox.Multiline = true;
             this.bookerBox.Name = "bookerBox";
             this.bookerBox.Size = new System.Drawing.Size(235, 25);
@@ -303,7 +305,7 @@
             this.personsBox.BackColor = System.Drawing.SystemColors.Menu;
             this.personsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.personsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personsBox.Location = new System.Drawing.Point(866, 106);
+            this.personsBox.Location = new System.Drawing.Point(750, 106);
             this.personsBox.Multiline = true;
             this.personsBox.Name = "personsBox";
             this.personsBox.Size = new System.Drawing.Size(62, 25);
@@ -314,7 +316,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(862, 83);
+            this.label5.Location = new System.Drawing.Point(746, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 20);
             this.label5.TabIndex = 26;
@@ -324,18 +326,28 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(610, 84);
+            this.label6.Location = new System.Drawing.Point(494, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);
             this.label6.TabIndex = 27;
             this.label6.Text = "Booker";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(633, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(201, 68);
+            this.pictureBox4.TabIndex = 28;
+            this.pictureBox4.TabStop = false;
             // 
             // Manage_bookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(942, 771);
+            this.ClientSize = new System.Drawing.Size(830, 771);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.personsBox);
@@ -356,6 +368,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Manage_bookings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -365,6 +378,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,5 +406,6 @@
         private System.Windows.Forms.TextBox personsBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

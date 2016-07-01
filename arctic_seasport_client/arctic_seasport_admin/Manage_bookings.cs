@@ -35,7 +35,7 @@ namespace arctic_seasport_admin
             switch (State)
             {
                 case STATE.UPCOMING:
-                    return string.Format(@"select bid as 'BID', Name, Country, min(date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, min(date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -51,7 +51,7 @@ namespace arctic_seasport_admin
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company);
 
                 case STATE.PREVIOUS:
-                    return string.Format(@"select bid as 'BID', Name, Country, min(Date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, min(Date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 
@@ -67,7 +67,7 @@ namespace arctic_seasport_admin
                                         ", searchBox.Text, System.DateTime.Now.ToString("yyyy-MM-dd"), Properties.Settings.Default.company); 
 
                 case STATE.ALL:
-                    return string.Format(@"select bid as 'BID', Name, Country, min(date) as 'Arrival Date' 
+                    return string.Format(@"select bid as 'BID', Name, min(date) as 'Arrival Date' 
                                         from booking_entries 
                                         natural join booking_lines 
                                         natural join bookings 

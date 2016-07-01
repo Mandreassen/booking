@@ -293,6 +293,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.emailBox);
             this.Controls.Add(this.nameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "New_customer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
