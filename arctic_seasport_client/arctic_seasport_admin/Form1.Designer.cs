@@ -119,7 +119,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(680, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(746, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(201, 68);
             this.pictureBox2.TabIndex = 10;
@@ -131,7 +131,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(256, 98);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(598, 351);
+            this.pictureBox3.Size = new System.Drawing.Size(667, 351);
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
@@ -157,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(882, 472);
+            this.ClientSize = new System.Drawing.Size(949, 471);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);

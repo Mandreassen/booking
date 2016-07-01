@@ -47,8 +47,6 @@
             this.searchBox = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.sumBox = new System.Windows.Forms.TextBox();
             this.bookerBox = new System.Windows.Forms.TextBox();
             this.personsBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -267,28 +265,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(572, 736);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Sum (NOK)";
-            // 
-            // sumBox
-            // 
-            this.sumBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sumBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sumBox.Location = new System.Drawing.Point(671, 733);
-            this.sumBox.Name = "sumBox";
-            this.sumBox.ReadOnly = true;
-            this.sumBox.Size = new System.Drawing.Size(141, 26);
-            this.sumBox.TabIndex = 23;
-            this.sumBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // bookerBox
             // 
             this.bookerBox.BackColor = System.Drawing.SystemColors.Menu;
@@ -346,14 +322,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(830, 771);
+            this.ClientSize = new System.Drawing.Size(830, 741);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.personsBox);
             this.Controls.Add(this.bookerBox);
-            this.Controls.Add(this.sumBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.searchBox);
@@ -400,8 +374,6 @@
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox sumBox;
         private System.Windows.Forms.TextBox bookerBox;
         private System.Windows.Forms.TextBox personsBox;
         private System.Windows.Forms.Label label5;

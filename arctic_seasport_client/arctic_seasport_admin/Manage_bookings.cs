@@ -154,19 +154,6 @@ namespace arctic_seasport_admin
         }
 
 
-        /* Fill SUM box */ 
-        private void fill_sumBox(string bid)
-        {
-            var sum = Database.get_Value(string.Format(@"select sum(price)
-                                                    from booking_lines 
-                                                    natural join booking_entries
-                                                    natural join rent_object_types 
-                                                    where bid = {0};", bid));
-
-            sumBox.Text = string.Format("{0},- ", sum);
-        }
-
-
         private void fill_BookerBox(string bid)
         {
             bookerBox.Text = "  " + Database.get_Value(string.Format("select booker from bookings where bid = {0};", bid));            
@@ -188,7 +175,6 @@ namespace arctic_seasport_admin
                 return; // Error
 
             fill_BookingLinesTable(bid);
-            fill_sumBox(bid);
             fill_PersonsBox(bid);
             fill_BookerBox(bid);
             var query = string.Format("select Notes from bookings where bid = {0};", bid);
