@@ -181,37 +181,90 @@ namespace arctic_seasport_admin
             return success;
         }
 
-        /* Save button clicked */
-        private void button1_Click(object sender, EventArgs e)
+
+        private bool sanetyCheck()
         {
-            // <satity check>
             if (nameBox.Text == "")
             {
                 MessageBox.Show("Customer is missing");
-                return;
+                return false;
             }
 
             if (nCustomers.Value <= 0)
             {
                 MessageBox.Show("Invalid value for number of persons");
-                return;
+                return false;
             }
 
             if (bookerBox.Text == "")
             {
                 MessageBox.Show("Booker missing");
-                return;
+                return false;
             }
-            /*
-            if (emailBox.Text == "")
+
+            if (nameBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Name to long.");
+                return false;
+            }
+
+            if (emailBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Email to long.");
+                return false;
+            }
+
+            if (phoneBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Phone number to long.");
+                return false;
+            }
+
+            if (addressBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Address to long.");
+                return false;
+            }
+
+            if (postNrBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Postnr to long.");
+                return false;
+            }
+
+            if (postLocation.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Post location to long.");
+                return false;
+            }
+
+            if (bookerBox.Text.Length >= Database.BUFFER_SIZE)
+            {
+                MessageBox.Show("Booker name to long.");
+                return false;
+            }
+
+            if (noteBox.Text.Length >= 400)
+            {
+                MessageBox.Show("Notes to long.");
+                return false;
+            }
+
+            /*if (emailBox.Text == "")
             {
                 var dialogResult = MessageBox.Show("Email is missing. Continue?", "Missing email", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
-                    return;
-            }  
-            */
-            // </sanity check>
+                    return false;
+            }*/
 
+            return true;
+        }
+
+        /* Save button clicked */
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!sanetyCheck())
+                return;
 
             Cursor.Current = Cursors.WaitCursor;
             bool success;
@@ -233,7 +286,6 @@ namespace arctic_seasport_admin
             }
         }
 
-
         /* Find existing customer */
         private void button2_Click(object sender, EventArgs e)
         {
@@ -243,5 +295,38 @@ namespace arctic_seasport_admin
             Database.set(query);
             fill_info();
         }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+            nameBox.Text = toNameString(nameBox.Text);
+            nameBox.SelectionStart = nameBox.Text.Length;
+            nameBox.SelectionLength = 0;
+        }
+
+        private string toNameString(string s)
+        {
+            if (s == null || s.Length == 0)
+                return "";
+
+            string name = "";
+
+            name += Char.ToUpper(s[0]); // First char to upper
+
+            for (int i = 1; i < s.Length; i++)
+            {
+                name += s[i];
+                if (s[i] == ' ')
+                {
+                    i++;
+                    if (i < s.Length)
+                    {
+                        name += Char.ToUpper(s[i]); // First char in new word
+                    }
+                }
+            }
+
+            return name;
+        }
+
     }
 }

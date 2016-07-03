@@ -33,6 +33,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hotel_statistics));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.numAccom = new System.Windows.Forms.TextBox();
+            this.totalGuests = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,20 +88,64 @@
             this.dataView.Size = new System.Drawing.Size(291, 404);
             this.dataView.TabIndex = 17;
             // 
+            // numAccom
+            // 
+            this.numAccom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numAccom.Location = new System.Drawing.Point(330, 60);
+            this.numAccom.Name = "numAccom";
+            this.numAccom.Size = new System.Drawing.Size(95, 24);
+            this.numAccom.TabIndex = 18;
+            this.numAccom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // totalGuests
+            // 
+            this.totalGuests.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalGuests.Location = new System.Drawing.Point(330, 134);
+            this.totalGuests.Name = "totalGuests";
+            this.totalGuests.Size = new System.Drawing.Size(92, 24);
+            this.totalGuests.TabIndex = 19;
+            this.totalGuests.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(326, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Houses total";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(326, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Guests total";
+            // 
             // Hotel_statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(315, 480);
+            this.ClientSize = new System.Drawing.Size(446, 480);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.totalGuests);
+            this.Controls.Add(this.numAccom);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.dateTimePicker1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Hotel_statistics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hotel_statistics";
+            this.Load += new System.EventHandler(this.Hotel_statistics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,5 +153,9 @@
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.TextBox numAccom;
+        private System.Windows.Forms.TextBox totalGuests;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

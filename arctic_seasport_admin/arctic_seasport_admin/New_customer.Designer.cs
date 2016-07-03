@@ -64,6 +64,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(282, 26);
             this.nameBox.TabIndex = 0;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // emailBox
             // 

@@ -12,6 +12,7 @@ namespace arctic_seasport_admin
     static class Database
     {
         public const int DEFAULT_CUSTOMER = 1;
+        public const int BUFFER_SIZE = 45;
             
         /* Gets single value from database.
          * Value is returned as a string.
