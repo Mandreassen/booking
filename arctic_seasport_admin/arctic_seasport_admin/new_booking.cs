@@ -230,7 +230,7 @@ namespace arctic_seasport_admin
                 {
                     MessageBox.Show("Could not create booking.");
                     return;
-                }                                    
+                }
             }
 
             // Get selected dates

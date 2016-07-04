@@ -37,6 +37,7 @@
             this.totalGuests = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(12, 12);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(188, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(180, 29);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -80,29 +81,29 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dataView.Location = new System.Drawing.Point(12, 60);
+            this.dataView.Location = new System.Drawing.Point(12, 136);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
             this.dataView.RowHeadersVisible = false;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataView.Size = new System.Drawing.Size(291, 404);
+            this.dataView.Size = new System.Drawing.Size(240, 348);
             this.dataView.TabIndex = 17;
             // 
             // numAccom
             // 
             this.numAccom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numAccom.Location = new System.Drawing.Point(330, 60);
+            this.numAccom.Location = new System.Drawing.Point(12, 77);
             this.numAccom.Name = "numAccom";
-            this.numAccom.Size = new System.Drawing.Size(95, 24);
+            this.numAccom.Size = new System.Drawing.Size(68, 24);
             this.numAccom.TabIndex = 18;
             this.numAccom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // totalGuests
             // 
             this.totalGuests.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalGuests.Location = new System.Drawing.Point(330, 134);
+            this.totalGuests.Location = new System.Drawing.Point(124, 77);
             this.totalGuests.Name = "totalGuests";
-            this.totalGuests.Size = new System.Drawing.Size(92, 24);
+            this.totalGuests.Size = new System.Drawing.Size(68, 24);
             this.totalGuests.TabIndex = 19;
             this.totalGuests.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -110,28 +111,39 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(326, 37);
+            this.label1.Location = new System.Drawing.Point(8, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Houses total";
+            this.label1.Text = "Cabins";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(326, 111);
+            this.label2.Location = new System.Drawing.Point(120, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Guests total";
+            this.label2.Text = "Guests";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(184, 20);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Distribution by nationality";
             // 
             // Hotel_statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(446, 480);
+            this.ClientSize = new System.Drawing.Size(267, 496);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.totalGuests);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.TextBox totalGuests;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

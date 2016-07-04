@@ -27,7 +27,7 @@ namespace arctic_seasport_admin
             alertCount.Location = pos;
             alertCount.BackColor = Color.Transparent;
 
-
+            remove_ButtonBorder(upcomingButton);
             remove_ButtonBorder(button3);
             remove_ButtonBorder(button1);
             remove_ButtonBorder(checkinnButton);
@@ -204,7 +204,7 @@ namespace arctic_seasport_admin
         private void arrival_button_Click(object sender, EventArgs e)
         {
             var report = Report.arrivals();
-            var viewer = new ReportViewer(report);
+            var viewer = new ReportViewer(report, 900);
             viewer.ShowDialog();
         }
 
@@ -212,7 +212,7 @@ namespace arctic_seasport_admin
         private void depatures_Click(object sender, EventArgs e)
         {
             var report = Report.departures();
-            var viewer = new ReportViewer(report);
+            var viewer = new ReportViewer(report, 900);
             viewer.ShowDialog();
         }
 
@@ -288,6 +288,13 @@ namespace arctic_seasport_admin
             var form = new Alerts();
             form.ShowDialog();
             update_Tables();
+        }
+
+        private void upcomingButton_Click(object sender, EventArgs e)
+        {
+            var report = Report.upcoming_Bookings();
+            var view = new ReportViewer(report, 1366);
+            view.ShowDialog();            
         }
     }
 }

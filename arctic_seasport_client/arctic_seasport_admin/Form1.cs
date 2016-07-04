@@ -52,5 +52,12 @@ namespace arctic_seasport_admin
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void upcomingButton_Click(object sender, EventArgs e)
+        {
+            var report = Report.upcoming_Bookings();
+            var view = new ReportViewer(report, 1366);
+            view.ShowDialog();
+        }
     }
 }

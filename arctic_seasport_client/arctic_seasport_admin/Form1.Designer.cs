@@ -37,6 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
+            this.upcomingButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -90,7 +91,7 @@
             this.transferButton.FlatAppearance.BorderSize = 0;
             this.transferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transferButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.transferButton.Location = new System.Drawing.Point(30, 218);
+            this.transferButton.Location = new System.Drawing.Point(30, 198);
             this.transferButton.Name = "transferButton";
             this.transferButton.Size = new System.Drawing.Size(201, 44);
             this.transferButton.TabIndex = 8;
@@ -107,7 +108,7 @@
             this.bookingsButton.FlatAppearance.BorderSize = 0;
             this.bookingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bookingsButton.Location = new System.Drawing.Point(30, 158);
+            this.bookingsButton.Location = new System.Drawing.Point(30, 148);
             this.bookingsButton.Name = "bookingsButton";
             this.bookingsButton.Size = new System.Drawing.Size(201, 44);
             this.bookingsButton.TabIndex = 9;
@@ -152,12 +153,30 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // upcomingButton
+            // 
+            this.upcomingButton.BackColor = System.Drawing.SystemColors.Window;
+            this.upcomingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.upcomingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.upcomingButton.FlatAppearance.BorderSize = 0;
+            this.upcomingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcomingButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.upcomingButton.Location = new System.Drawing.Point(30, 248);
+            this.upcomingButton.Name = "upcomingButton";
+            this.upcomingButton.Size = new System.Drawing.Size(201, 44);
+            this.upcomingButton.TabIndex = 13;
+            this.upcomingButton.Text = "All upcoming bookings";
+            this.upcomingButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.upcomingButton.UseVisualStyleBackColor = false;
+            this.upcomingButton.Click += new System.EventHandler(this.upcomingButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(949, 471);
+            this.Controls.Add(this.upcomingButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -171,7 +190,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Arctic-Seasport";
+            this.Text = "Arctic Seasport Booking";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -189,6 +208,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button upcomingButton;
     }
 }
 

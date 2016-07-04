@@ -65,44 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add_rent_object.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_rent_object.Designer.cs">
-      <DependentUpon>Add_rent_object.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Add_rent_object_type.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_rent_object_type.Designer.cs">
-      <DependentUpon>Add_rent_object_type.cs</DependentUpon>
-    </Compile>
     <Compile Include="appsettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="appsettings.Designer.cs">
       <DependentUpon>appsettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Check_inn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Check_inn.Designer.cs">
-      <DependentUpon>Check_inn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Database_adapter.cs" />
-    <Compile Include="Edit_rent_objects.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Edit_rent_objects.Designer.cs">
-      <DependentUpon>Edit_rent_objects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fast_check_in.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Fast_check_in.Designer.cs">
-      <DependentUpon>Fast_check_in.cs</DependentUpon>
-    </Compile>
     <Compile Include="Find_customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,12 +84,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Hotel_statistics.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Hotel_statistics.Designer.cs">
-      <DependentUpon>Hotel_statistics.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage_bookings.cs">
       <SubType>Form</SubType>
@@ -141,12 +105,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ready_rent_objects.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ready_rent_objects.Designer.cs">
-      <DependentUpon>Ready_rent_objects.cs</DependentUpon>
-    </Compile>
     <Compile Include="Report.cs" />
     <Compile Include="ReportViewer.cs">
       <SubType>Form</SubType>
@@ -166,32 +124,14 @@
     <Compile Include="Transfers_view.Designer.cs">
       <DependentUpon>Transfers_view.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Add_rent_object.resx">
-      <DependentUpon>Add_rent_object.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Add_rent_object_type.resx">
-      <DependentUpon>Add_rent_object_type.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="appsettings.resx">
       <DependentUpon>appsettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Check_inn.resx">
-      <DependentUpon>Check_inn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Edit_rent_objects.resx">
-      <DependentUpon>Edit_rent_objects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fast_check_in.resx">
-      <DependentUpon>Fast_check_in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Find_customer.resx">
       <DependentUpon>Find_customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Hotel_statistics.resx">
-      <DependentUpon>Hotel_statistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_bookings.resx">
       <DependentUpon>Manage_bookings.cs</DependentUpon>
@@ -211,9 +151,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Ready_rent_objects.resx">
-      <DependentUpon>Ready_rent_objects.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>

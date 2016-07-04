@@ -12,9 +12,10 @@ namespace arctic_seasport_admin
 {
     public partial class ReportViewer : Form
     {
-        public ReportViewer(string body)
+        public ReportViewer(string body, int width = 750)
         {
             InitializeComponent();
+            this.Size = new Size(width, 700);
             webBrowser1.DocumentText = body;
         }
 

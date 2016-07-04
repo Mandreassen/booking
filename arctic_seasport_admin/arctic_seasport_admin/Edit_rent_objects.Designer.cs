@@ -110,7 +110,7 @@
             this.addObjectBtn.Name = "addObjectBtn";
             this.addObjectBtn.Size = new System.Drawing.Size(75, 30);
             this.addObjectBtn.TabIndex = 6;
-            this.addObjectBtn.Text = "Add";
+            this.addObjectBtn.Text = "New";
             this.addObjectBtn.UseVisualStyleBackColor = false;
             this.addObjectBtn.Click += new System.EventHandler(this.addObjectBtn_Click);
             // 
@@ -165,7 +165,7 @@
             this.addTypeBtn.Name = "addTypeBtn";
             this.addTypeBtn.Size = new System.Drawing.Size(75, 30);
             this.addTypeBtn.TabIndex = 9;
-            this.addTypeBtn.Text = "Add";
+            this.addTypeBtn.Text = "New";
             this.addTypeBtn.UseVisualStyleBackColor = false;
             this.addTypeBtn.Click += new System.EventHandler(this.addTypeBtn_Click);
             // 
