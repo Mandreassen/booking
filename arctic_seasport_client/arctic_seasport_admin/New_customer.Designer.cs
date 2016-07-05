@@ -50,6 +50,7 @@
             this.bookerBox = new System.Windows.Forms.TextBox();
             this.nCustomers = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.cleaningCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomers)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(282, 26);
             this.nameBox.TabIndex = 0;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // emailBox
             // 
@@ -119,7 +121,7 @@
             this.label5.AutoSize = true;
             this.label5.CausesValidation = false;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(320, 123);
+            this.label5.Location = new System.Drawing.Point(320, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 9;
@@ -128,17 +130,17 @@
             // noteBox
             // 
             this.noteBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteBox.Location = new System.Drawing.Point(324, 146);
+            this.noteBox.Location = new System.Drawing.Point(324, 207);
             this.noteBox.MaxLength = 256;
             this.noteBox.Multiline = true;
             this.noteBox.Name = "noteBox";
-            this.noteBox.Size = new System.Drawing.Size(282, 213);
+            this.noteBox.Size = new System.Drawing.Size(282, 152);
             this.noteBox.TabIndex = 8;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(250, 383);
+            this.button1.Location = new System.Drawing.Point(260, 398);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 31);
             this.button1.TabIndex = 10;
@@ -232,7 +234,7 @@
             this.label9.AutoSize = true;
             this.label9.CausesValidation = false;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(397, 59);
+            this.label9.Location = new System.Drawing.Point(320, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 20);
             this.label9.TabIndex = 32;
@@ -241,18 +243,18 @@
             // bookerBox
             // 
             this.bookerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bookerBox.Location = new System.Drawing.Point(401, 82);
+            this.bookerBox.Location = new System.Drawing.Point(324, 146);
             this.bookerBox.MaxLength = 45;
             this.bookerBox.Name = "bookerBox";
-            this.bookerBox.Size = new System.Drawing.Size(201, 26);
+            this.bookerBox.Size = new System.Drawing.Size(282, 26);
             this.bookerBox.TabIndex = 31;
             // 
             // nCustomers
             // 
             this.nCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nCustomers.Location = new System.Drawing.Point(320, 82);
+            this.nCustomers.Location = new System.Drawing.Point(324, 80);
             this.nCustomers.Name = "nCustomers";
-            this.nCustomers.Size = new System.Drawing.Size(63, 26);
+            this.nCustomers.Size = new System.Drawing.Size(81, 26);
             this.nCustomers.TabIndex = 33;
             // 
             // label10
@@ -260,18 +262,31 @@
             this.label10.AutoSize = true;
             this.label10.CausesValidation = false;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(316, 59);
+            this.label10.Location = new System.Drawing.Point(320, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 20);
             this.label10.TabIndex = 34;
             this.label10.Text = "Persons";
+            // 
+            // cleaningCheckBox
+            // 
+            this.cleaningCheckBox.AutoSize = true;
+            this.cleaningCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cleaningCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cleaningCheckBox.Location = new System.Drawing.Point(427, 81);
+            this.cleaningCheckBox.Name = "cleaningCheckBox";
+            this.cleaningCheckBox.Size = new System.Drawing.Size(90, 24);
+            this.cleaningCheckBox.TabIndex = 35;
+            this.cleaningCheckBox.Text = "Cleaning";
+            this.cleaningCheckBox.UseVisualStyleBackColor = true;
             // 
             // New_customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(618, 434);
+            this.ClientSize = new System.Drawing.Size(634, 444);
+            this.Controls.Add(this.cleaningCheckBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.nCustomers);
             this.Controls.Add(this.label9);
@@ -295,6 +310,7 @@
             this.Controls.Add(this.nameBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "New_customer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booking information";
@@ -329,5 +345,6 @@
         private System.Windows.Forms.TextBox bookerBox;
         private System.Windows.Forms.NumericUpDown nCustomers;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox cleaningCheckBox;
     }
 }

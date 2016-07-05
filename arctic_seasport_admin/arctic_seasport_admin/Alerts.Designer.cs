@@ -117,9 +117,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Alerts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alerts";
+            this.Text = "Notifications";
             this.Load += new System.EventHandler(this.Alerts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

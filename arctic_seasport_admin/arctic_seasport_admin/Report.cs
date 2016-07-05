@@ -570,6 +570,13 @@ namespace arctic_seasport_admin
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
+            var total = adapter.get_Value(string.Format(@"
+                select count(DISTINCT bid) 
+                from bookings
+                natural join booking_lines
+                natural join booking_entries                
+                where date >= '{0}';
+            ", DateTime.Now.ToString("yyyy-MM-dd")));
 
             var report = @"
                 <!DOCTYPE html>
@@ -578,31 +585,34 @@ namespace arctic_seasport_admin
 
                 <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo"">
                 <br>
-
-                
-                    <style>
-                    table {
-                        width:100%;
-                    }
-                    table, th, td {
-                        border-collapse: collapse;
-                    }
-
-                    th, td {
-                        padding: 5px;
-                        text-align: left;
-                    }
-
-                    table th {
-                        border-bottom: 1px solid black;
-                    }
-                    </style>
             ";
 
             report += string.Format(@"
-                <br>
-                <br>
+                <font size=""4""> Total bookings: {0} </font>
+            ", total);
 
+            report += @"
+
+                <style>
+                table {
+                    width:100%;
+                }
+                table, th, td {
+                    border-collapse: collapse;
+                }
+
+                th, td {
+                    padding: 5px;
+                    text-align: left;
+                }
+
+                table th {
+                    border-bottom: 1px solid black;
+                }
+                </style>
+            ";
+
+            report += string.Format(@"
                 <table id='t01'>
                     <tr>
                     <th>BID</th>

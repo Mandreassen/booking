@@ -264,7 +264,14 @@ namespace arctic_seasport_admin
         private void button1_Click(object sender, EventArgs e)
         {
             if (!sanetyCheck())
+            {
                 return;
+            }                
+
+            if (cleaningCheckBox.Checked)
+            {
+                noteBox.Text += (noteBox.Text == "") ? "(End Cleaning)" : "\n(End Cleaning)";
+            }
 
             Cursor.Current = Cursors.WaitCursor;
             bool success;
@@ -275,6 +282,8 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
             if (success)
             {
+                Database.set(string.Format("insert into alerts values (NULL, {0}, 'booking', '{1}');", bid, DateTime.Now.ToString("yyyy-MM-dd")));
+
                 var report = Report.booking_Confirmation(bid, false);
                 var viewer = new ReportViewer(report);                
 
@@ -298,8 +307,9 @@ namespace arctic_seasport_admin
 
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
+            var curserPos = nameBox.SelectionStart;
             nameBox.Text = toNameString(nameBox.Text);
-            nameBox.SelectionStart = nameBox.Text.Length;
+            nameBox.SelectionStart = curserPos;
             nameBox.SelectionLength = 0;
         }
 
@@ -327,6 +337,5 @@ namespace arctic_seasport_admin
 
             return name;
         }
-
     }
 }

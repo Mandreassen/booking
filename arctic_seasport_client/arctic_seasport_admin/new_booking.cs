@@ -101,9 +101,7 @@ namespace arctic_seasport_admin
             string newBID = adapter.get_Value(query);
             if (newBID == null)
                 return -1;
-
-            adapter.set(string.Format("insert into alerts values (NULL, {0}, 'booking', '{1}');", newBID, DateTime.Now.ToString("yyyy-MM-dd")));
-
+                        
             adapter.close();
 
             return System.Int32.Parse(newBID);

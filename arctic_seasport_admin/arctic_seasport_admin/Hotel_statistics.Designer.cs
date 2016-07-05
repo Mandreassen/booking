@@ -151,9 +151,10 @@
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.dateTimePicker1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Hotel_statistics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Hotel_statistics";
+            this.Text = "Statistics";
             this.Load += new System.EventHandler(this.Hotel_statistics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);

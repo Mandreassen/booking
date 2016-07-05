@@ -158,7 +158,7 @@ namespace arctic_seasport_admin
          * if the object should be marked as ready or not.
          * If a object is marked as Not ready, it will not
          * show as "checkable" until it is set as "Ready" */
-        private void check_Out(string obj)
+        private void check_OutLine(string obj)
         {
             var status = "Ready";
             DialogResult dialogResult = MessageBox.Show(string.Format("Do you want to mark {0} as ready?", obj), obj, MessageBoxButtons.YesNo);
@@ -174,7 +174,7 @@ namespace arctic_seasport_admin
          * If customer holds more than one object, the user will be
          * prompted with a question asking if he/she wants to check
          * out all objects held by the customer. */
-        private void checkOutButton_Click(object sender, EventArgs e)
+        private void check_Out()
         {
             DialogResult dialogResult = DialogResult.No;
             var rent_object = get_SelectedItem("Object");
@@ -202,7 +202,7 @@ namespace arctic_seasport_admin
             // Check out slected object       
             if (dialogResult == DialogResult.No)
             {
-                check_Out(rent_object);
+                check_OutLine(rent_object);
             }
 
             // Check out all objects held by customer
@@ -212,12 +212,23 @@ namespace arctic_seasport_admin
                 {
                     if (row.Cells[0].Value.ToString() == cid)
                     {
-                        check_Out(row.Cells[2].Value.ToString());
+                        check_OutLine(row.Cells[2].Value.ToString());
                     }
                 }
             }
 
             refreash_Content();
+        }
+        
+
+        private void checkOutButton_Click(object sender, EventArgs e)
+        {
+            check_Out();
+        }
+
+        private void useTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            check_Out();
         }
     }
 }

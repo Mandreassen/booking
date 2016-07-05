@@ -319,9 +319,10 @@
             this.Controls.Add(this.emailBox);
             this.Controls.Add(this.nameBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "New_customer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New_customer";
+            this.Text = "Booking information";
             this.Load += new System.EventHandler(this.New_customer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomers)).EndInit();

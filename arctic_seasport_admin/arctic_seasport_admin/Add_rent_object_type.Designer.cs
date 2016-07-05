@@ -95,9 +95,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.descriptionBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Add_rent_object_type";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add_rent_object_type";
+            this.Text = "New rent object type";
             this.Load += new System.EventHandler(this.Add_rent_object_type_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

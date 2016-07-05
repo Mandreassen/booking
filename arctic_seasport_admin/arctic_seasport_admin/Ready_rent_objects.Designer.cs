@@ -143,9 +143,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Ready objects";
+            this.label1.Text = "Ready";
             // 
             // label2
             // 
@@ -153,9 +153,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(396, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 20);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Not ready objects";
+            this.label2.Text = "Not ready";
             // 
             // Ready_rent_objects
             // 
@@ -170,9 +170,10 @@
             this.Controls.Add(this.notReadyTable);
             this.Controls.Add(this.readyTable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Ready_rent_objects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ready_rent_objects";
+            this.Text = "Ready objects";
             this.Load += new System.EventHandler(this.Ready_rent_objects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.readyTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notReadyTable)).EndInit();

@@ -366,8 +366,9 @@ namespace arctic_seasport_admin
 
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
+            var curserPos = nameBox.SelectionStart;
             nameBox.Text = toNameString(nameBox.Text);
-            nameBox.SelectionStart = nameBox.Text.Length;
+            nameBox.SelectionStart = curserPos;
             nameBox.SelectionLength = 0;
         }
 

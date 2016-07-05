@@ -89,10 +89,11 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.roComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Fast_check_in";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fast_check_in";
+            this.Text = "Check in";
             this.ResumeLayout(false);
             this.PerformLayout();
 
