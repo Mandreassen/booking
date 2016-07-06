@@ -29,10 +29,19 @@
       <Value Profile="(Default)">server=localhost;user id=admin1;database=arctic_seasport_db</Value>
     </Setting>
     <Setting Name="company" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Kingfisher</Value>
+      <Value Profile="(Default)">Arctic-Adventure</Value>
     </Setting>
     <Setting Name="country" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Tyskland</Value>
+      <Value Profile="(Default)">Sverge</Value>
+    </Setting>
+    <Setting Name="logo_src" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.arcticadventure.se/AA_logga_webb_wp.png</Value>
+    </Setting>
+    <Setting Name="kingfisher_logo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png</Value>
+    </Setting>
+    <Setting Name="arctic_adventure_logo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.arcticadventure.se/AA_logga_webb_wp.png</Value>
     </Setting>
   </Settings>
 </SettingsFile>

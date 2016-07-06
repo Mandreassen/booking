@@ -588,7 +588,7 @@ namespace arctic_seasport_admin
             ";
 
             report += string.Format(@"
-                <font size=""4""> Total bookings: {0} </font>
+                <font size=""4"">Bookings total: {0} </font>
             ", total);
 
             report += @"

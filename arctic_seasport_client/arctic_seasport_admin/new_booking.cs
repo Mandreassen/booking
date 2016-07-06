@@ -72,11 +72,7 @@ namespace arctic_seasport_admin
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            //if (dateTimePicker1.Value.Date >= dateTimePicker2.Value.Date)
-            //{
-                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-            //}
-
+            dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
             fill_Overview();
         }
 
@@ -215,7 +211,7 @@ namespace arctic_seasport_admin
             string type = get_Selected_Type();
             if (type == null)
             {
-                MessageBox.Show("No item selected...");
+                MessageBox.Show("No item selected.");
                 return;
             }
 
@@ -294,7 +290,7 @@ namespace arctic_seasport_admin
         {
             if (bid < 0)
             {
-                MessageBox.Show("No reservations has been made...");
+                MessageBox.Show("No reservations has been made.");
                 return;
             }
 
@@ -351,11 +347,15 @@ namespace arctic_seasport_admin
         private void removeButton_Click(object sender, EventArgs e)
         {
             string blid = get_SelectedBlid();
-            if (blid != null)
+            if (blid == null)
             {
-                Database.set("delete from booking_entries where blid = " + blid + ";");
-                Database.set("delete from booking_lines where blid = " + blid + ";");
+                MessageBox.Show("No item selected.");
+                return;
             }
+
+            Database.set("delete from booking_entries where blid = " + blid + ";");
+            Database.set("delete from booking_lines where blid = " + blid + ";");
+
             fill_BookingLineTable();
             fill_Overview();
         }

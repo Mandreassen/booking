@@ -104,7 +104,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Kingfisher")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arctic-Adventure")]
         public string company {
             get {
                 return ((string)(this["company"]));
@@ -116,13 +116,50 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Tyskland")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Sverge")]
         public string country {
             get {
                 return ((string)(this["country"]));
             }
             set {
                 this["country"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arcticadventure.se/AA_logga_webb_wp.png")]
+        public string logo_src {
+            get {
+                return ((string)(this["logo_src"]));
+            }
+            set {
+                this["logo_src"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.d" +
+            "e/global_gfx/logo-kingfisher.png")]
+        public string kingfisher_logo {
+            get {
+                return ((string)(this["kingfisher_logo"]));
+            }
+            set {
+                this["kingfisher_logo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arcticadventure.se/AA_logga_webb_wp.png")]
+        public string arctic_adventure_logo {
+            get {
+                return ((string)(this["arctic_adventure_logo"]));
+            }
+            set {
+                this["arctic_adventure_logo"] = value;
             }
         }
     }

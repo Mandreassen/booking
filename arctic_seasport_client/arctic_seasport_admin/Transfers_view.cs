@@ -28,7 +28,7 @@ namespace arctic_seasport_admin
         private void fill_Overview()
         {
             var data = Database.get_DataSet(string.Format(@"
-                select bookings.bid AS 'BID', name AS 'Name', arrivalTime AS 'To', arrivalFlight AS 'Flight', departureTime AS 'Return', departureFlight AS 'Flight '
+                select bookings.bid AS 'BID', name AS 'Name', arrivalTime AS 'Arrival Bodo', arrivalFlight AS 'Flight', departureTime AS 'Departure Bodo', departureFlight AS 'Flight '
                 from customers 
                 natural join bookings
                 natural join booking_lines
@@ -84,7 +84,7 @@ namespace arctic_seasport_admin
 
                 DataGridViewRow selectedRow = dataView.Rows[selectedrowindex];
 
-                if (selectedRow.Cells["To"].Value.ToString() == "" && selectedRow.Cells["Return"].Value.ToString() == "")
+                if (selectedRow.Cells["Arrival Bodo"].Value.ToString() == "" && selectedRow.Cells["Departure Bodo"].Value.ToString() == "")
                 {
                     newButton.Text = "New";
                     deleteButton.Visible = false;
