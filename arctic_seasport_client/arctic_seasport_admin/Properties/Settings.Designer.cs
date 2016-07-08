@@ -104,7 +104,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arctic-Adventure")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Angelreisen_K-N")]
         public string company {
             get {
                 return ((string)(this["company"]));
@@ -116,7 +116,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sverge")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tyskland")]
         public string country {
             get {
                 return ((string)(this["country"]));
@@ -128,7 +128,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arcticadventure.se/AA_logga_webb_wp.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arctic-seasport.no/img/angelreisen_k-n.jpg")]
         public string logo_src {
             get {
                 return ((string)(this["logo_src"]));
@@ -160,6 +160,30 @@ namespace arctic_seasport_admin.Properties {
             }
             set {
                 this["arctic_adventure_logo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.angelreisen.de/fileadmin/ang/template/img/logo.png")]
+        public string angel_hambutg_logo {
+            get {
+                return ((string)(this["angel_hambutg_logo"]));
+            }
+            set {
+                this["angel_hambutg_logo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arctic-seasport.no/img/angelreisen_k-n.jpg")]
+        public string angel_kn_logo {
+            get {
+                return ((string)(this["angel_kn_logo"]));
+            }
+            set {
+                this["angel_kn_logo"] = value;
             }
         }
     }

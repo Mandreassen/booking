@@ -66,7 +66,7 @@ namespace arctic_seasport_admin
         private void new_booking_Load(object sender, EventArgs e)
         {
             dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1.0);
-            fill_Overview();            
+            fill_Overview();      
         }
 
 

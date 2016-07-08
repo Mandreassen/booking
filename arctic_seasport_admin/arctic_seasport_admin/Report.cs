@@ -77,6 +77,57 @@ namespace arctic_seasport_admin
                     <div class=""kingfisher""> <img src=""http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png"" alt=""kingfisher"" height=""73""> </div>
                 ";
             }
+            else if (company == "Arctic-Adventure")
+            {
+                report += @"                
+                    <style>
+                    .logo {
+                        float: left;
+                        position: absolute;
+                    }
+
+                    .kingfisher {
+                        text-align: right;
+                    </style>             
+
+                    <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                    <div class=""kingfisher""> <img src=""http://www.arcticadventure.se/AA_logga_webb_wp.png"" alt=""kingfisher"" height=""73""> </div>
+                ";
+            }
+            else if (company == "Angelreisen_Hamburg")
+            {
+                report += @"                
+                    <style>
+                    .logo {
+                        float: left;
+                        position: absolute;
+                    }
+
+                    .kingfisher {
+                        text-align: right;
+                    </style>             
+
+                    <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                    <div class=""kingfisher""> <img src=""https://www.angelreisen.de/fileadmin/ang/template/img/logo.png"" alt=""kingfisher"" height=""73""> </div>
+                ";
+            }
+            else if (company == "Angelreisen_K-N")
+            {
+                report += @"                
+                    <style>
+                    .logo {
+                        float: left;
+                        position: absolute;
+                    }
+
+                    .kingfisher {
+                        text-align: right;
+                    </style>             
+
+                    <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
+                    <div class=""kingfisher""> <img src=""http://www.arctic-seasport.no/img/angelreisen_k-n.jpg"" alt=""kingfisher"" height=""73""> </div>
+                ";
+            }
             else
             {
                 report += @"
