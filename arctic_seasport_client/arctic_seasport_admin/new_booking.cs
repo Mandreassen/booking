@@ -178,7 +178,13 @@ namespace arctic_seasport_admin
             {
                 all_types.MoveNext();
                 row.HeaderCell.Value = all_types.Current.Key;                
-            }            
+            }
+
+            // Set not sortable
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
             dataGridView1.AutoResizeColumns();
             dataGridView1.RowHeadersWidth = 200;

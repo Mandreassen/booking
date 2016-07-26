@@ -17,6 +17,7 @@ namespace arctic_seasport_admin
         private int bid;
         public int cid;
         private new_booking prevForm;
+        List<string> countries;
 
 
         /* INIT */
@@ -25,6 +26,8 @@ namespace arctic_seasport_admin
             bid = set_bid;
             cid = set_cid;
             prevForm = booker;
+            countries = new List<string>() { "Abkhasia", "Afghanistan", "Albania", "Algerie", "Andorra", "Angola", "Antigua og Barbuda", "Argentina", "Armenia", "Aserbajdsjan", "Australia", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgia", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia-Hercegovina", "Botswana", "Brasil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Canada", "Chile", "Colombia", "Costa Rica", "Cuba", "Danmark", "Færøyene", "Grønland", "De forente arabiske emirater", "Kongo", "Den dominikanske republikk", "Den sentralafrikanske republikk", "Djibouti", "Dominica", "Ecuador", "Egypt", "Ekvatorial-Guinea", "Elfenbenskysten", "El Salvador", "Eritrea", "Estland", "Etiopia", "Fiji", "Filippinene", "Finland", "Frankrike", "Gabon", "Gambia", "Georgia", "Ghana", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Hellas", "Honduras", "Hviterussland", "India", "Indonesia", "Irak", "Iran", "Irland", "Island", "Israel", "Italia", "Jamaica", "Japan", "Jemen", "Jordan", "Kambodsja", "Kamerun", "Kapp Verde", "Kasakhstan", "Kenya", "Kina", "Kirgisistan", "Kiribati", "Komorene", "Kosovo", "Kroatia", "Kuwait", "Kypros", "Laos", "Latvia", "Lesotho", "Libanon", "Liberia", "Libya", "Liechtenstein", "Litauen", "Luxembourg", "Madagaskar", "Makedonia", "Malawi", "Malaysia", "Maldivene", "Mali", "Malta", "Marokko", "Marshalløyene", "Mauritania", "Mauritius", "Mexico", "Mikronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nederland", "Nepal", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Nord-Korea", "Kypros", "Norge", "Oman", "Pakistan", "Palau", "Panama", "Papua Ny-Guinea", "Ny-Guinea", "Paraguay", "Peru", "Polen", "Portugal", "Qatar", "Romania", "Russland", "Rwanda", "Saint Kitts og Nevis", "Saint Lucia", "Saint Vincent", "Salomonøyene", "Samoa", "San Marino", "Saudi-Arabia", "Senegal", "Serbia", "Seychellene", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Somalia", "Spania", "Sri Lanka", "Storbritannia", "Sudan", "Surinam", "Sveits", "Sverige", "Swaziland", "Syria", "Sør-Afrika", "Sør-Korea", "Sør-Ossetia", "Sør-Sudan", "Tadsjikistan", "Taiwan", "Tanzania", "Thailand", "Togo", "Tonga", "Transnistria", "Trinidad og Tobago", "Tsjad", "Tsjekkia", "Tunisia", "Turkmenistan", "Tuvalu", "Tyrkia", "Tyskland", "Uganda", "USA", "Ukraina", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstaten", "Venezuela", "Vietnam", "Zambia", "Zimbabwe" };
+
             InitializeComponent();
         }
 
@@ -204,7 +207,8 @@ namespace arctic_seasport_admin
                 SmtpClient SmtpServer = new SmtpClient("mail.arctic-seasport.no");
 
                 mail.From = new MailAddress("info@arctic-seasport.no");
-                mail.To.Add("post@mandreassen.no");
+                //mail.To.Add("post@mandreassen.no");
+                mail.To.Add(recirver);
                 mail.Subject = "Booking confirmation";
                 
                 mail.IsBodyHtml = true;
@@ -226,6 +230,12 @@ namespace arctic_seasport_admin
             }
         }
 
+        private string FirstCharToUpper(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                return "";
+            return input.First().ToString().ToUpper() + input.Substring(1);
+        }
 
         private bool sanetyCheck()
         {
@@ -235,9 +245,11 @@ namespace arctic_seasport_admin
                 return false;
             }
 
-            if (countryBox.Text == "")
+            countryBox.Text = FirstCharToUpper(countryBox.Text);
+
+            if (!countries.Contains(countryBox.Text))
             {
-                MessageBox.Show("Country is missing");
+                MessageBox.Show("Invalid country");
                 return false;
             }
 

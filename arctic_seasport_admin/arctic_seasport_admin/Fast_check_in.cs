@@ -64,6 +64,12 @@ namespace arctic_seasport_admin
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(roComboBox.SelectedValue.ToString()))
+            {
+                MessageBox.Show("No objects available");
+                return;
+            }
+
             adapter.set(string.Format("update rent_objects set currentUser = {0} where Name = '{1}';", blid, roComboBox.SelectedValue));
             adapter.set(string.Format("update bookings set persons = {0} where bid = (select bid from booking_lines where blid = {1});", p_count.Value, blid));
             this.Close();
