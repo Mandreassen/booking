@@ -223,7 +223,13 @@ namespace arctic_seasport_admin
             foreach (string blid in blidList)
             {
                 adapter.set(string.Format("delete from booking_entries where blid = {0};", blid));
-                //adapter.set(string.Format("update rent_objects set "))
+
+                // Check out
+                var checkedObjects = adapter.get_List(string.Format("select name from rent_objects where currentUser = {0};", blid));
+                foreach (string name in checkedObjects)
+                {
+                    adapter.set(string.Format("update rent_objects set currentUser = 0 where name = '{0}';", name));
+                }
             }
 
             adapter.set(string.Format("delete from booking_lines where bid = {0};", bid));

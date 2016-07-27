@@ -55,12 +55,14 @@ namespace arctic_seasport_admin
         {
             var num = adapter.get_Value(string.Format(@"
                 select sum(persons)
-                from booking_entries
+                from rent_object_types
+                natural join booking_entries
                 natural join booking_lines
                 natural join bookings
                 natural join customers
                 where MONTH(date) = '{0}'
                 and YEAR(date) = '{1}'
+                and accommodation = 'true';
                 ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy"))
             );
 
@@ -71,12 +73,14 @@ namespace arctic_seasport_admin
         {
             var data = adapter.get_DataSet(string.Format(@"
                 select country AS 'Nationality', sum(persons) AS 'Total' 
-                from booking_entries
+                from rent_object_types
+                natural join booking_entries
                 natural join booking_lines
                 natural join bookings
                 natural join customers
                 where MONTH(date) = '{0}'
                 and YEAR(date) = '{1}'
+                and accommodation = 'true'
                 group by country;
                 ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy"))
             );

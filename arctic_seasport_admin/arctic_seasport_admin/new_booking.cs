@@ -270,12 +270,21 @@ namespace arctic_seasport_admin
             if (dialogResult == DialogResult.No)
                 return false;
 
+            Cursor.Current = Cursors.WaitCursor;
+
             var adapter = new Database_adapter();
 
             var blidList = adapter.get_List(string.Format("select blid from booking_lines where bid = {0};", bid));
             foreach (string blid in blidList)
             {
                 adapter.set(string.Format("delete from booking_entries where blid = {0};", blid));
+
+                // Check out
+                var checkedObjects = adapter.get_List(string.Format("select name from rent_objects where currentUser = {0};", blid));
+                foreach (string name in checkedObjects)
+                {
+                    adapter.set(string.Format("update rent_objects set currentUser = 0 where name = '{0}';", name));
+                }
             }
 
             adapter.set(string.Format("delete from booking_lines where bid = {0};", bid));
@@ -284,6 +293,8 @@ namespace arctic_seasport_admin
             adapter.set(string.Format("delete from alerts where bid = {0};", bid));
 
             adapter.close();
+
+            Cursor.Current = Cursors.Default;
 
             return true;
         }
