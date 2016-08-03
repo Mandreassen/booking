@@ -126,6 +126,9 @@ namespace arctic_seasport_admin
 
         private void fill_Overview()
         {
+            progressBar1.Value = 0;
+            progressBar1.Step = 1;
+
             Cursor.Current = Cursors.WaitCursor;
             Database_adapter db = new Database_adapter();
             dataGridView1.DataSource = null;
@@ -147,6 +150,7 @@ namespace arctic_seasport_admin
                 table.Rows.Add(row);
             }
 
+            progressBar1.Maximum = dates.Count;
             foreach (var date in dates)
             {
                 var column = new DataColumn();
@@ -170,7 +174,8 @@ namespace arctic_seasport_admin
                     }
                     i++;
                 }
-                
+
+                progressBar1.Value += 1;
             }
 
             db.close();
@@ -194,6 +199,7 @@ namespace arctic_seasport_admin
             dataGridView1.ClearSelection();
             dataGridView1.Show();
             Cursor.Current = Cursors.Default;
+            progressBar1.Value = 0;
         }
 
 
