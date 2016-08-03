@@ -160,10 +160,9 @@ namespace arctic_seasport_admin
                 return;
             }
 
-            //var bookings = Database.get_Value(string.Format(""));
+            var form = new ObjectDeleter(name);
+            form.ShowDialog();
 
-            MessageBox.Show("Not yet implemented!");
-            //Database.set(string.Format("delete from rent_objects where name = \'{0}\';", name));
             fill_ObjectsTable();
         }
     }

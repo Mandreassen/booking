@@ -81,3 +81,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Transfer.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Hotel_statistics.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Alerts.resources
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.ObjectDeleter.resources
