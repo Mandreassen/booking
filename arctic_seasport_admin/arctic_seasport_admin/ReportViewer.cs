@@ -16,13 +16,18 @@ namespace arctic_seasport_admin
         {
             
             InitializeComponent();
-            this.Size = new Size(width, 700);
+            this.Size = new Size(width, 900);
             webBrowser1.DocumentText = body;
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             
+        }
+
+        private void ReportViewer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

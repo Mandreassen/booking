@@ -369,11 +369,26 @@ namespace arctic_seasport_admin
         private void removeButton_Click(object sender, EventArgs e)
         {
             string blid = get_SelectedBlid();
-            if (blid != null)
+
+            if (blid == null)
             {
-                Database.set("delete from booking_entries where blid = " + blid + ";");
-                Database.set("delete from booking_lines where blid = " + blid + ";");
+                return;
             }
+
+            var adapter = new Database_adapter();
+
+            // Check out
+            var checkedObjects = adapter.get_List(string.Format("select name from rent_objects where currentUser = {0};", blid));            
+            foreach (string name in checkedObjects)
+            {
+                adapter.set(string.Format("update rent_objects set currentUser = 0 where name = '{0}';", name));
+            }
+
+            adapter.set("delete from booking_entries where blid = " + blid + ";");
+            adapter.set("delete from booking_lines where blid = " + blid + ";");
+
+            adapter.close();
+            
             fill_BookingLineTable();
             fill_Overview();
         }

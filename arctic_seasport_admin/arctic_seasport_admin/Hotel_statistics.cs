@@ -35,7 +35,7 @@ namespace arctic_seasport_admin
         private void fill_TotalAccommodation(Database_adapter adapter)
         {
             var num = adapter.get_Value(string.Format(@"
-                select sum(roID)
+                select count(roID)
                 from rent_object_types
                 natural join booking_entries
                 natural join booking_lines
