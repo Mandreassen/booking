@@ -151,8 +151,10 @@ namespace arctic_seasport_admin
             }
 
             progressBar1.Maximum = dates.Count;
+
             foreach (var date in dates)
             {
+                progressBar1.Value += 1;
                 var column = new DataColumn();
                 column.DataType = System.Type.GetType("System.Int32");
                 column.ColumnName = date.ToString(collumnFormat);
@@ -173,9 +175,7 @@ namespace arctic_seasport_admin
                         table.Rows[i][date.ToString(collumnFormat)] = Int32.Parse(entry.Value);
                     }
                     i++;
-                }
-
-                progressBar1.Value += 1;
+                }                
             }
 
             db.close();
