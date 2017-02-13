@@ -25,9 +25,11 @@ namespace arctic_seasport_admin
         private void fill_All()
         {
             var adapter = new Database_adapter();
-            fill_Table(adapter);
+
             fill_TotalAccommodation(adapter);
-            fill_TotalGuests(adapter);
+            calculate(adapter);
+            fill_Arriving(adapter);
+
             adapter.close();
         }
 
@@ -51,48 +53,103 @@ namespace arctic_seasport_admin
             numAccom.Text = num;
         }
 
-        private void fill_TotalGuests(Database_adapter adapter)
+
+        private void fill_Arriving(Database_adapter adapter)
         {
-            var num = adapter.get_Value(string.Format(@"
-                select sum(persons)
-                from rent_object_types
-                natural join booking_entries
+            var data = adapter.get_DataSet(string.Format(@"
+                select persons, startDate
+                from bookings
                 natural join booking_lines
-                natural join bookings
-                natural join customers
+                group by bid 
+                having MONTH(startDate) = '{0}'
+                and YEAR(startDate) = '{1}';
+            ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy")));
+
+            int total = 0;
+
+            foreach (DataRow row in data.Tables[0].Rows)
+            {
+                total += int.Parse(row["persons"].ToString());
+            }
+
+            arrivingBox.Text = total.ToString();
+        }
+
+
+        private void calculate(Database_adapter adapter)
+        {
+            var data = adapter.get_DataSet(string.Format(@"
+                select beid, date, bid, persons, country 
+                from customers 
+                natural join bookings 
+                natural join booking_lines 
+                natural join booking_entries
+                natural join rent_object_types
                 where MONTH(date) = '{0}'
                 and YEAR(date) = '{1}'
                 and accommodation = 'true';
-                ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy"))
-            );
+            ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy")));
 
-            totalGuests.Text = num;
-        }
+            List<DataRow> duplicates = new List<DataRow>();
 
-        private void fill_Table(Database_adapter adapter)
-        {
-            var data = adapter.get_DataSet(string.Format(@"
-                select country AS 'Nationality', sum(persons) AS 'Total' 
-                from rent_object_types
-                natural join booking_entries
-                natural join booking_lines
-                natural join bookings
-                natural join customers
-                where MONTH(date) = '{0}'
-                and YEAR(date) = '{1}'
-                and accommodation = 'true'
-                group by country;
-                ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy"))
-            );
+            foreach (DataRow rowA in data.Tables[0].Rows)
+            {
+                foreach (DataRow rowB in data.Tables[0].Rows)
+                {
+                    if (duplicates.Contains(rowA))
+                    {
+                        continue;
+                    }
 
-            dataView.DataSource = data.Tables[0];
+                    if (rowA == rowB)
+                    {
+                        continue;                        
+                    }
+
+                    if (rowA["bid"].ToString() == rowB["bid"].ToString() && rowA["date"].ToString() == rowB["date"].ToString())
+                    {
+                        if (!duplicates.Contains(rowB))
+                        {
+                            duplicates.Add(rowB);
+                        }                        
+                    }
+                }
+            }
+
+            var countries = new Dictionary<string, int>();
+            
+            int gjester = 0;
+
+            foreach (DataRow row in data.Tables[0].Rows)
+            {
+                if (duplicates.Contains(row))
+                {
+                    continue;
+                }
+
+                gjester += int.Parse(row["persons"].ToString());
+
+                if (!countries.ContainsKey(row["country"].ToString()))
+                {
+                    countries.Add(row["country"].ToString(), 0);
+                }
+
+                countries[row["country"].ToString()] += int.Parse(row["persons"].ToString());
+
+            }
+
+            totalGuests.Text = gjester.ToString();
+             
+
+            dataView.DataSource = countries.ToArray();
             dataView.AutoResizeColumns();
             dataView.ClearSelection();
         }
 
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            fill_All();
+            fill_All();            
         }
     }
 }
