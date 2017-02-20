@@ -92,6 +92,7 @@ namespace arctic_seasport_admin
 
             List<DataRow> duplicates = new List<DataRow>();
 
+            // Find all duplicates in data set
             foreach (DataRow rowA in data.Tables[0].Rows)
             {
                 foreach (DataRow rowB in data.Tables[0].Rows)
@@ -118,8 +119,9 @@ namespace arctic_seasport_admin
 
             var countries = new Dictionary<string, int>();
             
-            int gjester = 0;
+            int guests = 0;
 
+            // Count all guests and skip duplicates
             foreach (DataRow row in data.Tables[0].Rows)
             {
                 if (duplicates.Contains(row))
@@ -127,7 +129,7 @@ namespace arctic_seasport_admin
                     continue;
                 }
 
-                gjester += int.Parse(row["persons"].ToString());
+                guests += int.Parse(row["persons"].ToString());
 
                 if (!countries.ContainsKey(row["country"].ToString()))
                 {
@@ -138,8 +140,7 @@ namespace arctic_seasport_admin
 
             }
 
-            totalGuests.Text = gjester.ToString();
-             
+            totalGuests.Text = guests.ToString();             
 
             dataView.DataSource = countries.ToArray();
             dataView.AutoResizeColumns();
