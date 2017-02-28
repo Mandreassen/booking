@@ -158,15 +158,20 @@ namespace arctic_seasport_admin
          * if the object should be marked as ready or not.
          * If a object is marked as Not ready, it will not
          * show as "checkable" until it is set as "Ready" */
-        private void check_OutLine(string obj)
+        private bool check_OutLine(string obj)
         {
             var status = "Ready";
-            DialogResult dialogResult = MessageBox.Show(string.Format("Do you want to mark {0} as ready?", obj), obj, MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(string.Format("Do you want to mark {0} as ready?", obj), obj, MessageBoxButtons.YesNoCancel);
+            if (dialogResult == DialogResult.Cancel)
+                return true;
+
             if (dialogResult == DialogResult.No)
                 status = "Not ready";
 
             var query = string.Format("update rent_objects set currentUser = 0, status = '{0}' where name = '{1}';", status, obj);
             Database.set(query);
+
+            return false;
         }
 
 
@@ -212,7 +217,9 @@ namespace arctic_seasport_admin
                 {
                     if (row.Cells[0].Value.ToString() == cid)
                     {
-                        check_OutLine(row.Cells[2].Value.ToString());
+                        bool cancel = check_OutLine(row.Cells[2].Value.ToString());
+                        if (cancel)
+                            break;
                     }
                 }
             }
