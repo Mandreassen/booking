@@ -29,6 +29,7 @@ namespace arctic_seasport_admin
             fill_TotalAccommodation(adapter);
             calculate(adapter);
             fill_Arriving(adapter);
+            fill_ArrivingNorway(adapter);
 
             adapter.close();
         }
@@ -54,12 +55,38 @@ namespace arctic_seasport_admin
         }
 
 
+        private void fill_ArrivingNorway(Database_adapter adapter)
+        {
+            var data = adapter.get_DataSet(string.Format(@"
+                select persons, startDate
+                from customers
+                natural join bookings
+                natural join booking_lines
+                where country = 'norge'
+                group by bid 
+                having MONTH(startDate) = '{0}'
+                and YEAR(startDate) = '{1}';
+            ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy")));
+
+            int total = 0;
+
+            foreach (DataRow row in data.Tables[0].Rows)
+            {
+                total += int.Parse(row["persons"].ToString());
+            }
+
+            arrivingNorway.Text = total.ToString();
+        }
+
+
         private void fill_Arriving(Database_adapter adapter)
         {
             var data = adapter.get_DataSet(string.Format(@"
                 select persons, startDate
-                from bookings
+                from customers
+                natural join bookings
                 natural join booking_lines
+                where country != 'norge'
                 group by bid 
                 having MONTH(startDate) = '{0}'
                 and YEAR(startDate) = '{1}';
