@@ -48,13 +48,14 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "MMMM yyyy";
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "dd      MMMM yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 12);
+            this.dateTimePicker1.Location = new System.Drawing.Point(-28, 12);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(210, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(260, 29);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -142,9 +143,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 194);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 20);
+            this.label3.Size = new System.Drawing.Size(148, 20);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Gjester fordelt på nationalitet";
+            this.label3.Text = "Gjestedøgn pr. land";
             // 
             // label4
             // 
@@ -193,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(233, 496);
+            this.ClientSize = new System.Drawing.Size(231, 496);
             this.Controls.Add(this.arrivingNorway);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

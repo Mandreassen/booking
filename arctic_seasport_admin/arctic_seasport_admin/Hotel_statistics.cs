@@ -14,11 +14,12 @@ namespace arctic_seasport_admin
     {
         public Hotel_statistics()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Hotel_statistics_Load(object sender, EventArgs e)
         {
+            
             fill_All();
         }
 
@@ -176,7 +177,7 @@ namespace arctic_seasport_admin
 
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
+        {      
             fill_All();            
         }
     }
