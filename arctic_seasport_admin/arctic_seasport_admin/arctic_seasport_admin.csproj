@@ -145,6 +145,12 @@
     <Compile Include="New_customer.Designer.cs">
       <DependentUpon>New_customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Number_of_days_selector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Number_of_days_selector.Designer.cs">
+      <DependentUpon>Number_of_days_selector.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObjectDeleter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="New_customer.resx">
       <DependentUpon>New_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Number_of_days_selector.resx">
+      <DependentUpon>Number_of_days_selector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ObjectDeleter.resx">
       <DependentUpon>ObjectDeleter.cs</DependentUpon>

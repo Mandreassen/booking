@@ -200,10 +200,25 @@ namespace arctic_seasport_admin
             form.ShowDialog();
         }
 
+
+        /* Get number of days to show in arrival and deapature reports */
+        private int get_number_of_days()
+        {
+            var selector = new Number_of_days_selector();
+            selector.ShowDialog();
+
+            return selector.count;
+        }
+
+
         /* Show arrival list */
         private void arrival_button_Click(object sender, EventArgs e)
         {
-            var report = Report.arrivals();
+            var numberOfDays = get_number_of_days();
+            if (numberOfDays == -1)
+                return;
+
+            var report = Report.arrivals(numberOfDays);
             var viewer = new ReportViewer(report, 900);
             viewer.ShowDialog();
         }
@@ -211,7 +226,11 @@ namespace arctic_seasport_admin
         /* Show departure list */
         private void depatures_Click(object sender, EventArgs e)
         {
-            var report = Report.departures();
+            var numberOfDays = get_number_of_days();
+            if (numberOfDays == -1)
+                return;
+
+            var report = Report.departures(numberOfDays);
             var viewer = new ReportViewer(report, 900);
             viewer.ShowDialog();
         }

@@ -305,7 +305,7 @@ namespace arctic_seasport_admin
 
 
         
-        static public string arrivals()
+        static public string arrivals(int numberOfDays)
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -353,7 +353,7 @@ namespace arctic_seasport_admin
             ";
 
             DateTime date = DateTime.Now;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < numberOfDays; i++)
             {
                 var nextDay = string.Format(@"
                     <br>
@@ -412,7 +412,7 @@ namespace arctic_seasport_admin
         }
 
 
-        static public string departures()
+        static public string departures(int numberOfDays)
         {
             Cursor.Current = Cursors.WaitCursor;
             var adapter = new Database_adapter();
@@ -460,7 +460,7 @@ namespace arctic_seasport_admin
             ";
 
             DateTime date = DateTime.Now;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < numberOfDays; i++)
             {
                 var nextDay = string.Format(@"
                     <br>

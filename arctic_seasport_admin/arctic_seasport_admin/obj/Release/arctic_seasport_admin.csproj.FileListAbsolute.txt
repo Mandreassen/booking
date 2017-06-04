@@ -56,7 +56,6 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arcti
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.pdb
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\bin\Release\arctic_seasport_admin.exe
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\bin\Release\arctic_seasport_admin.pdb
-C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.csprojResolveAssemblyReference.cache
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Add_rent_object.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Add_rent_object_type.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.appsettings.resources
@@ -76,3 +75,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arcti
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Hotel_statistics.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Alerts.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.ObjectDeleter.resources
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Number_of_days_selector.resources
