@@ -35,6 +35,12 @@ namespace arctic_seasport_admin
         private void New_customer_Load(object sender, EventArgs e)
         {
             fill_info();
+
+            // Setup autocomplete for country box
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(countries.ToArray());
+            countryBox.AutoCompleteCustomSource = collection;
+            countryBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
 
