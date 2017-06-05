@@ -45,7 +45,7 @@ namespace arctic_seasport_admin
                 ;", bid));
 
             DataSet details = adapter.get_DataSet(string.Format(@"
-                select description, startDate, endDate 
+                select description, startDate, endDate, count(beid) 
                 from booking_lines 
                 natural join booking_entries 
                 natural join rent_object_types 
@@ -200,13 +200,14 @@ namespace arctic_seasport_admin
                         <th>Object</th>
                         <th>From</th>
                         <th>To</th>
+                        <th>Days</th>
                       </tr>                    
             ";
 
             DataTable table = details.Tables[0];
             foreach (DataRow row in table.Rows)
             {
-                report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> </tr>", row[0], ((DateTime) row[1]).ToString("dd.MM.yyyy"), ((DateTime)row[2]).ToString("dd.MM.yyyy"));              
+                report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> </tr>", row[0], ((DateTime) row[1]).ToString("dd.MM.yyyy"), ((DateTime)row[2]).ToString("dd.MM.yyyy"), row[3]);              
             }
 
             report += "</table>";

@@ -95,7 +95,7 @@ namespace arctic_seasport_admin
         private void fill_ArrivalsTable(Database_adapter adapter)
         {
             var data = adapter.get_DataSet(string.Format(@"
-                select blid, description AS 'Object', name AS 'Customer', count(beid) AS 'Days', country AS 'Country' , DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer'
+                select blid, description AS 'Object', name AS 'Customer', country AS 'Country' , DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer', count(beid) AS 'Days'
                 from customers
                 natural join bookings            
                 natural join booking_lines
@@ -141,7 +141,8 @@ namespace arctic_seasport_admin
                 select bid AS 'ID', customers.Name as 'User', DATE_FORMAT(startDate, '%d. %m') AS 'From', DATE_FORMAT(endDate, '%d. %m') AS 'To', description AS 'Type', rent_objects.name AS 'Object', country AS 'Country' 
                 from rent_object_types
                 natural join rent_objects
-                join (booking_lines 
+                join (
+                    booking_lines 
                     natural join bookings
                     natural join customers)
                 on rent_objects.currentUser = booking_lines.blid
@@ -183,8 +184,6 @@ namespace arctic_seasport_admin
             form.ShowDialog();
             update_Tables();
         }
-        
-
         
         /* Rent object status (ready/not ready-rent_objects) */
         private void ready_rent_objects_button_Click(object sender, EventArgs e)

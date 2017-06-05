@@ -76,3 +76,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arcti
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Alerts.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.ObjectDeleter.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.Number_of_days_selector.resources
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Release\arctic_seasport_admin.csprojResolveAssemblyReference.cache
