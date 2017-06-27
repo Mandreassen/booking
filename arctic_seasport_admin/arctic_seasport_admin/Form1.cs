@@ -138,7 +138,7 @@ namespace arctic_seasport_admin
         private void fill_CheckinnTable(Database_adapter adapter)
         {
             var checkedIn = adapter.get_DataSet(string.Format(@"
-                select bid AS 'ID', customers.Name as 'User', DATE_FORMAT(startDate, '%d. %m') AS 'From', DATE_FORMAT(endDate, '%d. %m') AS 'To', description AS 'Type', rent_objects.name AS 'Object', country AS 'Country' 
+                select bid AS 'ID', customers.Name as 'User', country AS 'Country', DATE_FORMAT(startDate, '%d. %m') AS 'From', DATE_FORMAT(endDate, '%d. %m') AS 'To', description AS 'Type', rent_objects.name AS 'Object' 
                 from rent_object_types
                 natural join rent_objects
                 join (

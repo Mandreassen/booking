@@ -34,12 +34,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.transferButton = new System.Windows.Forms.Button();
             this.bookingsButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
             this.upcomingButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,15 +115,6 @@
             this.bookingsButton.UseVisualStyleBackColor = false;
             this.bookingsButton.Click += new System.EventHandler(this.bookingsButton_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(857, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(201, 68);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -179,7 +168,6 @@
             this.Controls.Add(this.upcomingButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.bookingsButton);
             this.Controls.Add(this.transferButton);
             this.Controls.Add(this.button3);
@@ -193,7 +181,6 @@
             this.Text = "Arctic Seasport Booking";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -205,7 +192,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button transferButton;
         private System.Windows.Forms.Button bookingsButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button upcomingButton;

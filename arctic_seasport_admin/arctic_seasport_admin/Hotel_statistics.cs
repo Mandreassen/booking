@@ -14,7 +14,7 @@ namespace arctic_seasport_admin
     {
         public Hotel_statistics()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void Hotel_statistics_Load(object sender, EventArgs e)
@@ -115,7 +115,8 @@ namespace arctic_seasport_admin
                 natural join rent_object_types
                 where MONTH(date) = '{0}'
                 and YEAR(date) = '{1}'
-                and accommodation = 'true';
+                and accommodation = 'true'
+                and name != 'BLOKKERING';
             ", dateTimePicker1.Value.ToString("MM"), dateTimePicker1.Value.ToString("yyyy")));
 
             List<DataRow> duplicates = new List<DataRow>();
@@ -168,9 +169,13 @@ namespace arctic_seasport_admin
 
             }
 
-            totalGuests.Text = guests.ToString();             
+            totalGuests.Text = guests.ToString();
 
-            dataView.DataSource = countries.ToArray();
+            // Sort data
+            var ds = countries.ToList();
+            ds.Sort((x, y) => y.Value.CompareTo(x.Value));
+
+            dataView.DataSource = ds.ToArray();
             dataView.AutoResizeColumns();
             dataView.ClearSelection();
         }

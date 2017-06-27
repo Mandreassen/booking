@@ -63,9 +63,11 @@ namespace arctic_seasport_admin
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
             ";
 
-            report += string.Format(@"
+            report += "<br><br><br><br>";
+
+            /*report += string.Format(@"
                 <div class=""kingfisher""> <img src=""{0}"" alt=""kingfisher"" height=""73""> </div>
-            ", Properties.Settings.Default.logo_src);
+            ", Properties.Settings.Default.logo_src);*/
 
             report += @"
                 <br>
@@ -221,7 +223,7 @@ namespace arctic_seasport_admin
                     Naurstad <br>
                     8050 Tverlandet<br>
                     info@arctic-seasport.no <br>
-                    +47 97666598
+                    +47 916 05 007
                 </font>
 
                 </body>
@@ -353,9 +355,11 @@ namespace arctic_seasport_admin
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
             ";
 
-            report += string.Format(@"
+            report += "<br><br><br><br><br>";
+
+           /* report += string.Format(@"
                 <div class=""kingfisher""> <img src=""{0}"" alt=""kingfisher"" height=""73""> </div>
-            ", Properties.Settings.Default.logo_src);               
+            ", Properties.Settings.Default.logo_src);     */          
  
              report += @"
                 <style>

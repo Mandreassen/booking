@@ -154,7 +154,8 @@ namespace arctic_seasport_admin
 
             foreach (var date in dates)
             {
-                progressBar1.Value += 1;
+                progressBar1.Increment(1);
+
                 var column = new DataColumn();
                 column.DataType = System.Type.GetType("System.Int32");
                 column.ColumnName = date.ToString(collumnFormat);
@@ -177,7 +178,7 @@ namespace arctic_seasport_admin
                     i++;
                 }                
             }
-
+                        
             db.close();
             dataGridView1.DataSource = table;
 

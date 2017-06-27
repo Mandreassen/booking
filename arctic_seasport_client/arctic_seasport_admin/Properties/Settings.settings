@@ -29,13 +29,13 @@
       <Value Profile="(Default)">server=localhost;user id=admin1;database=arctic_seasport_db</Value>
     </Setting>
     <Setting Name="company" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Angelreisen_K-N</Value>
+      <Value Profile="(Default)">Goran_Eliasson</Value>
     </Setting>
     <Setting Name="country" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Tyskland</Value>
+      <Value Profile="(Default)">Sverige</Value>
     </Setting>
     <Setting Name="logo_src" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.arctic-seasport.no/img/angelreisen_k-n.jpg</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="kingfisher_logo" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png</Value>

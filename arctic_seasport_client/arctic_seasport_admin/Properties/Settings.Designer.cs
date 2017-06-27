@@ -104,7 +104,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Angelreisen_K-N")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Goran_Eliasson")]
         public string company {
             get {
                 return ((string)(this["company"]));
@@ -116,7 +116,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Tyskland")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Sverige")]
         public string country {
             get {
                 return ((string)(this["country"]));
@@ -128,7 +128,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.arctic-seasport.no/img/angelreisen_k-n.jpg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string logo_src {
             get {
                 return ((string)(this["logo_src"]));

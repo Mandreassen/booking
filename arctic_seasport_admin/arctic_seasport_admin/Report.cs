@@ -290,7 +290,7 @@ namespace arctic_seasport_admin
                     Naurstad <br>
                     8050 Tverlandet<br>
                     info@arctic-seasport.no <br>
-                    +47 97666598
+                    +47 916 05 007
                 </font>
 
                 </body>
