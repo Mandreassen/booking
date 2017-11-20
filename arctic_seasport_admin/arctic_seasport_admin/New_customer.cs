@@ -210,9 +210,10 @@ namespace arctic_seasport_admin
                 Cursor.Current = Cursors.WaitCursor;
 
                 MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("mail.arctic-seasport.no");
+                //SmtpClient SmtpServer = new SmtpClient("mail.arctic-seasport.no");
+                SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
 
-                mail.From = new MailAddress("info@arctic-seasport.no");
+                mail.From = new MailAddress("arctic-seasport@hotmail.no");
                 //mail.To.Add("post@mandreassen.no");
                 mail.To.Add(recirver);
                 mail.Subject = "Booking confirmation";
@@ -222,8 +223,10 @@ namespace arctic_seasport_admin
 
                 SmtpServer.Port = 587;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("info@arctic-seasport.no", "123qwe!");
-                SmtpServer.EnableSsl = false;
+                //SmtpServer.Credentials = new System.Net.NetworkCredential("info@arctic-seasport.no", "123qwe!");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("arctic-seasport@hotmail.no", "Centermin123!");
+                //SmtpServer.EnableSsl = false;
+                SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
                 Cursor.Current = Cursors.Default;
