@@ -214,7 +214,7 @@ namespace arctic_seasport_admin
                 SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
 
                 mail.From = new MailAddress("arctic-seasport@hotmail.no");
-                //mail.To.Add("post@mandreassen.no");
+                
                 mail.To.Add(recirver);
                 mail.Subject = "Booking confirmation";
                 

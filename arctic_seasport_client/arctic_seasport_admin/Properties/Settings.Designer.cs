@@ -104,7 +104,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Goran_Eliasson")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Angelreisen_K-N")]
         public string company {
             get {
                 return ((string)(this["company"]));
@@ -116,7 +116,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Sverige")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tyskland")]
         public string country {
             get {
                 return ((string)(this["country"]));

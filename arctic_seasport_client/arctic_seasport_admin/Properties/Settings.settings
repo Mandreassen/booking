@@ -29,10 +29,10 @@
       <Value Profile="(Default)">server=localhost;user id=admin1;database=arctic_seasport_db</Value>
     </Setting>
     <Setting Name="company" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Goran_Eliasson</Value>
+      <Value Profile="(Default)">Angelreisen_K-N</Value>
     </Setting>
     <Setting Name="country" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Sverige</Value>
+      <Value Profile="(Default)">Tyskland</Value>
     </Setting>
     <Setting Name="logo_src" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
