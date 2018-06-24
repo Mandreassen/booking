@@ -39,6 +39,7 @@ namespace arctic_seasport_admin
             remove_ButtonBorder(transferButton);
             remove_ButtonBorder(hotelStatisticsButton);
             remove_ButtonBorder(alertButton);
+            remove_ButtonBorder(mapButton);
             update_Tables();
 
             Timer timer = new Timer();
@@ -313,6 +314,23 @@ namespace arctic_seasport_admin
             var report = Report.upcoming_Bookings();
             var view = new ReportViewer(report, 1366);
             view.ShowDialog();            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mapButton_Click(object sender, EventArgs e)
+        {
+            map form = new map();
+            form.ShowDialog();
+            update_Tables();
+        }
+
+        private void useTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

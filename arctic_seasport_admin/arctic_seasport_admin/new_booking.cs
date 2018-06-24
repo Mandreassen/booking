@@ -74,11 +74,7 @@ namespace arctic_seasport_admin
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            //if (dateTimePicker1.Value.Date >= dateTimePicker2.Value.Date)
-            //{
-                dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
-            //}
-
+            dateTimePicker2.Value = dateTimePicker1.Value.AddDays(1);
             fill_Overview();
         }
 

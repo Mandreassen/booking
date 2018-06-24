@@ -133,6 +133,12 @@
     <Compile Include="Manage_bookings.Designer.cs">
       <DependentUpon>Manage_bookings.cs</DependentUpon>
     </Compile>
+    <Compile Include="map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="map.Designer.cs">
+      <DependentUpon>map.cs</DependentUpon>
+    </Compile>
     <Compile Include="new_booking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_bookings.resx">
       <DependentUpon>Manage_bookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="map.resx">
+      <DependentUpon>map.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="new_booking.resx">
       <DependentUpon>new_booking.cs</DependentUpon>
