@@ -14,6 +14,10 @@ namespace arctic_seasport_admin
     {
         private Dictionary<string, string> rentObjects;
         private Dictionary<string, string> bookings;
+        private Dictionary<string, string> numberOfPersons;
+        private Dictionary<string, string> country;
+        private Dictionary<string, string> departure;
+
 
         public map()
         {
@@ -24,18 +28,39 @@ namespace arctic_seasport_admin
         {
             var adapter = new Database_adapter();
 
+            // Rent object name and BID on current user
             rentObjects = adapter.get_Dict(@"select name, bid from rent_objects
                 left join booking_lines on rent_objects.currentUser = booking_lines.blid;");
 
+            // BID and customer name
             bookings = adapter.get_Dict(@"select bid, name from customers
                 natural join bookings
                 natural join booking_lines
                 where blid in (select currentUser from rent_objects)
                 group by bid;");
 
+            // BID and number of persons
+            numberOfPersons = adapter.get_Dict(@"select bid, persons from bookings
+                natural join booking_lines
+                where blid in (select currentUser from rent_objects)
+                group by bid;");
+
+            // BID and country
+            country = adapter.get_Dict(@"select bid, country from customers
+                natural join bookings
+                natural join booking_lines
+                where blid in (select currentUser from rent_objects)
+                group by bid");
+
+            // Departure day
+            departure = adapter.get_Dict(@"select bid, max(endDate) from booking_lines
+                where blid in (select currentUser from rent_objects)
+                group by bid");
+  
             adapter.close();
         }
 
+        // Start booking report on selected customer
         private void start_Report(string rentObject)
         {
             string bid = rentObjects[rentObject];
@@ -49,6 +74,7 @@ namespace arctic_seasport_admin
             viewer.ShowDialog();
         }
 
+        // Fill all fields with correct text
         private void fill_Labels()
         {
             Label box;
@@ -75,15 +101,18 @@ namespace arctic_seasport_admin
             }
         }
         
+        // Adjust position of boat text
         private void adjust_Labels()
         {
-            Båt1.Left = 652 - Båt1.Size.Width;
-            Båt2.Left = 642 - Båt2.Size.Width;
-            Båt3.Left = 632 - Båt3.Size.Width;
-            Båt4.Left = 622 - Båt4.Size.Width;
-            Båt10.Left = 590 - Båt10.Size.Width;
+            Båt1.Left = Båt1.Location.X - Båt1.Size.Width + 40;
+            Båt2.Left = Båt2.Location.X - Båt2.Size.Width + 40;
+            Båt3.Left = Båt3.Location.X - Båt3.Size.Width + 40;
+            Båt4.Left = Båt4.Location.X - Båt4.Size.Width + 40;
+            Båt10.Left = Båt10.Location.X - Båt10.Size.Width + 40;
+            Plass1.Left = Plass1.Location.X - Plass1.Size.Width + 52;
         }
 
+        // Load map
         private void map_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -97,6 +126,108 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
         }
 
+        // Get BID corresponding to selected text field
+        private string get_Bid_from_label(string name)
+        {
+            string txt = name.Split(':')[0];
+
+            return rentObjects[txt];
+
+        }
+
+        // Highlight all objects with selected BID
+        private void set_Highlight(string bid)
+        {
+            foreach (var ctrl in this.Controls)
+            {
+                Label box;
+
+                if (ctrl is Label)
+                {
+                    box = (Label)ctrl;
+
+                    if (bid == get_Bid_from_label(box.Text))
+                    {
+                        if (bid == "")
+                        {
+                            box.BackColor = Color.LightSeaGreen;
+                        }
+                        else
+                        {
+                            box.BackColor = Color.Yellow;
+                        }
+                    }
+                }
+            }
+
+            view_Info(bid);
+        }
+
+        // Cler highlighted objects
+        private void clear_Highlight(string bid)
+        {
+            foreach (var ctrl in this.Controls)
+            {
+                Label box;
+
+                if (ctrl is Label)
+                {
+                    box = (Label)ctrl;
+
+                    if (bid == get_Bid_from_label(box.Text))
+                    {
+                        if (bid != "")
+                        {
+                            box.BackColor = Color.White;
+                        }
+                        else
+                        {
+                            box.BackColor = Color.LightGreen;
+                        }
+
+                    }
+                }
+            }
+
+            clear_Info();
+        }
+
+        // Display info box
+        private void view_Info(string bid)
+        {
+            if (bid == null || bid == "")
+            {
+                return;
+            }
+
+            infoBox.Visible = true;
+
+            infoBox.AppendText("ID: " + bid);
+            infoBox.AppendText(Environment.NewLine);
+            infoBox.AppendText("Name: " + bookings[bid]);
+            infoBox.AppendText(Environment.NewLine);
+            infoBox.AppendText("Persons: " + numberOfPersons[bid]);
+            infoBox.AppendText(Environment.NewLine);
+            infoBox.AppendText("Country: " + country[bid]);
+            infoBox.AppendText(Environment.NewLine);
+            infoBox.AppendText("Departure: " + departure[bid].Split(' ')[0]);
+
+            Size size = TextRenderer.MeasureText(infoBox.Text, infoBox.Font);
+            infoBox.Width = size.Width;
+            infoBox.Height = size.Height + 10;
+        }
+
+        // Hide and clear info box
+        private void clear_Info()
+        {
+            infoBox.Visible = false;
+            infoBox.Text = "";
+        }
+
+
+        /************* EVENT HANDLERS *************/
+
+        // Click events
         private void B1_Click(object sender, EventArgs e)
         {
             start_Report("B1");
@@ -197,68 +328,41 @@ namespace arctic_seasport_admin
             start_Report("Båt 11");
         }
 
-        private string get_Bid_from_label(string name)
+        private void RaudDenRame_Click(object sender, EventArgs e)
         {
-            string txt = name.Split(':')[0];
-
-            return rentObjects[txt];
-                    
+            start_Report("Raud den Rame");
         }
 
-        private void set_Highlight(string bid)
+        private void Parkering1_Click(object sender, EventArgs e)
         {
-            foreach (var ctrl in this.Controls)
-            {
-                Label box;
-
-                if (ctrl is Label)
-                {
-                    box = (Label)ctrl;
-
-                    if (bid == get_Bid_from_label(box.Text))
-                    {
-                        if (bid == "")
-                        {
-                            box.BackColor = Color.LightSeaGreen;
-                        }
-                        else
-                        {
-                            box.BackColor = Color.Yellow;
-                        }                        
-                    }
-                }
-            }
+            start_Report("Parkering 1");
         }
 
-        private void clear_Highlight(string bid)
+        private void Parkering2_Click(object sender, EventArgs e)
         {
-            foreach (var ctrl in this.Controls)
-            {
-                Label box;
-
-                if (ctrl is Label)
-                {
-                    box = (Label)ctrl;
-
-                    if (bid == get_Bid_from_label(box.Text))
-                    {
-                        if (bid != "")
-                        {
-                            box.BackColor = Color.White;
-                        }
-                        else
-                        {
-                            box.BackColor = Color.LightGreen;
-                        }
-                        
-                    }
-                }
-            }
+            start_Report("Parkering 2");
         }
-        
+
+        private void Parkering3_Click(object sender, EventArgs e)
+        {
+            start_Report("Parkering 3");
+        }
+
+        private void Parkering4_Click(object sender, EventArgs e)
+        {
+            start_Report("Parkering 4");
+        }
+
+        private void Plass1_Click(object sender, EventArgs e)
+        {
+            start_Report("Plass 1");
+        }
+
+
+        // Mouse events       
         private void B1_MouseEnter(object sender, EventArgs e)
         {
-            set_Highlight(get_Bid_from_label(B1.Text));
+            set_Highlight(get_Bid_from_label(B1.Text));           
         }
 
         private void B1_MouseLeave(object sender, EventArgs e)
@@ -464,6 +568,66 @@ namespace arctic_seasport_admin
         private void Bella_MouseLeave(object sender, EventArgs e)
         {
             clear_Highlight(get_Bid_from_label(Bella.Text));
+        }
+
+        private void RaudDenRame_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(RaudDenRame.Text));
+        }
+
+        private void RaudDenRame_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(RaudDenRame.Text));
+        }
+
+        private void Parkering1_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(Parkering1.Text));
+        }
+
+        private void Parkering1_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(Parkering1.Text));
+        }
+
+        private void Parkering2_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(Parkering2.Text));
+        }
+
+        private void Parkering2_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(Parkering2.Text));
+        }
+
+        private void Parkering3_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(Parkering3.Text));
+        }
+
+        private void Parkering3_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(Parkering3.Text));
+        }
+
+        private void Parkering4_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(Parkering4.Text));
+        }
+
+        private void Parkering4_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(Parkering4.Text));
+        }
+
+        private void Plass1_MouseEnter(object sender, EventArgs e)
+        {
+            set_Highlight(get_Bid_from_label(Plass1.Text));
+        }
+
+        private void Plass1_MouseLeave(object sender, EventArgs e)
+        {
+            clear_Highlight(get_Bid_from_label(Plass1.Text));
         }
     }
 }

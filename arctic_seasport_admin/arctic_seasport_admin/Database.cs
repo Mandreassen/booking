@@ -45,7 +45,7 @@ namespace arctic_seasport_admin
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 retval = null;
             }
             

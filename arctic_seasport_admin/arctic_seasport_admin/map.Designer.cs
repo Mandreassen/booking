@@ -51,6 +51,13 @@
             this.C1 = new System.Windows.Forms.Label();
             this.C2 = new System.Windows.Forms.Label();
             this.C3 = new System.Windows.Forms.Label();
+            this.infoBox = new System.Windows.Forms.TextBox();
+            this.RaudDenRame = new System.Windows.Forms.Label();
+            this.Parkering1 = new System.Windows.Forms.Label();
+            this.Parkering2 = new System.Windows.Forms.Label();
+            this.Parkering3 = new System.Windows.Forms.Label();
+            this.Parkering4 = new System.Windows.Forms.Label();
+            this.Plass1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +76,7 @@
             this.B1.BackColor = System.Drawing.Color.White;
             this.B1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.B1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B1.Location = new System.Drawing.Point(628, 18);
+            this.B1.Location = new System.Drawing.Point(626, 18);
             this.B1.Name = "B1";
             this.B1.Size = new System.Drawing.Size(24, 16);
             this.B1.TabIndex = 1;
@@ -99,7 +106,7 @@
             this.B7.BackColor = System.Drawing.Color.White;
             this.B7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.B7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B7.Location = new System.Drawing.Point(772, 226);
+            this.B7.Location = new System.Drawing.Point(770, 227);
             this.B7.Name = "B7";
             this.B7.Size = new System.Drawing.Size(24, 16);
             this.B7.TabIndex = 3;
@@ -144,7 +151,7 @@
             this.R2.BackColor = System.Drawing.Color.White;
             this.R2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.R2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.R2.Location = new System.Drawing.Point(265, 343);
+            this.R2.Location = new System.Drawing.Point(310, 341);
             this.R2.Name = "R2";
             this.R2.Size = new System.Drawing.Size(25, 16);
             this.R2.TabIndex = 6;
@@ -174,7 +181,7 @@
             this.Bella.BackColor = System.Drawing.Color.White;
             this.Bella.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Bella.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bella.Location = new System.Drawing.Point(693, 650);
+            this.Bella.Location = new System.Drawing.Point(690, 650);
             this.Bella.Name = "Bella";
             this.Bella.Size = new System.Drawing.Size(70, 16);
             this.Bella.TabIndex = 8;
@@ -188,7 +195,7 @@
             this.Båt5.BackColor = System.Drawing.Color.White;
             this.Båt5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt5.Location = new System.Drawing.Point(684, 671);
+            this.Båt5.Location = new System.Drawing.Point(680, 675);
             this.Båt5.Name = "Båt5";
             this.Båt5.Size = new System.Drawing.Size(38, 16);
             this.Båt5.TabIndex = 9;
@@ -203,7 +210,7 @@
             this.Båt6.BackColor = System.Drawing.Color.White;
             this.Båt6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt6.Location = new System.Drawing.Point(673, 693);
+            this.Båt6.Location = new System.Drawing.Point(670, 700);
             this.Båt6.Name = "Båt6";
             this.Båt6.Size = new System.Drawing.Size(38, 16);
             this.Båt6.TabIndex = 10;
@@ -218,7 +225,7 @@
             this.Båt7.BackColor = System.Drawing.Color.White;
             this.Båt7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt7.Location = new System.Drawing.Point(665, 716);
+            this.Båt7.Location = new System.Drawing.Point(660, 725);
             this.Båt7.Name = "Båt7";
             this.Båt7.Size = new System.Drawing.Size(38, 16);
             this.Båt7.TabIndex = 11;
@@ -233,7 +240,7 @@
             this.Båt9.BackColor = System.Drawing.Color.White;
             this.Båt9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt9.Location = new System.Drawing.Point(654, 738);
+            this.Båt9.Location = new System.Drawing.Point(650, 750);
             this.Båt9.Name = "Båt9";
             this.Båt9.Size = new System.Drawing.Size(38, 16);
             this.Båt9.TabIndex = 12;
@@ -248,7 +255,7 @@
             this.Båt11.BackColor = System.Drawing.Color.White;
             this.Båt11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt11.Location = new System.Drawing.Point(644, 761);
+            this.Båt11.Location = new System.Drawing.Point(640, 775);
             this.Båt11.Name = "Båt11";
             this.Båt11.Size = new System.Drawing.Size(45, 16);
             this.Båt11.TabIndex = 13;
@@ -263,7 +270,7 @@
             this.Båt1.BackColor = System.Drawing.Color.White;
             this.Båt1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt1.Location = new System.Drawing.Point(619, 650);
+            this.Båt1.Location = new System.Drawing.Point(615, 650);
             this.Båt1.Name = "Båt1";
             this.Båt1.Size = new System.Drawing.Size(38, 16);
             this.Båt1.TabIndex = 14;
@@ -278,7 +285,7 @@
             this.Båt2.BackColor = System.Drawing.Color.White;
             this.Båt2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt2.Location = new System.Drawing.Point(610, 671);
+            this.Båt2.Location = new System.Drawing.Point(605, 675);
             this.Båt2.Name = "Båt2";
             this.Båt2.Size = new System.Drawing.Size(38, 16);
             this.Båt2.TabIndex = 15;
@@ -293,7 +300,7 @@
             this.Båt3.BackColor = System.Drawing.Color.White;
             this.Båt3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt3.Location = new System.Drawing.Point(600, 693);
+            this.Båt3.Location = new System.Drawing.Point(595, 700);
             this.Båt3.Name = "Båt3";
             this.Båt3.Size = new System.Drawing.Size(38, 16);
             this.Båt3.TabIndex = 16;
@@ -308,7 +315,7 @@
             this.Båt4.BackColor = System.Drawing.Color.White;
             this.Båt4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt4.Location = new System.Drawing.Point(590, 716);
+            this.Båt4.Location = new System.Drawing.Point(585, 725);
             this.Båt4.Name = "Båt4";
             this.Båt4.Size = new System.Drawing.Size(38, 16);
             this.Båt4.TabIndex = 17;
@@ -323,7 +330,7 @@
             this.Båt10.BackColor = System.Drawing.Color.White;
             this.Båt10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Båt10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Båt10.Location = new System.Drawing.Point(550, 794);
+            this.Båt10.Location = new System.Drawing.Point(545, 800);
             this.Båt10.Name = "Båt10";
             this.Båt10.Size = new System.Drawing.Size(45, 16);
             this.Båt10.TabIndex = 18;
@@ -338,7 +345,7 @@
             this.C1.BackColor = System.Drawing.Color.White;
             this.C1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.C1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C1.Location = new System.Drawing.Point(793, 526);
+            this.C1.Location = new System.Drawing.Point(790, 525);
             this.C1.Name = "C1";
             this.C1.Size = new System.Drawing.Size(24, 16);
             this.C1.TabIndex = 19;
@@ -353,7 +360,7 @@
             this.C2.BackColor = System.Drawing.Color.White;
             this.C2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.C2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C2.Location = new System.Drawing.Point(825, 549);
+            this.C2.Location = new System.Drawing.Point(820, 545);
             this.C2.Name = "C2";
             this.C2.Size = new System.Drawing.Size(24, 16);
             this.C2.TabIndex = 20;
@@ -368,7 +375,7 @@
             this.C3.BackColor = System.Drawing.Color.White;
             this.C3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.C3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.C3.Location = new System.Drawing.Point(860, 571);
+            this.C3.Location = new System.Drawing.Point(850, 565);
             this.C3.Name = "C3";
             this.C3.Size = new System.Drawing.Size(24, 16);
             this.C3.TabIndex = 21;
@@ -377,11 +384,120 @@
             this.C3.MouseEnter += new System.EventHandler(this.C3_MouseEnter);
             this.C3.MouseLeave += new System.EventHandler(this.C3_MouseLeave);
             // 
+            // infoBox
+            // 
+            this.infoBox.BackColor = System.Drawing.Color.White;
+            this.infoBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.infoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoBox.Location = new System.Drawing.Point(111, 549);
+            this.infoBox.Multiline = true;
+            this.infoBox.Name = "infoBox";
+            this.infoBox.Size = new System.Drawing.Size(158, 278);
+            this.infoBox.TabIndex = 22;
+            this.infoBox.Visible = false;
+            // 
+            // RaudDenRame
+            // 
+            this.RaudDenRame.AutoSize = true;
+            this.RaudDenRame.BackColor = System.Drawing.Color.White;
+            this.RaudDenRame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RaudDenRame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RaudDenRame.Location = new System.Drawing.Point(25, 293);
+            this.RaudDenRame.Name = "RaudDenRame";
+            this.RaudDenRame.Size = new System.Drawing.Size(107, 16);
+            this.RaudDenRame.TabIndex = 23;
+            this.RaudDenRame.Text = "Raud den Rame";
+            this.RaudDenRame.Click += new System.EventHandler(this.RaudDenRame_Click);
+            this.RaudDenRame.MouseEnter += new System.EventHandler(this.RaudDenRame_MouseEnter);
+            this.RaudDenRame.MouseLeave += new System.EventHandler(this.RaudDenRame_MouseLeave);
+            // 
+            // Parkering1
+            // 
+            this.Parkering1.AutoSize = true;
+            this.Parkering1.BackColor = System.Drawing.Color.White;
+            this.Parkering1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Parkering1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Parkering1.Location = new System.Drawing.Point(370, 10);
+            this.Parkering1.Name = "Parkering1";
+            this.Parkering1.Size = new System.Drawing.Size(76, 16);
+            this.Parkering1.TabIndex = 24;
+            this.Parkering1.Text = "Parkering 1";
+            this.Parkering1.Click += new System.EventHandler(this.Parkering1_Click);
+            this.Parkering1.MouseEnter += new System.EventHandler(this.Parkering1_MouseEnter);
+            this.Parkering1.MouseLeave += new System.EventHandler(this.Parkering1_MouseLeave);
+            // 
+            // Parkering2
+            // 
+            this.Parkering2.AutoSize = true;
+            this.Parkering2.BackColor = System.Drawing.Color.White;
+            this.Parkering2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Parkering2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Parkering2.Location = new System.Drawing.Point(340, 40);
+            this.Parkering2.Name = "Parkering2";
+            this.Parkering2.Size = new System.Drawing.Size(76, 16);
+            this.Parkering2.TabIndex = 25;
+            this.Parkering2.Text = "Parkering 2";
+            this.Parkering2.Click += new System.EventHandler(this.Parkering2_Click);
+            this.Parkering2.MouseEnter += new System.EventHandler(this.Parkering2_MouseEnter);
+            this.Parkering2.MouseLeave += new System.EventHandler(this.Parkering2_MouseLeave);
+            // 
+            // Parkering3
+            // 
+            this.Parkering3.AutoSize = true;
+            this.Parkering3.BackColor = System.Drawing.Color.White;
+            this.Parkering3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Parkering3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Parkering3.Location = new System.Drawing.Point(310, 70);
+            this.Parkering3.Name = "Parkering3";
+            this.Parkering3.Size = new System.Drawing.Size(76, 16);
+            this.Parkering3.TabIndex = 26;
+            this.Parkering3.Text = "Parkering 3";
+            this.Parkering3.Click += new System.EventHandler(this.Parkering3_Click);
+            this.Parkering3.MouseEnter += new System.EventHandler(this.Parkering3_MouseEnter);
+            this.Parkering3.MouseLeave += new System.EventHandler(this.Parkering3_MouseLeave);
+            // 
+            // Parkering4
+            // 
+            this.Parkering4.AutoSize = true;
+            this.Parkering4.BackColor = System.Drawing.Color.White;
+            this.Parkering4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Parkering4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Parkering4.Location = new System.Drawing.Point(280, 100);
+            this.Parkering4.Name = "Parkering4";
+            this.Parkering4.Size = new System.Drawing.Size(76, 16);
+            this.Parkering4.TabIndex = 27;
+            this.Parkering4.Text = "Parkering 4";
+            this.Parkering4.Click += new System.EventHandler(this.Parkering4_Click);
+            this.Parkering4.MouseEnter += new System.EventHandler(this.Parkering4_MouseEnter);
+            this.Parkering4.MouseLeave += new System.EventHandler(this.Parkering4_MouseLeave);
+            // 
+            // Plass1
+            // 
+            this.Plass1.AutoSize = true;
+            this.Plass1.BackColor = System.Drawing.Color.White;
+            this.Plass1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plass1.Location = new System.Drawing.Point(548, 775);
+            this.Plass1.Name = "Plass1";
+            this.Plass1.Size = new System.Drawing.Size(52, 16);
+            this.Plass1.TabIndex = 28;
+            this.Plass1.Text = "Plass 1";
+            this.Plass1.Click += new System.EventHandler(this.Plass1_Click);
+            this.Plass1.MouseEnter += new System.EventHandler(this.Plass1_MouseEnter);
+            this.Plass1.MouseLeave += new System.EventHandler(this.Plass1_MouseLeave);
+            // 
             // map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 933);
+            this.Controls.Add(this.Plass1);
+            this.Controls.Add(this.Parkering4);
+            this.Controls.Add(this.Parkering3);
+            this.Controls.Add(this.Parkering2);
+            this.Controls.Add(this.Parkering1);
+            this.Controls.Add(this.RaudDenRame);
+            this.Controls.Add(this.infoBox);
             this.Controls.Add(this.C3);
             this.Controls.Add(this.C2);
             this.Controls.Add(this.C1);
@@ -439,5 +555,12 @@
         private System.Windows.Forms.Label C1;
         private System.Windows.Forms.Label C2;
         private System.Windows.Forms.Label C3;
+        private System.Windows.Forms.TextBox infoBox;
+        private System.Windows.Forms.Label RaudDenRame;
+        private System.Windows.Forms.Label Parkering1;
+        private System.Windows.Forms.Label Parkering2;
+        private System.Windows.Forms.Label Parkering3;
+        private System.Windows.Forms.Label Parkering4;
+        private System.Windows.Forms.Label Plass1;
     }
 }
