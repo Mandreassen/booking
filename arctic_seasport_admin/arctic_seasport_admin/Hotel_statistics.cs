@@ -19,7 +19,10 @@ namespace arctic_seasport_admin
 
         private void Hotel_statistics_Load(object sender, EventArgs e)
         {
-            
+            remove_ButtonBorder(monthDown);
+            remove_ButtonBorder(monthUp);
+            remove_ButtonBorder(yearDown);
+            remove_ButtonBorder(yearUp);
             fill_All();
         }
 
@@ -35,6 +38,13 @@ namespace arctic_seasport_admin
             adapter.close();
         }
 
+        private void remove_ButtonBorder(Button button)
+        {
+            button.TabStop = false;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
+        }
 
         private void fill_TotalAccommodation(Database_adapter adapter)
         {
@@ -184,6 +194,27 @@ namespace arctic_seasport_admin
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {      
             fill_All();            
+        }
+
+        private void monthUp_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddMonths(1);
+
+        }
+
+        private void monthDown_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddMonths(-1);
+        }
+
+        private void yearUp_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddYears(1);
+        }
+
+        private void yearDown_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = dateTimePicker1.Value.AddYears(-1);
         }
     }
 }

@@ -18,7 +18,6 @@ namespace arctic_seasport_admin
         private Dictionary<string, string> country;
         private Dictionary<string, string> departure;
 
-
         public map()
         {
             InitializeComponent();
@@ -132,7 +131,6 @@ namespace arctic_seasport_admin
             string txt = name.Split(':')[0];
 
             return rentObjects[txt];
-
         }
 
         // Highlight all objects with selected BID
@@ -195,26 +193,30 @@ namespace arctic_seasport_admin
         // Display info box
         private void view_Info(string bid)
         {
-            if (bid == null || bid == "")
-            {
-                return;
-            }
-
             infoBox.Visible = true;
 
-            infoBox.AppendText("ID: " + bid);
-            infoBox.AppendText(Environment.NewLine);
-            infoBox.AppendText("Name: " + bookings[bid]);
-            infoBox.AppendText(Environment.NewLine);
-            infoBox.AppendText("Persons: " + numberOfPersons[bid]);
-            infoBox.AppendText(Environment.NewLine);
-            infoBox.AppendText("Country: " + country[bid]);
-            infoBox.AppendText(Environment.NewLine);
-            infoBox.AppendText("Departure: " + departure[bid].Split(' ')[0]);
+            if (bid == null || bid == "")
+            {
+                infoBox.AppendText(Environment.NewLine);
+                infoBox.AppendText("     LEDIG!   ");
+                infoBox.AppendText(Environment.NewLine);                
+            }
+            else
+            {
+                infoBox.AppendText("ID: " + bid);
+                infoBox.AppendText(Environment.NewLine);
+                infoBox.AppendText("Name: " + bookings[bid]);
+                infoBox.AppendText(Environment.NewLine);
+                infoBox.AppendText("Persons: " + numberOfPersons[bid]);
+                infoBox.AppendText(Environment.NewLine);
+                infoBox.AppendText("Country: " + country[bid]);
+                infoBox.AppendText(Environment.NewLine);
+                infoBox.AppendText("Departure: " + departure[bid].Split(' ')[0]);
+            }
 
             Size size = TextRenderer.MeasureText(infoBox.Text, infoBox.Font);
             infoBox.Width = size.Width;
-            infoBox.Height = size.Height + 10;
+            infoBox.Height = size.Height + 2;
         }
 
         // Hide and clear info box

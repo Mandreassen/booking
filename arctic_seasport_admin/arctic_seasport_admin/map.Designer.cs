@@ -386,13 +386,14 @@
             // 
             // infoBox
             // 
-            this.infoBox.BackColor = System.Drawing.Color.White;
+            this.infoBox.BackColor = System.Drawing.Color.LightYellow;
+            this.infoBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.infoBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.infoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoBox.Location = new System.Drawing.Point(111, 549);
+            this.infoBox.Location = new System.Drawing.Point(141, 544);
             this.infoBox.Multiline = true;
             this.infoBox.Name = "infoBox";
-            this.infoBox.Size = new System.Drawing.Size(158, 278);
+            this.infoBox.Size = new System.Drawing.Size(158, 119);
             this.infoBox.TabIndex = 22;
             this.infoBox.Visible = false;
             // 

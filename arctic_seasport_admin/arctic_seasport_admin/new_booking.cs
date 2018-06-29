@@ -120,6 +120,30 @@ namespace arctic_seasport_admin
         }
 
 
+        /* Set color to gridview */
+        private void set_Color()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    switch (cell.Value.ToString())
+                    {
+                        case "0":
+                            cell.Style.BackColor = Color.LightCoral;
+                            break;
+                        //case "1":
+                        //    cell.Style.BackColor = Color.LightYellow;
+                        //    break;
+                        default:
+                            cell.Style.BackColor = Color.LightGreen;
+                            break;
+                    }
+                }
+            }
+        }
+
+
         private void fill_Overview()
         {
             progressBar1.Value = 0;
@@ -189,8 +213,10 @@ namespace arctic_seasport_admin
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }           
+            }
 
+            set_Color();
+                 
             dataGridView1.AutoResizeColumns();
             dataGridView1.RowHeadersWidth = 200;
             dataGridView1.ClearSelection();
