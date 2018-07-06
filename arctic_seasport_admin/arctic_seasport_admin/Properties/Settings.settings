@@ -31,5 +31,11 @@
     <Setting Name="company" Type="System.String" Scope="User">
       <Value Profile="(Default)">Arctic-Seasport</Value>
     </Setting>
+    <Setting Name="BacupAppLoc" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\\Program Files\\MariaDB 10.1\\bin\\mysqldump.exe</Value>
+    </Setting>
+    <Setting Name="LastBackup" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2001-01-01</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

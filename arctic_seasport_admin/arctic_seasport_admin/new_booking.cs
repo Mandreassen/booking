@@ -219,6 +219,8 @@ namespace arctic_seasport_admin
                  
             dataGridView1.AutoResizeColumns();
             dataGridView1.RowHeadersWidth = 200;
+            //dataGridView1.AutoSize = true;
+            
             dataGridView1.ClearSelection();
             dataGridView1.Show();
             Cursor.Current = Cursors.Default;
@@ -443,6 +445,8 @@ namespace arctic_seasport_admin
 
             dataGridView2.Columns["blid"].Visible = false;
             dataGridView2.AutoResizeColumns();
+            //dataGridView2.AutoSize = true;
+            //this.CenterToScreen();
             dataGridView2.ClearSelection();
             dataGridView2.Show();
         }

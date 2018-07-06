@@ -113,5 +113,26 @@ namespace arctic_seasport_admin.Properties {
                 this["company"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Program Files\\\\MariaDB 10.1\\\\bin\\\\mysqldump.exe")]
+        public string BacupAppLoc {
+            get {
+                return ((string)(this["BacupAppLoc"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2001-01-01")]
+        public global::System.DateTime LastBackup {
+            get {
+                return ((global::System.DateTime)(this["LastBackup"]));
+            }
+            set {
+                this["LastBackup"] = value;
+            }
+        }
     }
 }

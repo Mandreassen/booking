@@ -109,6 +109,9 @@ namespace arctic_seasport_admin
 
             useTable.DataSource = checkedIn.Tables[0];
             useTable.AutoResizeColumns();
+            useTable.AutoSize = true;
+            this.CenterToScreen();
+            
             useTable.ClearSelection();
         }
 
@@ -174,7 +177,7 @@ namespace arctic_seasport_admin
             return false;
         }
 
-
+        
         /* Check out selected object
          * If customer holds more than one object, the user will be
          * prompted with a question asking if he/she wants to check

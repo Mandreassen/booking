@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 namespace arctic_seasport_admin
 {
@@ -271,6 +273,47 @@ namespace arctic_seasport_admin
             conn.Close();
 
             return dict; // Success
+        }
+
+
+        /* Run mysqldump and backup database */
+        static public void backup_Database(string path)
+        {
+            Process p = new Process();
+            string output;
+
+            if (!File.Exists(Properties.Settings.Default.BacupAppLoc))
+            {
+                MessageBox.Show("Backup application not installed. Please install MariaDB 10.1");
+                return;
+            }
+
+            string command = string.Format("-e --user={0} --password={1} --host={2} --protocol=tcp --port={3} --default-character-set=utf8 --single-transaction=TRUE {4}",
+                Properties.Settings.Default.UserID,
+                Properties.Settings.Default.Password,
+                Properties.Settings.Default.Server,
+                Properties.Settings.Default.Port,
+                Properties.Settings.Default.Database);
+
+            // Config process
+            p.StartInfo.FileName = Properties.Settings.Default.BacupAppLoc;
+            p.StartInfo.Arguments = command;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+
+            try
+            {
+                p.Start();
+                output = p.StandardOutput.ReadToEnd();
+                File.WriteAllText(path, output);
+                MessageBox.Show("Backup complete.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            p.WaitForExit();
         }
     }
 }

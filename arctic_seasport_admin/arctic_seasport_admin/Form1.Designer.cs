@@ -97,7 +97,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1350, 96);
+            this.button3.Location = new System.Drawing.Point(1359, 69);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 38);
             this.button3.TabIndex = 7;
@@ -110,7 +110,7 @@
             this.manageBookingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manageBookingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBookingsButton.Image = ((System.Drawing.Image)(resources.GetObject("manageBookingsButton.Image")));
-            this.manageBookingsButton.Location = new System.Drawing.Point(339, 12);
+            this.manageBookingsButton.Location = new System.Drawing.Point(338, 12);
             this.manageBookingsButton.Name = "manageBookingsButton";
             this.manageBookingsButton.Size = new System.Drawing.Size(104, 68);
             this.manageBookingsButton.TabIndex = 8;
@@ -125,7 +125,7 @@
             this.checkinnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkinnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkinnButton.Image = ((System.Drawing.Image)(resources.GetObject("checkinnButton.Image")));
-            this.checkinnButton.Location = new System.Drawing.Point(681, 12);
+            this.checkinnButton.Location = new System.Drawing.Point(682, 12);
             this.checkinnButton.Name = "checkinnButton";
             this.checkinnButton.Size = new System.Drawing.Size(94, 68);
             this.checkinnButton.TabIndex = 9;
@@ -225,7 +225,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(810, 119);
+            this.label2.Location = new System.Drawing.Point(819, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 24);
             this.label2.TabIndex = 31;
@@ -300,11 +300,11 @@
             this.editRoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editRoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRoBtn.Image = ((System.Drawing.Image)(resources.GetObject("editRoBtn.Image")));
-            this.editRoBtn.Location = new System.Drawing.Point(874, 12);
+            this.editRoBtn.Location = new System.Drawing.Point(873, 12);
             this.editRoBtn.Name = "editRoBtn";
             this.editRoBtn.Size = new System.Drawing.Size(112, 68);
             this.editRoBtn.TabIndex = 36;
-            this.editRoBtn.Text = "Edit Objects";
+            this.editRoBtn.Text = "Edit objects";
             this.editRoBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.editRoBtn.UseVisualStyleBackColor = false;
             this.editRoBtn.Click += new System.EventHandler(this.editRoBtn_Click);
@@ -360,11 +360,11 @@
             this.hotelStatisticsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hotelStatisticsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hotelStatisticsButton.Image = ((System.Drawing.Image)(resources.GetObject("hotelStatisticsButton.Image")));
-            this.hotelStatisticsButton.Location = new System.Drawing.Point(445, 12);
+            this.hotelStatisticsButton.Location = new System.Drawing.Point(443, 12);
             this.hotelStatisticsButton.Name = "hotelStatisticsButton";
             this.hotelStatisticsButton.Size = new System.Drawing.Size(113, 68);
             this.hotelStatisticsButton.TabIndex = 40;
-            this.hotelStatisticsButton.Text = "Hotel Statistics";
+            this.hotelStatisticsButton.Text = "Camp statistics";
             this.hotelStatisticsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.hotelStatisticsButton.UseVisualStyleBackColor = false;
             this.hotelStatisticsButton.Click += new System.EventHandler(this.hotelStatisticsButton_Click);
@@ -418,11 +418,11 @@
             this.mapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mapButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mapButton.Image = ((System.Drawing.Image)(resources.GetObject("mapButton.Image")));
-            this.mapButton.Location = new System.Drawing.Point(564, 12);
+            this.mapButton.Location = new System.Drawing.Point(558, 12);
             this.mapButton.Name = "mapButton";
-            this.mapButton.Size = new System.Drawing.Size(89, 68);
+            this.mapButton.Size = new System.Drawing.Size(91, 68);
             this.mapButton.TabIndex = 44;
-            this.mapButton.Text = "Map";
+            this.mapButton.Text = "Area map";
             this.mapButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.mapButton.UseVisualStyleBackColor = false;
             this.mapButton.Click += new System.EventHandler(this.mapButton_Click);
@@ -454,6 +454,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";

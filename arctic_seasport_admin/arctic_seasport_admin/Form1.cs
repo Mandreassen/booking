@@ -19,7 +19,7 @@ namespace arctic_seasport_admin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            button3.Visible = false;
+            button3.Visible = false; // Settings button
 
             var pos = this.PointToScreen(alertCount.Location);
             pos = alertButton.PointToClient(pos);
@@ -96,7 +96,7 @@ namespace arctic_seasport_admin
         private void fill_ArrivalsTable(Database_adapter adapter)
         {
             var data = adapter.get_DataSet(string.Format(@"
-                select blid, description AS 'Object', name AS 'Customer', country AS 'Country' , DATE_FORMAT(arrivalTime, '%k:%i') AS 'Transfer', count(beid) AS 'Days'
+                select blid, description AS 'Object', name AS 'Customer', country AS 'Country' , CONCAT(DATE_FORMAT(arrivalTime, '%k:%i'), ' (', personsTransfer, ' pers.)') AS 'Transfer', count(beid) AS 'Days'
                 from customers
                 natural join bookings            
                 natural join booking_lines
@@ -118,7 +118,7 @@ namespace arctic_seasport_admin
         private void fill_DepartureTable(Database_adapter adapter)
         {
             var data = adapter.get_DataSet(string.Format(@"
-                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'Customer', DATE_FORMAT(departureTime, '%k:%i') AS 'Transfer'
+                select rent_objects.name AS 'Object', description AS 'Type', customers.Name as 'Customer', CONCAT(DATE_FORMAT(departureTime, '%k:%i'), ' (', personsTransfer, ' pers.)') AS 'Transfer'
                 from rent_object_types
                 natural join rent_objects
                 join (booking_lines 
@@ -166,7 +166,7 @@ namespace arctic_seasport_admin
         /* Settings */
         private void button3_Click(object sender, EventArgs e)
         {
-            appsettings form = new appsettings();
+            Settings form = new Settings();
             form.ShowDialog();
         }
 
@@ -318,7 +318,8 @@ namespace arctic_seasport_admin
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            Settings form = new Settings();
+            form.ShowDialog();
         }
 
         private void mapButton_Click(object sender, EventArgs e)

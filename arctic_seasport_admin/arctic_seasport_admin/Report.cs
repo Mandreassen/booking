@@ -360,22 +360,22 @@ namespace arctic_seasport_admin
                     <br>
                     <br>
 
-                    <font size='4'> Date: {0} </font>
+                    <font size='4'> {0} </font>
 
                     <table id='t01'>
                       <tr>
                         <th>BID</th>
                         <th>Description</th>
                         <th>Name</th>
-                        <th>Phone</th>
+                        <th>Ppl.</th>
                         <th>Country</th> 
                         <th>Notes</th> 
                         <th>Transfer</th>                     
                       </tr>
-                ", date.AddDays(i).ToString("dd.MM.yyy"));
+                ", first_To_Upper(date.AddDays(i).ToString("dddd dd.MM.yyy")));
 
                 var lines = adapter.get_DataSet(string.Format(@"
-                    select startDate, bookings.bid, description, name, phone, country, notes, DATE_FORMAT(arrivalTime, '%k:%i')
+                    select startDate, bookings.bid, description, name, persons, country, notes, DATE_FORMAT(arrivalTime, '%k:%i')
                     from customers
                     natural join bookings
                     natural join booking_lines
@@ -410,6 +410,12 @@ namespace arctic_seasport_admin
             Cursor.Current = Cursors.Default;
 
             return report;
+        }
+
+        
+        static string first_To_Upper(string s)
+        {
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
 
 
@@ -467,7 +473,7 @@ namespace arctic_seasport_admin
                     <br>
                     <br>
 
-                    <font size='4'> Date: {0} </font>
+                    <font size='4'> {0} </font>
 
                     <table id='t01'>
                       <tr>
@@ -475,15 +481,15 @@ namespace arctic_seasport_admin
                         <th>Object</th>
                         <th>Description</th>
                         <th>Name</th>
-                        <th>Phone</th>
+                        <th>Ppl.</th>
                         <th>Country</th> 
                         <th>Notes</th>  
                         <th>Transfer</th>                     
                       </tr>
-                ", date.AddDays(i).ToString("dd.MM.yyy"));
+                ", first_To_Upper(date.AddDays(i).ToString("dddd dd.MM.yyy")));
 
                 var lines = adapter.get_DataSet(string.Format(@"
-                    select blid, endDate, bookings.bid, description, name, phone, country, notes, DATE_FORMAT(departureTime, '%k:%i')
+                    select blid, endDate, bookings.bid, description, name, persons, country, notes, DATE_FORMAT(departureTime, '%k:%i')
                     from customers
                     natural join bookings
                     natural join booking_lines

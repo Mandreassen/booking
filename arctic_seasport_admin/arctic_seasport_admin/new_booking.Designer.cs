@@ -117,7 +117,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 95);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 104);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(1000, 415);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(950, 100);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -134,7 +137,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(949, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(1000, 400);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -142,7 +145,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(975, 95);
+            this.button2.Location = new System.Drawing.Point(1034, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 38);
             this.button2.TabIndex = 14;
@@ -177,13 +180,13 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView2.Location = new System.Drawing.Point(975, 139);
+            this.dataGridView2.Location = new System.Drawing.Point(1034, 149);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(328, 388);
+            this.dataGridView2.Size = new System.Drawing.Size(312, 371);
             this.dataGridView2.TabIndex = 16;
             // 
             // button3
@@ -214,7 +217,7 @@
             // 
             this.removeButton.BackColor = System.Drawing.SystemColors.Window;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.Location = new System.Drawing.Point(1089, 95);
+            this.removeButton.Location = new System.Drawing.Point(1148, 105);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(108, 38);
             this.removeButton.TabIndex = 20;
@@ -233,17 +236,18 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 517);
+            this.progressBar1.Location = new System.Drawing.Point(13, 510);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(949, 10);
+            this.progressBar1.Size = new System.Drawing.Size(999, 12);
             this.progressBar1.TabIndex = 22;
             // 
             // new_booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1315, 541);
+            this.ClientSize = new System.Drawing.Size(1358, 532);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.removeButton);
@@ -256,6 +260,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "new_booking";

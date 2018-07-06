@@ -84,3 +84,4 @@ C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.ObjectDeleter.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Number_of_days_selector.resources
 C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.map.resources
+C:\Booking\booking\arctic_seasport_admin\arctic_seasport_admin\obj\Debug\arctic_seasport_admin.Settings.resources
