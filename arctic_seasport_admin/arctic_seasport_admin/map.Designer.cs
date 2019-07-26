@@ -183,9 +183,9 @@
             this.Bella.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bella.Location = new System.Drawing.Point(690, 650);
             this.Bella.Name = "Bella";
-            this.Bella.Size = new System.Drawing.Size(70, 16);
+            this.Bella.Size = new System.Drawing.Size(38, 16);
             this.Bella.TabIndex = 8;
-            this.Bella.Text = "Båt innleid";
+            this.Bella.Text = "Båt 8";
             this.Bella.MouseEnter += new System.EventHandler(this.Bella_MouseEnter);
             this.Bella.MouseLeave += new System.EventHandler(this.Bella_MouseLeave);
             // 
