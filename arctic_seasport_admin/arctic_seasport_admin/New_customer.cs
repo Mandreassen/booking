@@ -190,7 +190,7 @@ namespace arctic_seasport_admin
         private bool update_Customer()
         {
             // Update customer
-            var query = string.Format("update customers set name = \'{0}\', email = \'{1}\', phone = \'{2}\', postnr = \'{3}\', postlocation = \'{4}\', country = \'{5}\' where cid = {6};", nameBox.Text, emailBox.Text, phoneBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text, cid);
+            var query = string.Format("update customers set name = \'{0}\', email = \'{1}\', phone = \'{2}\', address = \'{3}\', postnr = \'{4}\', postlocation = \'{5}\', country = \'{6}\' where cid = {7};", nameBox.Text, emailBox.Text, phoneBox.Text, addressBox.Text, postNrBox.Text, postLocation.Text, countryBox.Text, cid);
             bool success = Database.set(query);
             if (!success)
                 return false;

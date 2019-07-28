@@ -12,7 +12,7 @@ namespace arctic_seasport_admin
 {
     public partial class ReportViewer : Form
     {
-        public ReportViewer(string body, int width = 750)
+        public ReportViewer(string body, int width = 700)
         {
             
             InitializeComponent();

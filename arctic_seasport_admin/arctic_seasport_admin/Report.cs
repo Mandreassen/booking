@@ -135,43 +135,92 @@ namespace arctic_seasport_admin
                 ";
             }
 
-            
+  
             report += string.Format(@"
                 <br>
-                <font size=""6""> Booking confirmation </font>    
-
-                <br>
-                <br
-                <br>           
-
-                <font size=""4"">
-                    Date: {0} <br>
-                    Booking reference: {1} <br>
-                    Booker: {9} <br>
-                    Persons: {2} <br>
-                    <br>
-                    {3} 
-                    {4} 
-                    {5}
-                    {6}
-                    {7}
-                    {8}
-                </font>            
-
-                <br>
-            
-                <font size=""5"">
-                    Details
+                <font size=""6"" face=""calibri""> 
+                    <b>Booking confirmation</b> 
                 </font>
-               
-                ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), 
-                                  bid.ToString(), persons, (name != "") ? name + "<br>" : "", 
-                                  (email != "") ? email + "<br>" : "", 
-                                  (tlf != "") ? tlf + "<br>" : "", 
-                                  (address != "") ? address + "<br>" : "",
-                                  (postnr != "" && pLocation != "") ? postnr + " " + pLocation + "<br>" : "",  
-                                  (country != "") ? country + "<br>" : "", booker);
-            
+
+                <br>
+
+                    <font size=""3.5"" face=""calibri"">
+                    <table cellspacing=""0"">
+                        <tr>
+                            <td> Booking date: </td>  <td> &nbsp; {0} </td> <td> &nbsp; Booking reference: </td> <td> &nbsp; {1} </td>
+                        </tr>
+
+                        <tr>
+                            <td> Booker: </td> <td> &nbsp; {2} </td> <td> &nbsp; Number of guests: </td> <td> &nbsp; {3} </td>
+                        </tr>
+                        <tr>
+                            <td> &nbsp; </td> <td> &nbsp; </td>
+                        </tr>
+
+                        ", DateTime.Parse(bDate).ToString("dd.MM.yyy"), bid.ToString(), booker, persons);
+
+            if (name != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> Booking name: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", name);
+            }
+
+            if (email != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> E-mail: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", email);
+            }
+
+            if (tlf != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> Phone: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", tlf);
+            }
+
+            if (address != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> Address: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", address);
+            }
+
+            if (postnr != "" && pLocation != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> Zip: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", postnr + " " + pLocation);
+            }
+
+            if (country != "")
+            {
+                report += string.Format(@"
+                    <tr>
+                        <td> Country: </td>  <td> &nbsp; {0} </td>
+                    </tr>        
+                ", country);
+            }
+
+            report += @"
+                </table>
+                </font>
+                <br>                    
+                <font size=""4"" face=""calibri"">
+                        <b>Details</b>
+                    </font>"
+                ;
 
             // Booking lines
             report += @"
@@ -189,12 +238,12 @@ namespace arctic_seasport_admin
                     }
 
                     table th {
-                        border-bottom: 1px solid black;
+                        border-bottom: 1px solid #444092;
                     }
 
                     </style>
 
-
+                    <font face=""calibri"">
                     <table>
                       <tr>
                         <th>Object</th>
@@ -210,14 +259,14 @@ namespace arctic_seasport_admin
                 report += string.Format("<tr> <td> {0} </td> <td> {1} </td> <td> {2} </td> <td> {3} </td> </tr>", row[0], ((DateTime) row[1]).ToString("dd.MM.yyyy"), ((DateTime)row[2]).ToString("dd.MM.yyyy"), row[3]);              
             }
 
-            report += "</table>";
+            report += "</table> </font>";
 
             // Price
             if (display_price)
             {
                 report += string.Format(@"
                     <br>
-                    <font size=""4"">                  
+                    <font size=""3"" face=""calibri"">                  
                         <div align=""left""> SUM: NOK {0},- </div>
                     </font>  
                 ", price);
@@ -231,10 +280,11 @@ namespace arctic_seasport_admin
                     <br>
                     <br>
 
-                    <font size=""5"">
-                        Transfer
+                    <font size=""4"" face=""calibri"">
+                        <b>Transfer</b>
                     </font>
 
+                    <font face=""calibri"">
                     <table id='t01'>
                         <tr>
                         <th>Arrival</th>
@@ -252,7 +302,7 @@ namespace arctic_seasport_admin
                                             ", (row[0].ToString() != "") ? DateTime.Parse(row[0].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[1], (row[2].ToString() != "") ? DateTime.Parse(row[2].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[3], row[4]);
                 }
 
-                report += "</table>";
+                report += "</table> </font>";
             }
 
 
@@ -263,13 +313,13 @@ namespace arctic_seasport_admin
                     <br>
                     <br>                      
 
-                    <font size=""5"">
-                        Notes
+                    <font size=""4"" face=""calibri"">
+                        <b>Notes</b>
                     </font>
 
-                    <hr>                      
+                    <hr color=""#444092"" size=""1px"">                     
 
-                    <font size=""4"">
+                    <font size=""3"" face=""calibri"">
                         {0}
                     </font>
                 ", note);
@@ -277,21 +327,45 @@ namespace arctic_seasport_admin
 
 
             // Footer
+            //<hr color=""#eff181"" size=""1px"">
+            //<hr color = ""#444092"" size=""1px"">
             report += @"            
                 <br>
                 <br>
-                <br>       
                 <br>
                 <br>
-                <br>                
 
-                <font size=""4"">
-                    Arctic Seasport AS <br>
-                    Naurstad <br>
-                    8050 Tverlandet<br>
-                    info@arctic-seasport.no <br>
-                    +47 916 05 007
-                </font>
+
+                
+                
+                <center>
+                    <font size=""3"" face=""calibri"" color=""#444092"">
+                        <b>Check inn: 14:00 - 23:00 <br>
+                        Check out: before 12:00 <br></b>
+                        <br>
+                    </font>
+                        
+                        <font size=""3"" face=""calibri"">
+                        Please contact us in advance if your arrival is later than 23:00.                    
+                        Bed sheets and towels can be rented at Arctic Seasport.
+                        For more information please visit <b>www.arctic-seasport.no</b>.
+
+                        
+        
+                        
+
+
+                        <hr color=""#444092"" size=""1px"">
+                        <br>
+                    
+
+                        Nord-Norsk sjøsportsenter AS, Naurstad 8050 Tverlandet, Norway <br>
+                        Phone: <b>+47 916 05 007</b> &nbsp; E-mail: <b>info@arctic-seasport.no</b>
+                        
+
+
+                    </font>
+                </center>
 
                 </body>
                 </html>";
@@ -332,7 +406,7 @@ namespace arctic_seasport_admin
                 <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/arrival.jpg"" alt=""arrival"" height=""60"" width=""81""> </div>
                 <br>
 
-                <font size=""6""> Arrivals </font>
+                <font size=""6"" face=""calibri""> <b>Arrivals</b> </font>
 
                     <style>
                     table {
@@ -360,8 +434,9 @@ namespace arctic_seasport_admin
                     <br>
                     <br>
 
-                    <font size='4'> {0} </font>
+                    <font size='4' face=""calibri""> <b>{0}</b> </font>
 
+                    <font size=""3"" face=""calibri"">
                     <table id='t01'>
                       <tr>
                         <th>BID</th>
@@ -398,7 +473,7 @@ namespace arctic_seasport_admin
                 }
 
                 report += nextDay;
-                report += "</table>";
+                report += "</table> </font>";
             }
 
             report += @"
@@ -445,7 +520,7 @@ namespace arctic_seasport_admin
                 <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/departure.jpg"" alt=""arrival"" height=""60"" width=""85""> </div>
                 <br>
 
-                <font size=""6""> Departures </font>
+                <font size=""6"" face=""calibri""> <b>Departures</b> </font>
 
                     <style>
                     table {
@@ -473,8 +548,9 @@ namespace arctic_seasport_admin
                     <br>
                     <br>
 
-                    <font size='4'> {0} </font>
+                    <font size='4' face=""calibri""> <b>{0}</b> </font>
 
+                    <font size='3' face=""calibri"">
                     <table id='t01'>
                       <tr>
                         <th>BID</th>
@@ -515,7 +591,7 @@ namespace arctic_seasport_admin
                 }
 
                 report += nextDay;
-                report += "</table>";
+                report += "</table> </font>";
             }
 
             report += @"
@@ -556,7 +632,7 @@ namespace arctic_seasport_admin
                 <div class=""arrival""> <img src=""http://www.arctic-seasport.no/img/transfer.jpg"" alt=""arrival"" height=""60"" width=""101""> </div>
                 <br>
 
-                <font size=""6""> Transfers </font>
+                <font size=""6"" face=""calibri""> <b>Transfers</b> </font>
 
                     <style>
                     table {
@@ -581,6 +657,7 @@ namespace arctic_seasport_admin
                 <br>
                 <br>
 
+                <font size=""3"" face=""calibri"">
                 <table id='t01'>
                     <tr>
                     <th>BID</th>
@@ -610,7 +687,7 @@ namespace arctic_seasport_admin
                                             ", row[0], row[1], (row[2].ToString() != "") ? DateTime.Parse(row[2].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[3], (row[4].ToString() != "") ? DateTime.Parse(row[4].ToString()).ToString("dd.MM.yyyy HH:mm") : "", row[5], row[6]);
             }
 
-            report += "</table>";            
+            report += "</table> </font>";            
 
             report += @"
                 </body>
@@ -646,7 +723,7 @@ namespace arctic_seasport_admin
             ";
 
             report += string.Format(@"
-                <font size=""4"">Bookings total: {0} </font>
+                <font size=""4"" face=""calibri""> <b>Bookings total: {0}</b> </font>
             ", total);
 
             report += @"
@@ -671,6 +748,8 @@ namespace arctic_seasport_admin
             ";
 
             report += string.Format(@"
+                
+                <font size=""3"" face=""calibri"">
                 <table id='t01'>
                     <tr>
                     <th>BID</th>
@@ -707,7 +786,7 @@ namespace arctic_seasport_admin
                                             ", row[0], row[1], row[2], DateTime.Parse(row[3].ToString()).ToString("dd.MM.yyyy"), DateTime.Parse(row[4].ToString()).ToString("dd.MM.yyyy"), row[5], row[6], (row[7].ToString() != "") ? DateTime.Parse(row[7].ToString()).ToString("HH:mm") : "-", (row[8].ToString() != "") ? DateTime.Parse(row[8].ToString()).ToString("HH:mm") : "-", row[9].ToString().Replace("\n", "<br>"));
             }
 
-            report += "</table>";
+            report += "</table> </font>";
 
             report += @"
                 </body>

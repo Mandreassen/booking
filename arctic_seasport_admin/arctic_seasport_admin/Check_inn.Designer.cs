@@ -28,31 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Check_inn));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Check_inn));
-            this.customerComboBox = new System.Windows.Forms.ComboBox();
             this.useTable = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.roComboBox = new System.Windows.Forms.ComboBox();
             this.checkInnButton = new System.Windows.Forms.Button();
             this.checkOutButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkInnTable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.useTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkInnTable)).BeginInit();
             this.SuspendLayout();
-            // 
-            // customerComboBox
-            // 
-            this.customerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerComboBox.FormattingEnabled = true;
-            this.customerComboBox.Location = new System.Drawing.Point(12, 116);
-            this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(270, 26);
-            this.customerComboBox.TabIndex = 0;
-            this.customerComboBox.SelectedIndexChanged += new System.EventHandler(this.customerComboBox_SelectedIndexChanged);
             // 
             // useTable
             // 
@@ -63,26 +54,26 @@
             this.useTable.BackgroundColor = System.Drawing.SystemColors.Window;
             this.useTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.useTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.useTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.useTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.useTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.useTable.ColumnHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.useTable.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.useTable.DefaultCellStyle = dataGridViewCellStyle6;
             this.useTable.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.useTable.Location = new System.Drawing.Point(444, 61);
+            this.useTable.Location = new System.Drawing.Point(469, 116);
             this.useTable.Name = "useTable";
             this.useTable.ReadOnly = true;
             this.useTable.RowHeadersVisible = false;
@@ -94,27 +85,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(440, 38);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(465, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 20);
+            this.label1.Size = new System.Drawing.Size(169, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "Check out customer";
-            // 
-            // roComboBox
-            // 
-            this.roComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roComboBox.FormattingEnabled = true;
-            this.roComboBox.Location = new System.Drawing.Point(12, 178);
-            this.roComboBox.Name = "roComboBox";
-            this.roComboBox.Size = new System.Drawing.Size(270, 26);
-            this.roComboBox.TabIndex = 29;
             // 
             // checkInnButton
             // 
             this.checkInnButton.BackColor = System.Drawing.SystemColors.Window;
             this.checkInnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkInnButton.Location = new System.Drawing.Point(309, 171);
+            this.checkInnButton.Location = new System.Drawing.Point(331, 173);
             this.checkInnButton.Name = "checkInnButton";
             this.checkInnButton.Size = new System.Drawing.Size(107, 35);
             this.checkInnButton.TabIndex = 30;
@@ -126,7 +108,7 @@
             // 
             this.checkOutButton.BackColor = System.Drawing.SystemColors.Window;
             this.checkOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOutButton.Location = new System.Drawing.Point(309, 115);
+            this.checkOutButton.Location = new System.Drawing.Point(331, 132);
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(107, 35);
             this.checkOutButton.TabIndex = 31;
@@ -134,25 +116,15 @@
             this.checkOutButton.UseVisualStyleBackColor = false;
             this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 155);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 20);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Select rent object";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 93);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 20);
+            this.label5.Size = new System.Drawing.Size(167, 20);
             this.label5.TabIndex = 36;
-            this.label5.Text = "Check in booking";
+            this.label5.Text = "Check inn customer";
             // 
             // pictureBox1
             // 
@@ -163,22 +135,57 @@
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
             // 
+            // checkInnTable
+            // 
+            this.checkInnTable.AllowUserToAddRows = false;
+            this.checkInnTable.AllowUserToDeleteRows = false;
+            this.checkInnTable.AllowUserToResizeColumns = false;
+            this.checkInnTable.AllowUserToResizeRows = false;
+            this.checkInnTable.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.checkInnTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkInnTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.checkInnTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.checkInnTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.checkInnTable.ColumnHeadersVisible = false;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.checkInnTable.DefaultCellStyle = dataGridViewCellStyle8;
+            this.checkInnTable.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.checkInnTable.Location = new System.Drawing.Point(12, 116);
+            this.checkInnTable.Name = "checkInnTable";
+            this.checkInnTable.ReadOnly = true;
+            this.checkInnTable.RowHeadersVisible = false;
+            this.checkInnTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.checkInnTable.Size = new System.Drawing.Size(291, 218);
+            this.checkInnTable.TabIndex = 37;
+            this.checkInnTable.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.checkInnTable_CellContentDoubleClick);
+            // 
             // Check_inn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(657, 240);
+            this.ClientSize = new System.Drawing.Size(647, 346);
+            this.Controls.Add(this.checkInnTable);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.checkOutButton);
             this.Controls.Add(this.checkInnButton);
-            this.Controls.Add(this.roComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.useTable);
-            this.Controls.Add(this.customerComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -188,21 +195,19 @@
             this.Load += new System.EventHandler(this.Check_inn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.useTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkInnTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox customerComboBox;
         private System.Windows.Forms.DataGridView useTable;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox roComboBox;
         private System.Windows.Forms.Button checkInnButton;
         private System.Windows.Forms.Button checkOutButton;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView checkInnTable;
     }
 }

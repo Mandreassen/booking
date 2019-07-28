@@ -12,8 +12,6 @@ namespace arctic_seasport_admin
 {
     public partial class Check_inn : Form
     {
-        bool allow_select = false;
-
         public Check_inn()
         {
             InitializeComponent();
@@ -22,26 +20,22 @@ namespace arctic_seasport_admin
         private void Check_inn_Load(object sender, EventArgs e)
         {
             refreash_Content();
-            allow_select = true;
         }
 
         private void refreash_Content()
         {
-            allow_select = false;
             fill_Table();
-            fill_CustomerBox();
-            fill_roBox();
-            allow_select = true;
+            fill_CheckInnTable();       
         }
 
 
-        /* Fill box with customers arriving at
+        /* Fill table with customers arriving at
         * current date having "unchecked" orders. */
-        private void fill_CustomerBox()
+        private void fill_CheckInnTable()
         {
-            var lines = Database.get_Dict(string.Format(@"
-                select blid, concat(Name, ' - ', Description) AS 'Show'
-                from rent_object_types 
+            var data = Database.get_DataSet(string.Format(@"
+                select blid, bid, Name, Description 
+                from rent_object_types
                 natural join booking_entries
                 natural join booking_lines
                 natural join bookings
@@ -50,50 +44,16 @@ namespace arctic_seasport_admin
                 and blid not in
                     (select currentUser from rent_objects)
                 group by blid;
-                ", DateTime.Now.ToString("yyyy-MM-dd")));
+            ", DateTime.Now.ToString("yyyy-MM-dd")));
 
-            if (lines.Count == 0)
-            {
-                customerComboBox.DataSource = null;
-                customerComboBox.Items.Clear();
-            }
-            else
-            {
-                customerComboBox.DataSource = new BindingSource(lines, null);
-                customerComboBox.DisplayMember = "Value";
-                customerComboBox.ValueMember = "Key";
-            }
+            checkInnTable.DataSource = data.Tables[0];
+            checkInnTable.Columns[0].Visible = false;
+            checkInnTable.AutoResizeColumns();
+            checkInnTable.ClearSelection();
         }
 
 
-        private void fill_roBox()
-        {
-            if (customerComboBox.DataSource == null)
-            {
-                roComboBox.DataSource = null;
-                roComboBox.Items.Clear();
-                return; // Error
-            }                
-
-            var objects = Database.get_DataSet(string.Format(@"
-                select name
-                from rent_objects
-                natural join rent_object_types
-                natural join booking_entries
-                where blid = {0}
-                and status = 'Ready'
-                and currentUser = 0
-                group by name;
-                ", customerComboBox.SelectedValue));
-
-            roComboBox.DataSource = objects.Tables[0];
-
-            roComboBox.DisplayMember = "Name";
-            roComboBox.ValueMember = "Name";
-        }
-
-
-        /* Fill teble with "checked in" objects */
+        /* Fill table with "checked in" objects */
         private void fill_Table()
         {
             var checkedIn = Database.get_DataSet(string.Format(@"
@@ -116,38 +76,21 @@ namespace arctic_seasport_admin
         }
 
 
-        private void customerComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (allow_select) 
-            {
-                fill_roBox();
-            }
-        }
-
-
         /* Check in selected object */
         private void checkInnButton_Click(object sender, EventArgs e)
         {
-            if (customerComboBox.DataSource == null)
-            {
-                MessageBox.Show("No more bookings to check in.");
-                return;
-            }
-
-            var query = string.Format("update rent_objects set currentUser = {0} where Name = '{1}';", customerComboBox.SelectedValue, roComboBox.SelectedValue);
-            Database.set(query);
-            refreash_Content();
+            check_Inn();
         }
 
 
         /* Get selected rent object from table */
-        private string get_SelectedItem(string item)
+        private string get_SelectedItem(DataGridView table, string item)
         {
-            if (useTable.SelectedCells.Count > 0)
+            if (table.SelectedCells.Count > 0)
             {
-                int selectedrowindex = useTable.SelectedCells[0].RowIndex;
+                int selectedrowindex = table.SelectedCells[0].RowIndex;
 
-                DataGridViewRow selectedRow = useTable.Rows[selectedrowindex];
+                DataGridViewRow selectedRow = table.Rows[selectedrowindex];
 
                 return selectedRow.Cells[item].Value.ToString();
             }
@@ -185,14 +128,14 @@ namespace arctic_seasport_admin
         private void check_Out()
         {
             DialogResult dialogResult = DialogResult.No;
-            var rent_object = get_SelectedItem("Object");
+            var rent_object = get_SelectedItem(useTable, "Object");
             if (rent_object == null)
             {
                 MessageBox.Show("No object selected.");
                 return;
             }
 
-            var cid = get_SelectedItem("CID");
+            var cid = get_SelectedItem(useTable, "CID");
             int num = 0;
             foreach (DataGridViewRow row in useTable.Rows)
             {
@@ -203,7 +146,7 @@ namespace arctic_seasport_admin
             // Check whether customer holds more objects
             if (num > 1)
             {
-                var name = get_SelectedItem("User");
+                var name = get_SelectedItem(useTable, "User");
                 dialogResult = MessageBox.Show(string.Format("Do you want to check out all objects for {0}?", name), name, MessageBoxButtons.YesNo);
             }
 
@@ -229,6 +172,22 @@ namespace arctic_seasport_admin
 
             refreash_Content();
         }
+
+        private void check_Inn()
+        {
+            string blid = get_SelectedItem(checkInnTable, "blid");
+            if (blid == null)
+            {
+                MessageBox.Show("No item selected");
+                return;
+            }
+
+            var form = new Fast_check_in(blid);
+
+            form.ShowDialog();
+
+            refreash_Content();
+        }
         
 
         private void checkOutButton_Click(object sender, EventArgs e)
@@ -239,6 +198,11 @@ namespace arctic_seasport_admin
         private void useTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             check_Out();
+        }
+
+        private void checkInnTable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            check_Inn();
         }
     }
 }
