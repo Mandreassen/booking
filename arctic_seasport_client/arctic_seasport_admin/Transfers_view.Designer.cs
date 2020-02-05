@@ -70,7 +70,7 @@
             this.dataView.ReadOnly = true;
             this.dataView.RowHeadersVisible = false;
             this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataView.Size = new System.Drawing.Size(652, 572);
+            this.dataView.Size = new System.Drawing.Size(744, 572);
             this.dataView.TabIndex = 17;
             this.dataView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellEnter);
             // 
@@ -88,7 +88,7 @@
             // 
             this.newButton.BackColor = System.Drawing.SystemColors.Window;
             this.newButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newButton.Location = new System.Drawing.Point(575, 9);
+            this.newButton.Location = new System.Drawing.Point(667, 9);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(94, 35);
             this.newButton.TabIndex = 19;
@@ -100,7 +100,7 @@
             // 
             this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Location = new System.Drawing.Point(475, 9);
+            this.deleteButton.Location = new System.Drawing.Point(567, 9);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(94, 35);
             this.deleteButton.TabIndex = 20;
@@ -113,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(683, 634);
+            this.ClientSize = new System.Drawing.Size(775, 634);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.newButton);
             this.Controls.Add(this.label1);

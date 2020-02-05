@@ -37,7 +37,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen.mysql.domeneshop.no")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctic-seasport.no")]
         public string Server {
             get {
                 return ((string)(this["Server"]));
@@ -61,7 +61,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctics_booking")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
@@ -70,7 +70,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctics_booker")]
         public string UserID {
             get {
                 return ((string)(this["UserID"]));
@@ -82,7 +82,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DfrYqtucrd2ANny")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cr95782Njl3")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
@@ -104,7 +104,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Angelreisen_K-N")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Kingfisher")]
         public string company {
             get {
                 return ((string)(this["company"]));
@@ -128,7 +128,8 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.d" +
+            "e/global_gfx/logo-kingfisher.png")]
         public string logo_src {
             get {
                 return ((string)(this["logo_src"]));
@@ -184,6 +185,19 @@ namespace arctic_seasport_admin.Properties {
             }
             set {
                 this["angel_kn_logo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=arctic-seasport.no;port=3306;user id=arctics_booker;database=arctics_booki" +
+            "ng;password=Cr95782Njl3;")]
+        public string constring {
+            get {
+                return ((string)(this["constring"]));
+            }
+            set {
+                this["constring"] = value;
             }
         }
     }

@@ -224,7 +224,7 @@ namespace arctic_seasport_admin
                 SmtpServer.Port = 587;
                 SmtpServer.UseDefaultCredentials = false;
                 
-                SmtpServer.Credentials = new System.Net.NetworkCredential("arctic-seasport@hotmail.no", "");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("arctic-seasport@hotmail.no", "eple1960");
                 
                 SmtpServer.EnableSsl = true;
 

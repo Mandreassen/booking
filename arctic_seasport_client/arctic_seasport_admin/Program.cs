@@ -21,8 +21,10 @@ namespace arctic_seasport_admin
     }
 
     public static class Config
-    {        
-        public static string connString = "Server="+ Properties.Settings.Default.Server +";Port=" + Properties.Settings.Default.Port + ";Database="+ Properties.Settings.Default.Database + ";Uid="+ Properties.Settings.Default.UserID + ";password="+ Properties.Settings.Default.Password + ";";
+    {
+        //public static string connString = "Server=" + Properties.Settings.Default.Server + ";Port=" + Properties.Settings.Default.Port + ";Database=" + Properties.Settings.Default.Database + ";Uid=" + Properties.Settings.Default.UserID + ";password=" + Properties.Settings.Default.Password + ";SslMode=None;";
+        //public static string connString = "Server="+ Properties.Settings.Default.Server +";Port=" + Properties.Settings.Default.Port + ";Database="+ Properties.Settings.Default.Database + ";Uid="+ Properties.Settings.Default.UserID + ";password="+ Properties.Settings.Default.Password + ";";
+        public static string connString = Properties.Settings.Default.constring;
     }     
 
 }

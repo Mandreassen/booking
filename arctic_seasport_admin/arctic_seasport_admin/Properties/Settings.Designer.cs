@@ -37,7 +37,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen.mysql.domeneshop.no")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctic-seasport.no")]
         public string Server {
             get {
                 return ((string)(this["Server"]));
@@ -61,7 +61,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctics_booking")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
@@ -70,7 +70,7 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mandreassen")]
+        [global::System.Configuration.DefaultSettingValueAttribute("arctics_booker")]
         public string UserID {
             get {
                 return ((string)(this["UserID"]));
@@ -82,23 +82,13 @@ namespace arctic_seasport_admin.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DfrYqtucrd2ANny")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cr95782Njl3")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
             }
             set {
                 this["Password"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=admin1;database=arctic_seasport_db")]
-        public string arctic_seasport_dbConnectionString {
-            get {
-                return ((string)(this["arctic_seasport_dbConnectionString"]));
             }
         }
         
@@ -132,6 +122,16 @@ namespace arctic_seasport_admin.Properties {
             }
             set {
                 this["LastBackup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=admin1;database=arctic_seasport_db;SslMode=None")]
+        public string arctic_seasport_dbConnectionString {
+            get {
+                return ((string)(this["arctic_seasport_dbConnectionString"]));
             }
         }
     }

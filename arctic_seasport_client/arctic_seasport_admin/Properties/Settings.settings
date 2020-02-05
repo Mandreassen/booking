@@ -6,19 +6,19 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mandreassen.mysql.domeneshop.no</Value>
+      <Value Profile="(Default)">arctic-seasport.no</Value>
     </Setting>
     <Setting Name="Port" Type="System.String" Scope="User">
       <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">mandreassen</Value>
+      <Value Profile="(Default)">arctics_booking</Value>
     </Setting>
     <Setting Name="UserID" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mandreassen</Value>
+      <Value Profile="(Default)">arctics_booker</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DfrYqtucrd2ANny</Value>
+      <Value Profile="(Default)">Cr95782Njl3</Value>
     </Setting>
     <Setting Name="arctic_seasport_dbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -29,13 +29,13 @@
       <Value Profile="(Default)">server=localhost;user id=admin1;database=arctic_seasport_db</Value>
     </Setting>
     <Setting Name="company" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Angelreisen_K-N</Value>
+      <Value Profile="(Default)">Kingfisher</Value>
     </Setting>
     <Setting Name="country" Type="System.String" Scope="User">
       <Value Profile="(Default)">Tyskland</Value>
     </Setting>
     <Setting Name="logo_src" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png</Value>
     </Setting>
     <Setting Name="kingfisher_logo" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.kingfisher-angelreisen.de/fileadmin/templates_kingfisher-angelreisen.de/global_gfx/logo-kingfisher.png</Value>
@@ -48,6 +48,9 @@
     </Setting>
     <Setting Name="angel_kn_logo" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.arctic-seasport.no/img/angelreisen_k-n.jpg</Value>
+    </Setting>
+    <Setting Name="constring" Type="System.String" Scope="User">
+      <Value Profile="(Default)">server=arctic-seasport.no;port=3306;user id=arctics_booker;database=arctics_booking;password=Cr95782Njl3;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

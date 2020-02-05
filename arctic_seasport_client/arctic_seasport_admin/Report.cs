@@ -63,11 +63,13 @@ namespace arctic_seasport_admin
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
             ";
 
-            report += "<br><br><br><br>";
 
-            /*report += string.Format(@"
+
+            report += string.Format(@"
                 <div class=""kingfisher""> <img src=""{0}"" alt=""kingfisher"" height=""73""> </div>
-            ", Properties.Settings.Default.logo_src);*/
+            ", Properties.Settings.Default.logo_src);
+
+            //report += "<br><br><br><br>";
 
             report += @"
                 <br>
@@ -355,11 +357,11 @@ namespace arctic_seasport_admin
                 <div class=""logo""> <img src=""http://www.arctic-seasport.no/img/logo_300.jpg"" alt=""Logo""> </div>
             ";
 
-            report += "<br><br><br><br><br>";
+            //report += "<br><br><br><br><br>";
 
-           /* report += string.Format(@"
+            report += string.Format(@"
                 <div class=""kingfisher""> <img src=""{0}"" alt=""kingfisher"" height=""73""> </div>
-            ", Properties.Settings.Default.logo_src);     */          
+            ", Properties.Settings.Default.logo_src);               
  
              report += @"
                 <style>
